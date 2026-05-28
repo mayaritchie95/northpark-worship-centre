@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NorthPark Worship Centre – Port Colborne, ON</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --ink:#1b3252;--navy:#1e4070;--navy-mid:#26528a;
+  --gold:#c9873a;--gold-lt:#e09e52;--gold-pale:#f0d4a8;
+  --cream:#fdf5eb;--parchment:#fff8f1;--white:#ffffff;
+  --muted:#354759;--text:#1a2530;--border:#e4d9cc;
+  --font-d:'Playfair Display',Georgia,serif;
+  --font-b:'Lato',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-b);color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6;}
+
+/* ─── TOP BAR ─── */
+.topbar{background:var(--gold);text-align:center;padding:8px 16px;font-size:16.5px;font-weight:700;letter-spacing:0;text-transform:none;color:var(--ink);}
+.topbar span{font-weight:900;}
+
+/* ─── NAV ─── */
+nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:62px;}
+.nav-logo{font-family:var(--font-d);font-size:26px;font-weight:700;color:var(--navy);text-decoration:none;letter-spacing:0;}
+.nav-logo em{font-style:italic;color:var(--gold);}
+.nav-links{display:flex;list-style:none;}
+.nav-links>li{position:relative;display:flex;align-items:center;}
+.nav-links>li>a{display:block;padding:20px 16px;font-size:15px;font-weight:700;letter-spacing:0.3px;text-transform:none;color:#333;text-decoration:none;transition:color .2s;}
+.nav-links>li>a:hover{color:var(--gold);}
+.dropdown{display:none;position:absolute;top:100%;left:0;background:var(--white);min-width:210px;border-top:2px solid var(--gold);border:1px solid var(--border);border-top:2px solid var(--gold);box-shadow:0 8px 32px rgba(0,0,0,0.1);}
+.nav-links>li:hover .dropdown{display:block;}
+.dropdown a{display:block;padding:12px 18px;font-size:15px;font-weight:600;letter-spacing:0;text-transform:none;color:#444;text-decoration:none;border-bottom:1px solid var(--border);transition:color .2s,background .2s;}
+.dropdown a:hover{color:var(--gold);background:var(--parchment);}
+.nav-give{background:var(--gold)!important;color:var(--white)!important;padding:10px 22px!important;margin-left:8px;display:inline-flex!important;align-items:center!important;border-radius:4px;font-size:13px!important;font-weight:700!important;letter-spacing:0!important;line-height:1!important;transition:background .2s!important;}
+.nav-give:hover{background:var(--navy)!important;}
+.nav-watch-live{background:#c0392b!important;color:white!important;padding:10px 18px!important;border-radius:4px!important;font-size:13px!important;font-weight:700!important;letter-spacing:0!important;text-decoration:none!important;transition:background .2s!important;white-space:nowrap;}
+.nav-watch-live:hover{background:#a93226!important;color:white!important;}
+.nav-watch-live::after{display:none!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.hamburger span{display:block;width:22px;height:1.5px;background:#444;}
+
+/* ─── HERO SLIDER ─── */
+.slider{position:relative;width:100%;height:520px;overflow:hidden;background:var(--ink);}
+.slides{display:flex;height:100%;transition:transform .7s cubic-bezier(.4,0,.2,1);}
+.slide{min-width:100%;height:100%;position:relative;display:flex;align-items:flex-end;}
+.slide-bg{position:absolute;inset:0;background-size:cover;background-position:center;}
+.slide-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(11,22,35,.75) 0%,rgba(11,22,35,.2) 60%,transparent 100%);}
+.slide-content{position:relative;z-index:1;padding:48px 56px;max-width:720px;}
+.slide-eyebrow{font-size:15px;font-weight:700;letter-spacing:0.3px;color:var(--gold-pale);margin-bottom:8px;}
+.slide-content h2{font-family:var(--font-d);font-size:44px;font-weight:700;color:white;line-height:1.1;margin-bottom:14px;}
+.slide-content h2 em{font-style:italic;color:var(--gold-lt);}
+.slide-link{display:inline-block;font-size:16px;font-weight:700;letter-spacing:0;text-transform:none;color:white;text-decoration:none;background:var(--gold);padding:8px 22px;border-radius:4px;transition:background .2s;}
+.slide-link:hover{background:var(--gold-lt);}
+.slider-dots{position:absolute;bottom:16px;right:32px;display:flex;gap:8px;z-index:2;}
+.dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.3);cursor:pointer;transition:background .2s;}
+.dot.active{background:var(--gold);}
+.slider-arrows{position:absolute;top:50%;transform:translateY(-50%);width:100%;display:flex;justify-content:space-between;padding:0 16px;z-index:2;}
+.slider-arrow{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;transition:background .2s;}
+.slider-arrow:hover{background:var(--gold);}
+
+/* ─── SERVICE TIME BANNER ─── */
+.svc-banner{background:var(--white);text-align:center;padding:20px 16px;border-bottom:3px solid var(--gold);}
+.svc-banner h3{font-family:var(--font-d);font-size:24px;font-weight:700;color:var(--navy);letter-spacing:0;text-transform:none;}
+.svc-banner p{font-size:15px;font-weight:400;letter-spacing:0;text-transform:none;color:var(--muted);margin-top:4px;}
+
+/* ─── PHOTO TILE GRID ─── */
+.tile-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:20px;background:var(--parchment);}
+.tile{position:relative;overflow:hidden;text-decoration:none;aspect-ratio:5/3;border-radius:4px;}
+.tile-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s;filter:brightness(.52);}
+.tile:hover .tile-bg{transform:scale(1.06);filter:brightness(.38);}
+.tile-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:24px 20px;text-align:center;}
+.tile-label span{font-family:var(--font-d);font-size:22px;font-weight:700;color:white;text-shadow:0 2px 8px rgba(0,0,0,.75);letter-spacing:0;line-height:1.2;}
+.tile-label small{display:block;font-size:14px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--gold-pale);margin-top:5px;}
+
+/* ─── FEATURED SERMON ─── */
+.sermon-block{position:relative;overflow:hidden;min-height:280px;display:flex;align-items:stretch;}
+.sermon-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--navy) 0%,#0d1e3a 100%);}
+.sermon-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,22,35,.92) 0%,rgba(11,22,35,.5) 60%,transparent 100%);}
+.sermon-bg-cross{position:absolute;right:5%;top:50%;transform:translateY(-50%);font-size:320px;color:rgba(255,255,255,.03);font-family:Georgia,serif;line-height:1;pointer-events:none;}
+.sermon-inner{position:relative;z-index:1;max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr auto;align-items:center;gap:40px;padding:48px 48px;}
+.sermon-eyebrow{font-size:15px;font-weight:700;letter-spacing:0;text-transform:none;color:var(--gold-pale);margin-bottom:10px;}
+.sermon-inner h2{font-family:var(--font-d);font-size:36px;font-weight:700;color:white;margin-bottom:6px;line-height:1.1;}
+.sermon-inner h2 em{font-style:italic;color:var(--gold-lt);}
+.sermon-series{font-size:15px;font-weight:400;color:rgba(255,255,255,.90);letter-spacing:0;margin-bottom:24px;}
+.sermon-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-watch{background:var(--gold);color:var(--ink);padding:12px 30px;font-size:15.5px;font-weight:700;letter-spacing:0;text-transform:none;text-decoration:none;border-radius:4px;transition:background .2s;}
+.btn-watch:hover{background:var(--gold-lt);}
+.btn-listen{border:1px solid rgba(255,255,255,.35);color:rgba(255,255,255,.8);padding:12px 30px;font-size:15.5px;font-weight:700;letter-spacing:0;text-transform:none;text-decoration:none;border-radius:4px;transition:border-color .2s,color .2s;}
+.btn-listen:hover{border-color:var(--gold);color:var(--gold);}
+.sermon-meta{text-align:right;}
+.sermon-date{font-size:16px;font-weight:400;letter-spacing:0;text-transform:none;color:rgba(255,255,255,.80);}
+
+/* ─── EVENTS + SIDEBAR ─── */
+.home-lower{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr;gap:0;border-top:1px solid var(--border);}
+.events-col{padding:40px 48px;border-right:1px solid var(--border);}
+.events-col h3{font-family:var(--font-d);font-size:18px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--navy);margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;}
+.events-col h3 a{font-size:15px;font-weight:700;letter-spacing:0;text-transform:none;color:var(--gold);text-decoration:none;}
+.events-col h3 a:hover{color:var(--navy);}
+.event-item{display:flex;gap:16px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--border);cursor:pointer;}.event-item:hover .event-info h4{color:var(--gold);}
+.event-item:last-child{border-bottom:none;}
+.event-date{min-width:48px;text-align:center;background:var(--navy);color:white;padding:8px 6px;}
+.event-date .month{font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
+.event-date .day{font-family:var(--font-d);font-size:26px;font-weight:400;line-height:1;color:white;}
+.event-info h4{font-size:16.5px;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:3px;}
+.event-info p{font-size:16.5px;font-weight:400;color:var(--muted);}
+.contact-col{padding:40px 40px;background:var(--parchment);}
+.contact-col h3{font-family:var(--font-d);font-size:20px;font-weight:700;letter-spacing:0;text-transform:none;color:var(--navy);margin-bottom:24px;}
+.contact-item{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px;}
+.contact-icon{margin-top:2px;}/* styled by unified .card-icon rule */
+.contact-item h5{font-size:15px;font-weight:700;letter-spacing:0;text-transform:none;color:var(--muted);margin-bottom:3px;}
+.contact-item p,.contact-item a{font-size:16px;font-weight:400;color:var(--text);text-decoration:none;line-height:1.55;}
+.contact-item a:hover{color:var(--gold);}
+.give-box{background:var(--navy);padding:24px;margin-top:8px;}
+.give-box p{font-size:16px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.88);margin-bottom:12px;}
+.give-box h4{font-family:var(--font-d);font-size:22px;font-weight:700;color:white;margin-bottom:14px;}
+.give-box a{display:block;background:var(--gold);color:var(--ink);text-align:center;padding:13px;font-size:16px;font-weight:700;letter-spacing:0;text-transform:none;text-decoration:none;border-radius:4px;transition:background .2s;}
+.give-box a:hover{background:var(--gold-lt);}
+
+/* ─── PAGE HEADER ─── */
+.page-hdr{background:var(--navy);padding:56px 48px 44px;margin-top:0;position:relative;overflow:hidden;}
+.page-hdr::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.page-hdr-inner{max-width:1200px;margin:0 auto;}
+.page-hdr-inner .eyebrow{font-size:15px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--gold-pale);margin-bottom:8px;}
+.page-hdr-inner h1{font-family:var(--font-d);font-size:clamp(30px,5vw,54px);font-weight:700;color:white;line-height:1.15;}
+.page-hdr-inner h1 em{font-style:italic;color:var(--gold-lt);}
+
+/* ─── INTERIOR SECTIONS ─── */
+section{padding:60px 48px;}
+.sec{max-width:1200px;margin:0 auto;}
+.sec-label{font-size:15px;font-weight:700;letter-spacing:0;text-transform:none;color:var(--gold);margin-bottom:8px;}
+.sec-rule{width:36px;height:2px;background:var(--gold);margin-bottom:14px;}
+.sec-title{font-family:var(--font-d);font-size:clamp(28px,4vw,44px);font-weight:700;color:var(--navy);line-height:1.15;margin-bottom:16px;}
+.sec-title em{font-style:italic;color:var(--gold);}
+.sec-body{font-size:17px;font-weight:400;color:var(--text);line-height:1.85;max-width:600px;margin-bottom:32px;}
+
+/* ─── ABOUT GRID ─── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+.img-frame{position:relative;}
+.img-frame::before{content:'';position:absolute;top:14px;left:14px;right:-14px;bottom:-14px;border:1px solid rgba(184,150,90,.3);z-index:0;}
+.img-placeholder{position:relative;z-index:1;background:linear-gradient(145deg,var(--navy),#0d1e3a);aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;}
+.img-placeholder .cross{font-family:Georgia,serif;font-size:64px;color:var(--gold);opacity:.5;}
+.img-placeholder p{font-size:16px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.55);}
+.beliefs{list-style:none;margin-top:24px;}
+.beliefs li{padding:12px 0;border-bottom:1px solid rgba(184,150,90,.12);display:flex;gap:12px;font-size:16px;font-weight:400;color:var(--text);line-height:1.65;}
+.beliefs li::before{content:'◆';color:var(--gold);font-size:7px;flex-shrink:0;margin-top:6px;}
+
+/* ─── MINISTRY CARDS ─── */
+.min-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;background:transparent;}
+.min-card{background:var(--white);padding:28px 24px;border-radius:8px;border:1px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,.05);transition:box-shadow .2s,transform .2s;cursor:pointer;}
+.min-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.1);transform:translateY(-2px);background:var(--white);}
+.min-card-top{display:flex;align-items:center;gap:14px;margin-bottom:14px;border-bottom:2px solid var(--gold);padding-bottom:14px;}
+.min-icon{font-size:22px;}
+.min-card-top h3{font-family:var(--font-d);font-size:20px;font-weight:700;color:var(--navy);}
+.min-badge{font-size:15px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--gold);}
+.min-card p{font-size:16px;font-weight:400;color:var(--muted);line-height:1.7;}
+
+/* ─── SERVICES GRID ─── */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;background:transparent;margin-top:32px;}
+.svc-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);padding:28px 24px;border-radius:8px;transition:background .2s,border-color .2s;}.svc-card.clickable{cursor:pointer;}
+.svc-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.08);transform:translateY(-3px);}
+.svc-card .si{font-size:28px;margin-bottom:14px;display:block;}
+.svc-card h3{font-family:var(--font-d);font-size:21px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.svc-card p{font-size:16px;font-weight:400;color:rgba(255,255,255,.90);line-height:1.7;}
+.svc-time-tag{font-size:16px;font-weight:700;letter-spacing:0;text-transform:none;color:var(--gold-lt);margin-top:14px;display:block;}
+
+/* ─── WED ─── */
+.wed-cols{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:32px;}
+.wed-entry{display:flex;gap:18px;margin-bottom:28px;}.wed-entry.clickable{cursor:pointer;}.wed-entry.clickable:hover h4{color:var(--gold);}
+.wed-num{font-family:var(--font-d);font-size:36px;font-weight:300;color:var(--gold);opacity:.4;line-height:1;width:38px;flex-shrink:0;}
+.wed-entry h4{font-family:var(--font-d);font-size:20px;font-weight:400;color:var(--navy);margin-bottom:6px;}
+.wed-entry p{font-size:15.5px;font-weight:400;color:var(--muted);line-height:1.7;}
+.wed-cta{background:var(--navy);padding:36px;border-left:3px solid var(--gold);}
+.wed-cta .wc-label{font-size:16px;font-weight:700;letter-spacing:0;text-transform:none;color:var(--gold-pale);margin-bottom:8px;}
+.wed-cta h3{font-family:var(--font-d);font-size:30px;font-weight:700;color:white;margin-bottom:10px;}
+.wed-cta .wc-time{font-family:var(--font-d);font-style:italic;font-size:17px;color:var(--gold-pale);margin:12px 0 16px;}
+.wed-cta p{font-size:15.5px;font-weight:400;color:rgba(255,255,255,.92);line-height:1.75;margin-bottom:24px;}
+
+/* ─── MISSIONS ─── */
+.missions-cols{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:32px;}
+.mgroup h3{font-family:var(--font-d);font-size:24px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.mgroup-rule{width:36px;height:2px;background:var(--gold);margin-bottom:22px;}
+.mitem{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid rgba(184,150,90,.1);}
+.mi-dot{width:5px;height:5px;border:1.5px solid var(--gold);border-radius:50%;flex-shrink:0;margin-top:8px;}
+.mitem p{font-size:16.5px;font-weight:500;color:var(--navy);}
+.mitem span{font-size:16.5px;font-weight:400;color:var(--muted);display:block;margin-top:2px;line-height:1.5;}
+
+/* ─── SPORTS ─── */
+.sports-row{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:32px;}
+.sport-card{background:var(--navy);padding:48px 40px;position:relative;overflow:hidden;}
+.sport-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold);}
+.sport-card .se{font-size:38px;margin-bottom:16px;display:block;}
+.sport-card h3{font-family:var(--font-d);font-size:30px;font-weight:700;color:white;margin-bottom:12px;}
+.sport-card p{font-size:15.5px;font-weight:400;color:rgba(255,255,255,.92);line-height:1.75;max-width:340px;}
+.sport-link{color:var(--gold);font-size:15.5px;font-weight:700;letter-spacing:0;text-transform:none;text-decoration:none;margin-top:20px;display:inline-block;}
+
+/* ─── RESOURCES ─── */
+.res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;background:transparent;margin-top:32px;}
+.res-card{background:var(--white);padding:24px 22px;text-decoration:none;border-radius:8px;border:1px solid var(--border);box-shadow:0 2px 6px rgba(0,0,0,.04);transition:box-shadow .2s,transform .2s;}
+.res-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.09);transform:translateY(-2px);}
+.res-card .ri{font-size:26px;margin-bottom:10px;display:block;}
+.res-card h4{font-family:var(--font-d);font-size:19px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.res-card p{font-size:16.5px;font-weight:400;color:var(--muted);line-height:1.55;}
+.res-arrow{font-size:16px;font-weight:700;letter-spacing:0;color:var(--gold);text-transform:none;margin-top:10px;display:block;}
+
+/* ─── GIVING/PRAYER ─── */
+.gp-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:32px;}
+.gp-box{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:40px 36px;box-shadow:0 2px 12px rgba(0,0,0,.05);}
+.gp-box h3{font-family:var(--font-d);font-size:28px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.gp-rule{width:32px;height:2px;background:var(--gold);margin:14px 0 22px;border-radius:2px;}
+.gp-intro{font-size:16px;font-weight:400;color:var(--muted);line-height:1.8;margin-bottom:24px;}
+.gp-item{display:flex;gap:14px;margin-bottom:16px;}
+.gp-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0;margin-top:9px;}
+.gp-item p{font-size:15.5px;font-weight:400;color:rgba(255,255,255,.7);line-height:1.6;}
+.gp-item strong{color:var(--navy);font-weight:700;}
+.gp-item a{color:var(--gold);text-decoration:none;font-weight:700;}
+
+/* ─── CONTACT ─── */
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;}
+.ci{display:flex;gap:18px;margin-bottom:28px;}
+.ci-icon{width:38px;height:38px;border-radius:50%;background:rgba(201,135,58,.12);border:1px solid rgba(201,135,58,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold);font-size:16px;}
+.ci h5{font-size:15px;font-weight:700;letter-spacing:0;text-transform:none;color:var(--gold);margin-bottom:4px;}
+.ci p,.ci a{font-size:15px;font-weight:400;color:var(--text);text-decoration:none;line-height:1.6;}
+.ci a:hover{color:var(--gold);}
+.map-ph{background:linear-gradient(145deg,var(--navy),#0d1e3a);aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;border:1px solid rgba(184,150,90,.15);}
+.map-ph .micon{font-size:36px;opacity:.6;}
+.map-ph p{font-size:16px;font-weight:300;color:rgba(255,255,255,.80);text-align:center;line-height:1.5;}
+.map-ph a{font-size:15px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);border:1px solid rgba(184,150,90,.4);padding:9px 20px;text-decoration:none;margin-top:4px;transition:background .2s,color .2s;}
+.map-ph a:hover{background:var(--gold);color:var(--ink);}
+.cf{background:var(--parchment);border:1px solid rgba(184,150,90,.12);padding:36px;margin-top:24px;}
+.cf h3{font-family:var(--font-d);font-size:24px;font-weight:400;color:var(--navy);margin-bottom:6px;}
+.cf-rule{width:32px;height:1px;background:var(--gold);margin:12px 0 22px;}
+.cf input,.cf textarea{width:100%;padding:12px 14px;margin-bottom:12px;background:var(--white);border:1px solid rgba(184,150,90,.2);font-family:var(--font-b);font-size:15.5px;font-weight:400;color:var(--text);outline:none;transition:border-color .2s;}
+.cf input:focus,.cf textarea:focus{border-color:var(--gold);}
+.cf textarea{resize:vertical;min-height:100px;}
+
+/* ─── FOOTER ─── */
+footer{background:var(--ink);}
+.footer-top{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding:56px 48px 44px;border-bottom:1px solid rgba(255,255,255,.06);}
+.fb-logo{font-family:var(--font-d);font-size:26px;font-weight:700;color:white;}
+.fb-logo em{font-style:italic;color:var(--gold);}
+.fb-sub{font-size:16px;letter-spacing:0;text-transform:none;color:rgba(255,255,255,.70);margin-top:4px;}
+.fb-rule{width:32px;height:1px;background:rgba(184,150,90,.35);margin:16px 0;}
+.fb-desc{font-size:15px;font-weight:300;color:rgba(255,255,255,.65);line-height:1.8;max-width:260px;}
+.footer-social{display:flex;gap:8px;margin-top:20px;}
+.soc{width:34px;height:34px;border:1px solid rgba(184,150,90,.18);display:flex;align-items:center;justify-content:center;font-size:16px;color:rgba(255,255,255,.65);text-decoration:none;transition:border-color .2s,color .2s;}
+.soc:hover{border-color:var(--gold);color:var(--gold);}
+.fc h4{font-size:15px;font-weight:700;letter-spacing:0;text-transform:none;color:var(--gold-lt);margin-bottom:16px;}
+.fc a{display:block;font-size:15.5px;font-weight:400;color:rgba(255,255,255,.75);text-decoration:none;margin-bottom:10px;transition:color .2s;}
+.fc a:hover{color:var(--gold-pale);}
+.footer-bot{max-width:1280px;margin:0 auto;padding:18px 48px;text-align:center;font-size:15px;font-weight:300;color:rgba(255,255,255,.55);}
+.footer-bot a{color:rgba(184,150,90,.45);text-decoration:none;}
+
+/* ─── PAGE SWITCHING ─── */
+.page{display:none;}
+.page.active{display:block;}
+
+/* ─── MOBILE MENU ─── */
+.mobile-nav{display:none;position:fixed;inset:0;top:0;background:var(--white);z-index:2000;overflow-y:auto;padding-top:62px;}
+.mobile-nav.open{display:block;}
+.mobile-nav a{display:block;padding:14px 24px;font-size:15px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#444;border-bottom:1px solid var(--border);text-decoration:none;}
+.mobile-nav a:hover{color:var(--gold);}
+.mobile-nav-close{position:absolute;top:14px;right:20px;font-size:22px;cursor:pointer;color:#444;background:none;border:none;}
+
+@media(max-width:1024px){
+  .tile-grid{grid-template-columns:repeat(2,1fr); /* keep 2-col portrait */}
+  .footer-top{grid-template-columns:1fr 1fr;gap:32px;}
+  .home-lower{grid-template-columns:1fr;}
+  .events-col{border-right:none;border-bottom:1px solid var(--border);}
+}
+@media(max-width:768px){
+  nav .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .slider{height:320px;}
+  .slide-content{padding:24px;}
+  .slide-content h2{font-size:26px;}
+  .tile-grid{grid-template-columns:repeat(1,1fr);}
+  .about-grid,.missions-cols,.gp-grid,.contact-grid,.wed-cols,.sports-row{grid-template-columns:1fr;}
+  section{padding:40px 24px;}
+  .sermon-inner{padding:32px 24px;grid-template-columns:1fr;}
+  .sermon-meta{display:none;}
+  .footer-top{grid-template-columns:1fr 1fr;padding:40px 24px 32px;}
+  .footer-bot{padding:14px 24px;}
+}
+
+/* ── UNIFIED ICON BADGE, used everywhere ── */
+.card-icon,.ci-icon,.contact-icon{
+  display:flex;align-items:center;justify-content:center;
+  width:44px;height:44px;border-radius:50%;flex-shrink:0;
+  background:rgba(201,135,58,0.12);border:1px solid rgba(201,135,58,0.25);
+  color:var(--gold);font-size:17px;
+}
+.card-icon{margin-bottom:16px;}
+.min-card-top .card-icon{margin-bottom:0;}
+.res-card .card-icon{margin-bottom:12px;}
+.sport-card .card-icon{margin-bottom:18px;background:rgba(201,135,58,0.15);border-color:rgba(201,135,58,0.3);}
+.gp-box .card-icon{margin-bottom:16px;background:rgba(201,135,58,0.15);border-color:rgba(201,135,58,0.35);}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+.slide-live-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(220,38,38,.15);border:1px solid rgba(220,38,38,.4);border-radius:20px;padding:5px 14px;margin-bottom:16px;}
+.slide-live-dot{width:8px;height:8px;border-radius:50%;background:#ef4444;animation:pulse 1.2s infinite;flex-shrink:0;}
+.slide-live-badge span{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fca5a5;}
+.slide-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;}
+.slide-btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--ink);padding:13px 28px;font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .2s;}
+.slide-btn-primary:hover{background:var(--gold-lt);}
+.slide-btn-secondary{display:inline-flex;align-items:center;gap:8px;border:1.5px solid rgba(255,255,255,.4);color:rgba(255,255,255,.9);padding:13px 28px;font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;transition:border-color .2s,color .2s;}
+.slide-btn-secondary:hover{border-color:var(--gold);color:var(--gold);}
+.slide-broadcast-icon{position:absolute;right:80px;top:50%;transform:translateY(-50%);font-size:180px;color:rgba(255,255,255,.04);z-index:0;line-height:1;}
+
+/* ── PAGE TRANSITION ─────────────────────────────────────────────────── */
+@keyframes pageEnter{from{opacity:0}to{opacity:1}}
+.page.active{animation:pageEnter .18s ease forwards;}
+
+/* ── SCROLL REVEAL CLASSES ───────────────────────────────────────────── */
+#page-home .anim{opacity:0;transform:translateY(28px);transition:opacity .35s ease,transform .35s ease;}
+#page-home .anim.visible{opacity:1;transform:translateY(0);}
+#page-home .anim-left{opacity:0;transform:translateX(-36px);transition:opacity .35s ease,transform .35s ease;}
+#page-home .anim-left.visible{opacity:1;transform:translateX(0);}
+#page-home .anim-right{opacity:0;transform:translateX(36px);transition:opacity .35s ease,transform .35s ease;}
+#page-home .anim-right.visible{opacity:1;transform:translateX(0);}
+#page-home .anim-scale{opacity:0;transform:scale(.94);transition:opacity .3s ease,transform .3s ease;}
+#page-home .anim-scale.visible{opacity:1;transform:scale(1);}
+
+/* stagger delays */
+#page-home .anim-d1{transition-delay:.08s}#page-home .anim-d2{transition-delay:.16s}#page-home .anim-d3{transition-delay:.24s}
+#page-home .anim-d4{transition-delay:.32s}#page-home .anim-d5{transition-delay:.40s}#page-home .anim-d6{transition-delay:.48s}
+#page-home .anim-d7{transition-delay:.56s}#page-home .anim-d8{transition-delay:.64s}
+
+/* ── GOLD RULE REVEAL ────────────────────────────────────────────────── */
+#page-home .sec-rule{transform-origin:left;transform:scaleX(0);transition:transform .35s cubic-bezier(.25,.46,.45,.94);}
+#page-home .sec-rule.visible{transform:scaleX(1);}
+
+/* ── HERO SLIDE CONTENT, staggered entrance ─────────────────────────── */
+@keyframes slideUpFade{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.slide-content>*{opacity:0;animation:none;}
+.slide.active-slide .slide-content>*{animation:slideUpFade .45s cubic-bezier(.25,.46,.45,.94) forwards;}
+.slide.active-slide .slide-content>*:nth-child(1){animation-delay:.05s}
+.slide.active-slide .slide-content>*:nth-child(2){animation-delay:.2s}
+.slide.active-slide .slide-content>*:nth-child(3){animation-delay:.35s}
+.slide.active-slide .slide-content>*:nth-child(4){animation-delay:.5s}
+.slide.active-slide .slide-content>*:nth-child(5){animation-delay:.65s}
+
+/* ── NAV HOVER UNDERLINE ─────────────────────────────────────────────── */
+.nav-links>li>a{position:relative;}
+.nav-links>li>a:not(.nav-give)::after{content:'';position:absolute;bottom:14px;left:16px;right:16px;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:center;transition:transform .25s ease;}
+.nav-links>li>a:not(.nav-give):hover::after{transform:scaleX(1);}
+
+/* ── TILE HOVER LIFT ─────────────────────────────────────────────────── */
+.tile{transition:transform .2s ease,box-shadow .2s ease;}
+.tile:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.35);}
+.tile:nth-child(1){animation-delay:0s}.tile:nth-child(2){animation-delay:.06s}
+.tile:nth-child(3){animation-delay:.12s}.tile:nth-child(4){animation-delay:.18s}
+.tile:nth-child(5){animation-delay:.24s}.tile:nth-child(6){animation-delay:.3s}
+.tile:nth-child(7){animation-delay:.36s}.tile:nth-child(8){animation-delay:.42s}
+.tile:nth-child(9){animation-delay:.48s}.tile:nth-child(10){animation-delay:.54s}
+
+/* ── CARD HOVER ──────────────────────────────────────────────────────── */
+.min-card{transition:box-shadow .2s ease,transform .2s ease,background .15s;}
+.min-card:hover{transform:translateY(-5px);box-shadow:0 20px 48px rgba(0,0,0,.13);}
+.res-card{transition:box-shadow .2s ease,transform .2s ease,background .15s;}
+.res-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.1);}
+.svc-card{transition:background .15s,border-color .15s,transform .2s ease;}
+.svc-card:hover{transform:translateY(-3px);}
+
+/* ── CARD ICON PULSE on hover ────────────────────────────────────────── */
+.min-card:hover .card-icon,.res-card:hover .card-icon,.svc-card:hover .card-icon{transform:scale(1.12);transition:transform .2s cubic-bezier(.34,1.56,.64,1);}
+.card-icon{transition:transform .3s ease;}
+
+/* ── BUTTON HOVER LIFT ───────────────────────────────────────────────── */
+.btn-watch,.btn-listen,.slide-btn-primary,.slide-btn-secondary{
+  transition:background .15s,border-color .15s,color .15s,transform .15s ease,box-shadow .15s ease;}
+.btn-watch:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(201,135,58,.35);}
+.btn-listen:hover{transform:translateY(-2px);}
+.slide-btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(201,135,58,.4);}
+.slide-btn-secondary:hover{transform:translateY(-2px);}
+
+/* ── SLIDER ARROW HOVER ──────────────────────────────────────────────── */
+.slider-arrow{transition:background .2s,transform .2s ease;}
+.slider-arrow:hover{transform:scale(1.1);}
+
+/* ── GIVE BOX LINK ───────────────────────────────────────────────────── */
+.give-box a{transition:background .2s,transform .15s ease;}
+.give-box a:hover{transform:scale(1.02);}
+
+/* ── LIVE BADGE RING PULSE ───────────────────────────────────────────── */
+@keyframes ringPulse{0%{box-shadow:0 0 0 0 rgba(239,68,68,.45)}70%{box-shadow:0 0 0 10px rgba(239,68,68,0)}100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}}
+.slide-live-badge{animation:ringPulse 2.2s infinite;}
+
+/* ── FOOTER LINK SLIDE ───────────────────────────────────────────────── */
+.fc a{transition:color .2s,padding-left .2s;}
+.fc a:hover{padding-left:6px;}
+
+/* ── SOCIAL ICON BOUNCE ──────────────────────────────────────────────── */
+.soc{transition:border-color .2s,color .2s,transform .25s cubic-bezier(.34,1.56,.64,1);}
+.soc:hover{transform:translateY(-3px) scale(1.1);}
+
+/* ── EVENT ITEM HOVER ────────────────────────────────────────────────── */
+.event-item{transition:background .2s;}
+.event-item:hover{background:var(--cream);}
+.event-date{transition:background .2s;}
+.event-item:hover .event-date{background:var(--gold);}
+.event-item:hover .event-date .month{color:var(--ink);}
+.event-item:hover .event-date .day{color:var(--ink);}
+
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar"><span>Prayer</span> Sun 9:30 AM &nbsp;·&nbsp; <span>Sunday Worship</span> 10:30 AM &nbsp;·&nbsp; 484 Barrick Rd, Port Colborne &nbsp;·&nbsp; <span>905.834.4313</span></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" onclick="go('home')">North<em>Park</em></a>
+    <ul class="nav-links">
+      <li><a href="#" onclick="go('home')">Home</a></li>
+      <li>
+        <a href="#">Ministries ▾</a>
+        <div class="dropdown">
+          <a href="#" onclick="go('ministries')">All Ministries</a>
+          <a href="#" onclick="go('pathfinders')">Pathfinders Youth</a>
+          <a href="#" onclick="go('kidspac')">Kids Pac</a>
+          <a href="#" onclick="go('mens')">Men's Ministry</a>
+          <a href="#" onclick="go('womens')">Women's Ministry</a>
+          <a href="#" onclick="go('biblestudy')">Bible Study</a>
+          <a href="#" onclick="go('rooted')">Rooted Youth Group</a>
+          <a href="#" onclick="go('firstthings')">First Things First</a>
+          <a href="#" onclick="go('daycamp')">Day Camp</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">About ▾</a>
+        <div class="dropdown">
+          <a href="#" onclick="go('about')">About Us</a>
+          <a href="#" onclick="go('mission')">Mission &amp; Vision</a>
+          <a href="#" onclick="go('leadership')">Leadership Team</a>
+          <a href="#" onclick="go('beliefs')">What We Believe</a>
+          <a href="#" onclick="go('beliefs')">Statement of Faith</a>
+          <a href="#" onclick="go('paoc')">PAOC</a>
+          <a href="#" onclick="go('mcs')">MCS Bible College Hub</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">Services ▾</a>
+        <div class="dropdown">
+          <a href="#" onclick="go('services')">Sunday Services</a>
+          <a href="#" onclick="go('wednesday')">Wednesday Family Night</a>
+          <a href="#" onclick="go('giving')">Prayer</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">Missions ▾</a>
+        <div class="dropdown">
+          <a href="#" onclick="go('worldmissions')">World Missions</a>
+          <a href="#" onclick="go('homemissions')">Home Missions &amp; Outreach</a>
+        </div>
+      </li>
+      <li><a href="#" onclick="go('livestream')">Sermons</a></li>
+      <li><a href="#" onclick="go('calendar')">Calendar</a></li>
+      <li><a href="#" onclick="go('contact')">Contact</a></li>
+      <li><a href="#" class="nav-give" onclick="go('giving')">Give</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="toggleMobile()"></button>
+  <a href="#" onclick="go('home');toggleMobile()">Home</a>
+  <a href="#" onclick="go('about');toggleMobile()">About Us</a>
+  <a href="#" onclick="go('ministries');toggleMobile()">Ministries</a>
+  <a href="#" onclick="go('services');toggleMobile()">Sunday Services</a>
+  <a href="#" onclick="go('services');toggleMobile()">Wednesday Night</a>
+  <a href="#" onclick="go('missions');toggleMobile()">Missions</a>
+  <a href="#" onclick="go('sports');toggleMobile()">Sports</a>
+  <a href="#" onclick="go('livestream');toggleMobile()">Sermons</a>
+  <a href="#" onclick="go('resources');toggleMobile()">Resources</a>
+  <a href="#" onclick="go('livestream');toggleMobile()" style="color:white;font-weight:700;background:#c0392b;margin:8px 16px;border-radius:4px;padding:12px 20px!important;"><i class="fa-solid fa-circle" style="font-size:7px;margin-right:7px;animation:pulse 1.2s infinite;"></i>Watch Live</a>
+  <a href="#" onclick="go('calendar');toggleMobile()">Calendar</a>
+  <a href="#" onclick="go('giving');toggleMobile()">Giving &amp; Prayer</a>
+  <a href="#" onclick="go('contact');toggleMobile()">Contact</a>
+</div>
+
+
+<!-- ══════════ HOME ══════════ -->
+<div id="page-home" class="page active">
+
+  <!-- HERO SLIDER -->
+  <div class="slider" id="slider">
+    <div class="slides" id="slides">
+
+      <!-- SLIDE 1: WATCH LIVE, front and centre -->
+      <div class="slide">
+        <div class="slide-bg" style="background:linear-gradient(135deg,#0a0e18 0%,#0f1f3d 45%,#1a0e0e 100%);"></div>
+        <!-- subtle broadcast grid pattern -->
+        <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(184,150,90,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(184,150,90,.03) 1px,transparent 1px);background-size:48px 48px;z-index:0;pointer-events:none;"></div>
+        <div class="slide-broadcast-icon"><i class="fa-solid fa-tower-broadcast"></i></div>
+        <div class="slide-content">
+          <div class="slide-live-badge">
+            <div class="slide-live-dot"></div>
+            <span>Live every Sunday · 10:30 AM</span>
+          </div>
+          <h2>Watch Our Service<br><em>Online</em></h2>
+          <p style="font-size:16px;font-weight:400;color:rgba(255,255,255,.75);line-height:1.6;margin-bottom:4px;">Join us live or catch up on past messages, from anywhere, anytime.</p>
+          <div class="slide-btns">
+            <a href="#" class="slide-btn-primary" onclick="go('livestream')">
+              <i class="fa-solid fa-circle" style="font-size:8px;animation:pulse 1.2s infinite;"></i> Watch Live
+            </a>
+            <a href="#" class="slide-btn-secondary" onclick="go('livestream');setTimeout(function(){switchStream('archive');},50)">
+              <i class="fa-solid fa-film"></i> Past Sermons
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 2 -->
+      <div class="slide">
+        <div class="slide-bg" style="background:linear-gradient(135deg,#0b1623 0%,#1a3360 60%,#0b2213 100%);"></div>
+        <div class="slide-content">
+          <div class="slide-eyebrow">Port Colborne, Ontario</div>
+          <h2>A place to belong,<br><em>believe &amp; grow</em></h2>
+          <a href="#" class="slide-link" onclick="go('about')">Discover Our Story →</a>
+        </div>
+      </div>
+
+      <!-- SLIDE 3 -->
+      <div class="slide">
+        <div class="slide-bg" style="background:linear-gradient(135deg,#0b1623 0%,#2a1a0a 60%,#3a2208 100%);"></div>
+        <div class="slide-content">
+          <div class="slide-eyebrow">Everyone is welcome</div>
+          <h2>Come as you are<br><em>this Sunday</em></h2>
+          <a href="#" class="slide-link" onclick="go('services')">Plan Your Visit →</a>
+        </div>
+      </div>
+
+      <!-- SLIDE 4 -->
+      <div class="slide">
+        <div class="slide-bg" style="background:linear-gradient(135deg,#0b1623 0%,#0b220e 60%,#112240 100%);"></div>
+        <div class="slide-content">
+          <div class="slide-eyebrow">Something for every age</div>
+          <h2>Bring the whole<br><em>family along</em></h2>
+          <a href="#" class="slide-link" onclick="go('services')">See All Programs →</a>
+        </div>
+      </div>
+
+      <!-- SLIDE 5 -->
+      <div class="slide">
+        <div class="slide-bg" style="background:linear-gradient(135deg,#0b1623 0%,#1a2a40 50%,#2a1a05 100%);"></div>
+        <div class="slide-content">
+          <div class="slide-eyebrow">Loving our neighbours</div>
+          <h2>Reaching<br><em>Our World</em></h2>
+          <a href="#" class="slide-link" onclick="go('missions')">Learn More →</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="slider-arrows">
+      <div class="slider-arrow" onclick="prevSlide()">&#8592;</div>
+      <div class="slider-arrow" onclick="nextSlide()">&#8594;</div>
+    </div>
+    <div class="slider-dots" id="dots">
+      <div class="dot active" onclick="goSlide(0)"></div>
+      <div class="dot" onclick="goSlide(1)"></div>
+      <div class="dot" onclick="goSlide(2)"></div>
+      <div class="dot" onclick="goSlide(3)"></div>
+      <div class="dot" onclick="goSlide(4)"></div>
+    </div>
+  </div>
+
+  <!-- SERVICE TIME BANNER -->
+  <div class="svc-banner">
+    <h3>Sunday Worship at 10:30 AM, You're Welcome Here</h3>
+    <p>Prayer at 9:30 AM &nbsp;·&nbsp; 484 Barrick Rd, Port Colborne &nbsp;·&nbsp; 905.834.4313</p>
+  </div>
+
+  <!-- PHOTO TILE GRID (5×2 matching Peoples Lambton) -->
+  <div class="tile-grid anim-trigger">
+    <a href="#" class="tile" onclick="go('about')">
+      <div class="tile-bg" style="background:linear-gradient(145deg,#112240,#0d2a55);"></div>
+      <div class="tile-label"><span>About Us</span><div class="tile-label-rule"></div><small>Our Story</small></div>
+    </a>
+    <a href="#" class="tile" onclick="go('services')">
+      <div class="tile-bg" style="background:linear-gradient(145deg,#0b1a0f,#163020);"></div>
+      <div class="tile-label"><span>Sunday Service</span><div class="tile-label-rule"></div><small>10:30 AM</small></div>
+    </a>
+    <a href="#" class="tile" onclick="go('ministries')">
+      <div class="tile-bg" style="background:linear-gradient(145deg,#1a1205,#2e1f08);"></div>
+      <div class="tile-label"><span>Ministries</span><div class="tile-label-rule"></div><small>Get Involved</small></div>
+    </a>
+    <a href="#" class="tile" onclick="go('missions')">
+      <div class="tile-bg" style="background:linear-gradient(145deg,#0b1623,#1a2040);"></div>
+      <div class="tile-label"><span>Missions</span><div class="tile-label-rule"></div><small>Local &amp; Global</small></div>
+    </a>
+    <a href="#" class="tile" onclick="go('giving')">
+      <div class="tile-bg" style="background:linear-gradient(145deg,#1a0b0b,#2a1010);"></div>
+      <div class="tile-label"><span>Give</span><div class="tile-label-rule"></div><small>Support the Mission</small></div>
+    </a>
+    <a href="#" class="tile" onclick="go('ministries')">
+      <div class="tile-bg" style="background:linear-gradient(145deg,#0d1a30,#1a2a50);"></div>
+      <div class="tile-label"><span>Youth</span><div class="tile-label-rule"></div><small>Pathfinders &amp; Rooted</small></div>
+    </a>
+    <a href="#" class="tile" onclick="go('ministries')">
+      <div class="tile-bg" style="background:linear-gradient(145deg,#0b1a0a,#122510);"></div>
+      <div class="tile-label"><span>Kids</span><div class="tile-label-rule"></div><small>Kids Pac &amp; Day Camp</small></div>
+    </a>
+    <a href="#" class="tile" onclick="go('ministries')">
+      <div class="tile-bg" style="background:linear-gradient(145deg,#1a1210,#2a1a15);"></div>
+      <div class="tile-label"><span>Women</span><div class="tile-label-rule"></div><small>Women's Ministry</small></div>
+    </a>
+    <a href="#" class="tile" onclick="go('ministries')">
+      <div class="tile-bg" style="background:linear-gradient(145deg,#101a25,#1a2535);"></div>
+      <div class="tile-label"><span>Men</span><div class="tile-label-rule"></div><small>Men's Ministry</small></div>
+    </a>
+    <a href="#" class="tile" onclick="go('resources')">
+      <div class="tile-bg" style="background:linear-gradient(145deg,#1a1005,#2a180a);"></div>
+      <div class="tile-label"><span>Sermons</span><div class="tile-label-rule"></div><small>Watch &amp; Listen</small></div>
+    </a>
+  </div>
+
+  <!-- FEATURED SERMON -->
+  <!-- WATCH ONLINE STRIP -->
+  <div style="background:var(--ink);border-bottom:1px solid rgba(184,150,90,.15);">
+    <div style="max-width:1280px;margin:0 auto;padding:0 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;min-height:48px;">
+      <p style="font-size:13px;font-weight:600;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px;"><i class="fa-solid fa-tower-broadcast" style="color:var(--gold);"></i> Live every Sunday at 10:30 AM, join us online or in person</p>
+      <div style="display:flex;gap:10px;">
+        <a href="#" onclick="go('livestream')" style="font-size:12px;font-weight:700;color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:6px;"><i class="fa-solid fa-circle" style="font-size:7px;animation:pulse 1.5s infinite;"></i>Watch Live</a>
+        <span style="color:rgba(255,255,255,.2);">|</span>
+        <a href="#" onclick="go('livestream');setTimeout(function(){switchStream('archive');},50)" style="font-size:12px;font-weight:700;color:rgba(255,255,255,.5);text-decoration:none;">Past Sermons</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="sermon-block">
+    <div class="sermon-bg">
+      <div class="sermon-bg-cross">&#x271D;</div>
+    </div>
+    <div class="sermon-inner anim">
+      <div>
+        <p class="sermon-eyebrow">This week's message</p>
+        <h2>Building People -<br><em>Making Disciples</em></h2>
+        <p class="sermon-series">Current Sermon Series &nbsp;·&nbsp; NorthPark Worship Centre</p>
+        <div class="sermon-btns">
+          <a href="#" class="btn-watch" onclick="go('livestream')"><i class="fa-solid fa-circle" style="font-size:9px;margin-right:7px;animation:pulse 1.5s infinite;"></i>Watch Live</a>
+          <a href="#" class="btn-listen" onclick="go('livestream')" id="home-archive-btn" onclick="go('livestream');setTimeout(function(){switchStream('archive');},50)">Past Sermons</a>
+          <a href="#" class="btn-listen" onclick="go('livestream')">Watch Online</a>
+        </div>
+      </div>
+      <div class="sermon-meta">
+        <p class="sermon-date">Sunday Service<br>10:30 AM</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EVENTS + CONTACT -->
+  <div class="home-lower">
+    <div class="events-col">
+      <h3>Upcoming Events <a href="#" onclick="go('calendar')">View Calendar →</a></h3>
+      <div class="event-item" onclick="go(\'calendar\')">
+        <div class="event-date"><div class="month">Sun</div><div class="day">25</div></div>
+        <div class="event-info"><h4>Sunday Worship Service</h4><p>10:30 AM – 11:45 AM &nbsp;·&nbsp; Main Sanctuary</p></div>
+      </div>
+      <div class="event-item" onclick="go(\'calendar\')">
+        <div class="event-date"><div class="month">Sun</div><div class="day">25</div></div>
+        <div class="event-info"><h4>Morning Prayer</h4><p>9:30 AM – 10:15 AM &nbsp;·&nbsp; Prayer Room</p></div>
+      </div>
+      <div class="event-item" onclick="go(\'calendar\')">
+        <div class="event-date"><div class="month">Wed</div><div class="day">28</div></div>
+        <div class="event-info"><h4>Pathfinders Youth Group</h4><p>6:30 PM – 8:30 PM &nbsp;·&nbsp; Youth Hall</p></div>
+      </div>
+      <div class="event-item" onclick="go(\'calendar\')">
+        <div class="event-date"><div class="month">Wed</div><div class="day">28</div></div>
+        <div class="event-info"><h4>Kids Pac &amp; Adult Bible Study</h4><p>6:30 PM – 8:00 PM &nbsp;·&nbsp; Various Rooms</p></div>
+      </div>
+      <div class="event-item" onclick="go(\'calendar\')">
+        <div class="event-date"><div class="month">Wed</div><div class="day">28</div></div>
+        <div class="event-info"><h4>Midweek Prayer</h4><p>11:00 AM – 12:00 PM &nbsp;·&nbsp; Prayer Room</p></div>
+      </div>
+    </div>
+    <div class="contact-col">
+      <h3 style="display:flex;align-items:center;justify-content:space-between;">Find Us <a href="#" onclick="go('contact')" style="font-size:13px;font-weight:700;color:var(--gold);text-decoration:none;">Full info →</a></h3>
+      <div class="contact-item anim">
+        <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+        <div><h5>Address</h5><p>484 Barrick Rd<br>Port Colborne, ON L3K 4B7</p></div>
+      </div>
+      <div class="contact-item anim">
+        <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+        <div><h5>Phone</h5><a href="tel:9058344313">905.834.4313</a></div>
+      </div>
+      <div class="contact-item anim">
+        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+        <div><h5>Email</h5><a href="mailto:claportcolborne@gmail.com">claportcolborne@gmail.com</a></div>
+      </div>
+      <div class="give-box">
+        <p>Support Our Church</p>
+        <h4>Give Online</h4>
+        <a href="#" onclick="go('giving')">E-Transfer or Learn More →</a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /home -->
+
+
+<!-- ══════════ ABOUT ══════════ -->
+<div id="page-about" class="page">
+  <div class="page-hdr"><div class="page-hdr-inner"><p class="eyebrow anim">Welcome to NorthPark</p><h1>Who We Are &amp;<br><em>What We Believe</em></h1></div></div>
+  <section style="background:var(--parchment);">
+    <div class="sec">
+      <div class="about-grid anim-trigger">
+        <div>
+          <p class="sec-label anim">Our heart for Port Colborne</p><div class="sec-rule"></div>
+          <h2 class="sec-title anim">A warm community<br><em>in Port Colborne</em></h2>
+          <p class="sec-body">Our mission is to lead people into a growing relationship with Jesus Christ, equip believers for ministry, and reach our community and the world with the hope of the gospel.</p>
+          <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;">We are proudly affiliated with the <strong style="font-weight:600;color:var(--navy);">Pentecostal Assemblies of Canada (PAOC)</strong> and partner with the <strong style="font-weight:600;color:var(--navy);">MCS Bible College Hub</strong> for theological education.</p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:24px;"><a href="#" onclick="go('paoc')" style="font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;">About PAOC →</a><a href="#" onclick="go('mcs')" style="font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;">MCS College Hub →</a></div>
+        </div>
+        <div class="img-frame"><div class="img-placeholder"><div class="cross"></div><p>Church photo coming soon</p></div></div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="sec">
+      <p class="sec-label anim">What we believe</p><div class="sec-rule"></div>
+      <h2 class="sec-title anim">Our Faith &amp; <em>Values</em></h2>
+      <ul class="beliefs" style="max-width:680px;margin-top:24px;">
+        <li>We believe in the Holy Trinity, Father, Son, and Holy Spirit.</li>
+        <li>We believe the Bible is the inspired and authoritative Word of God.</li>
+        <li>We believe in salvation through faith in Jesus Christ alone.</li>
+        <li>We believe in water baptism as a public declaration of faith.</li>
+        <li>We believe in the baptism of the Holy Spirit with the evidence of speaking in tongues.</li>
+        <li>We believe in divine healing through the power of Jesus Christ.</li>
+        <li>We believe in the imminent, physical return of Jesus Christ.</li>
+        <li>We are affiliated with the Pentecostal Assemblies of Canada (PAOC).</li>
+        <li>We partner with MCS Bible College as a local hub for theological training.</li>
+      </ul>
+    </div>
+  </section>
+  <section style="background:var(--parchment);">
+    <div class="sec">
+      <p class="sec-label anim">The people who lead us</p><div class="sec-rule"></div>
+      <h2 class="sec-title anim">Meet Our <em>Leaders</em></h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--border);margin-top:28px;">
+        <div style="background:var(--white);padding:32px;text-align:center;"><div style="width:72px;height:72px;border:1px solid rgba(184,150,90,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:24px;color:var(--gold);"></div><h4 style="font-family:var(--font-d);font-size:20px;font-weight:400;color:var(--navy);">Lead Pastor</h4><p style="font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:5px;">To be added</p></div>
+        <div style="background:var(--white);padding:32px;text-align:center;"><div style="width:72px;height:72px;border:1px solid rgba(184,150,90,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:24px;color:var(--gold);"></div><h4 style="font-family:var(--font-d);font-size:20px;font-weight:400;color:var(--navy);">Youth Pastor</h4><p style="font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:5px;">To be added</p></div>
+        <div style="background:var(--white);padding:32px;text-align:center;"><div style="width:72px;height:72px;border:1px solid rgba(184,150,90,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:24px;color:var(--gold);"></div><h4 style="font-family:var(--font-d);font-size:20px;font-weight:400;color:var(--navy);">Children's Director</h4><p style="font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:5px;">To be added</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('mission')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Our Mission →</a><a href="#" onclick="go('leadership')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Leadership Team →</a><a href="#" onclick="go('beliefs')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">What We Believe →</a><a href="#" onclick="go('services')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Sunday Services →</a><a href="#" onclick="go('ministries')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Get Involved →</a><a href="#" onclick="go('contact')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Contact Us →</a></div></div></div>
+</div>
+
+
+<!-- ══════════ MINISTRIES ══════════ -->
+<div id="page-ministries" class="page">
+  <div class="page-hdr"><div class="page-hdr-inner"><p class="eyebrow anim">Something for everyone</p><h1>Get Involved -<br><em>There's a Place for You</em></h1></div></div>
+  <section>
+    <div class="sec">
+      <div class="min-grid">
+        <div class="min-card anim anim-d1" onclick="go('pathfinders')"><div class="min-card-top"><div><h3>Pathfinders Youth</h3><span class="min-badge">Wednesday Evenings</span></div></div><p>Energy-filled teen ministry for building faith, friendships, and a foundation for life through worship, real talk, and community.</p><span style="display:inline-block;margin-top:14px;font-size:14px;font-weight:700;color:var(--gold);">Learn more →</span></div>
+        <div class="min-card anim anim-d2" onclick="go('kidspac')"><div class="min-card-top"><div><h3>Kids Pac</h3><span class="min-badge">Wednesday Evenings</span></div></div><p>A fun, faith-filled Wednesday kids program, Bible stories, crafts, games, and genuine friendship-building.</p><span style="display:inline-block;margin-top:14px;font-size:14px;font-weight:700;color:var(--gold);">Learn more →</span></div>
+        <div class="min-card anim anim-d3" onclick="go('mens')"><div class="min-card-top"><div><h3>Men's Ministry</h3><span class="min-badge">Regular Gatherings</span></div></div><p>Building authentic brotherhood across all ages, fellowship, accountability, prayer, and growing together in faith.</p><span style="display:inline-block;margin-top:14px;font-size:14px;font-weight:700;color:var(--gold);">Learn more →</span></div>
+        <div class="min-card anim anim-d4" onclick="go('womens')"><div class="min-card-top"><div><h3>Women's Ministry</h3><span class="min-badge">Regular Gatherings</span></div></div><p>A welcoming sisterhood for women at all stages of life, Bible study, prayer, encouragement, and community events.</p><span style="display:inline-block;margin-top:14px;font-size:14px;font-weight:700;color:var(--gold);">Learn more →</span></div>
+        <div class="min-card anim anim-d1" onclick="go('daycamp')"><div class="min-card-top"><div><h3>Day Camp</h3><span class="min-badge">Summer, 2 Weeks</span></div></div><p>An incredible summer experience for kids, July 8–12 &amp; July 15–18. Activities, crafts, and faith all in one week.</p><span style="display:inline-block;margin-top:14px;font-size:14px;font-weight:700;color:var(--gold);">Learn more →</span></div>
+        <div class="min-card anim anim-d2" onclick="go('firstthings')"><div class="min-card-top"><div><h3>First Things First</h3><span class="min-badge">Discipleship</span></div></div><p>A foundational program for new and growing believers, discovering Christian faith, prayer, and purpose.</p><span style="display:inline-block;margin-top:14px;font-size:14px;font-weight:700;color:var(--gold);">Learn more →</span></div>
+        <div class="min-card anim anim-d3" onclick="go('biblestudy')"><div class="min-card-top"><div><h3>Bible Study</h3><span class="min-badge">Wednesday Evenings</span></div></div><p>Midweek study for adults, going deeper into Scripture in a warm, open, discussion-based setting.</p><span style="display:inline-block;margin-top:14px;font-size:14px;font-weight:700;color:var(--gold);">Learn more →</span></div>
+        <div class="min-card anim anim-d4" onclick="go('rooted')"><div class="min-card-top"><div><h3>Rooted</h3><span class="min-badge">Port High Youth Group</span></div></div><p>Connecting with Port Colborne high school students, helping young people put down roots in faith and community.</p><span style="display:inline-block;margin-top:14px;font-size:14px;font-weight:700;color:var(--gold);">Learn more →</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('services')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Sunday Services →</a><a href="#" onclick="go('wednesday')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Wednesday Night →</a><a href="#" onclick="go('about')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">About Us →</a><a href="#" onclick="go('contact')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Contact Us →</a></div></div></div>
+</div>
+
+
+<!-- ══════════ SERVICES ══════════ -->
+<div id="page-services" class="page">
+  <div class="page-hdr"><div class="page-hdr-inner"><p class="eyebrow anim">You are welcome here</p><h1>Come &amp; Worship<br><em>With Us</em></h1></div></div>
+  <section style="background:var(--parchment);">
+    <div class="sec">
+      <p class="sec-label">Come as you are</p><div class="sec-rule"></div>
+      <h2 class="sec-title">Join us on <em>Sunday</em></h2>
+      <p style="font-size:16px;font-weight:400;color:var(--muted);line-height:1.85;max-width:560px;margin-bottom:32px;">Every Sunday is an opportunity to encounter God, connect with others, and leave refreshed and equipped for the week.</p>
+      <div class="svc-grid">
+        <div class="svc-card"><div class="card-icon"><i class="fa-solid fa-hands-praying"></i></div><h3>Morning Prayer</h3><p>Open prayer before service, all are welcome.</p><span class="svc-time-tag">Sunday · 9:30 AM</span></div>
+        <div class="svc-card"><div class="card-icon"><i class="fa-solid fa-church"></i></div><h3>Sunday Worship</h3><p>Uplifting worship and Spirit-led teaching.</p><span class="svc-time-tag">Sunday · 10:30 AM</span></div>
+        <div class="svc-card"><div class="card-icon"><i class="fa-solid fa-child-reaching"></i></div><h3>Super Kids Church</h3><p>Age-appropriate teaching for children during service.</p><span class="svc-time-tag">During Service</span></div>
+        <div class="svc-card"><div class="card-icon"><i class="fa-solid fa-baby"></i></div><h3>Nursery</h3><p>Safe, caring space for our youngest members.</p><span class="svc-time-tag">During Service</span></div>
+        <div class="svc-card"><div class="card-icon"><i class="fa-solid fa-mug-hot"></i></div><h3>Koinonia Café</h3><p>Coffee and fellowship before and after service.</p><span class="svc-time-tag">Before &amp; After</span></div>
+        <div class="svc-card clickable" onclick="go('giving')"><div class="card-icon"><i class="fa-solid fa-hand-holding-heart"></i></div><h3>Giving</h3><p>E-transfer or in person by cash or cheque.</p><span class="svc-time-tag">Every Sunday</span><span style="display:block;margin-top:12px;font-size:14px;font-weight:700;color:var(--gold-lt);">Learn how to give →</span></div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--cream);">
+    <div class="sec">
+      <p class="sec-label anim">The whole family is welcome</p><div class="sec-rule"></div>
+      <h2 class="sec-title anim">Wednesday Night<br><em>for the Whole Family</em></h2>
+      <p class="sec-body">Every Wednesday evening the whole family is welcome, there's something for every age.</p>
+      <div class="wed-cols">
+        <div>
+          <div class="wed-entry anim clickable" onclick="go('pathfinders')"><div class="wed-num">01</div><div><h4>Pathfinders Youth</h4><p>High-energy teen ministry with worship, teaching, and real community for young people navigating life and faith.</p><span style="font-size:14px;font-weight:700;color:var(--gold);margin-top:6px;display:inline-block;">Learn more →</span></div></div>
+          <div class="wed-entry anim clickable" onclick="go('kidspac')"><div class="wed-num">02</div><div><h4>Kids Pac Program</h4><p>An exciting kids evening with Bible stories, crafts, games, and genuine friendship.</p><span style="font-size:14px;font-weight:700;color:var(--gold);margin-top:6px;display:inline-block;">Learn more →</span></div></div>
+          <div class="wed-entry anim clickable" onclick="go('biblestudy')"><div class="wed-num">03</div><div><h4>Adult Bible Study</h4><p>Midweek study going deeper into God's Word in a warm, discussion-based setting.</p><span style="font-size:14px;font-weight:700;color:var(--gold);margin-top:6px;display:inline-block;">Learn more →</span></div></div>
+        </div>
+        <div class="wed-cta">
+          <p class="wc-label">Every Wednesday evening</p>
+          <h3>Family Night</h3>
+          <div class="wc-time">6:30 PM &nbsp;·&nbsp; September – May</div>
+          <p>Drop off the kids, send the teens to youth, or join us for Bible study, this night is built for the whole family at every stage.</p>
+          <a href="#" class="btn-watch" onclick="go('contact')">Get More Info</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('ministries')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">All Ministries →</a><a href="#" onclick="go('livestream')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Watch Live →</a><a href="#" onclick="go('contact')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Contact Us →</a></div></div></div>
+</div>
+
+
+<!-- ══════════ MISSIONS ══════════ -->
+<div id="page-missions" class="page">
+  <div class="page-hdr"><div class="page-hdr-inner"><p class="eyebrow anim">Serving our community and world</p><h1>Loving Our Community<br><em>&amp; the World</em></h1></div></div>
+  <section>
+    <div class="sec">
+      <div class="missions-cols">
+        <div class="mgroup">
+          <h3 style="cursor:pointer;" onclick="go('worldmissions')">World Missions <span style="color:var(--gold);font-size:18px;">→</span></h3><div class="mgroup-rule"></div>
+          <div class="mitem anim"><div class="mi-dot"></div><div><p>Ed Dickson, Loads of Love</p><span>Ukraine · Humanitarian aid and gospel ministry in conflict zones</span></div></div>
+          <div class="mitem anim"><div class="mi-dot"></div><div><p>Jonathan &amp; Sarah Lublinkov</p><span>PAOC World Missions · International church planting and evangelism</span></div></div>
+          <div class="mitem anim"><div class="mi-dot"></div><div><p>Erdo</p><span>International mission partner · Details to be updated</span></div></div>
+          <a href="#" onclick="go('worldmissions')" style="display:inline-block;margin-top:16px;font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;">View all world missions →</a>
+        </div>
+        <div class="mgroup">
+          <h3 style="cursor:pointer;" onclick="go('homemissions')">Home Missions &amp; Outreach <span style="color:var(--gold);font-size:18px;">→</span></h3><div class="mgroup-rule"></div>
+          <div class="mitem anim"><div class="mi-dot"></div><div><p>Port Cares Food Bank</p><span>Supporting families in Port Colborne with food security</span></div></div>
+          <div class="mitem anim"><div class="mi-dot"></div><div><p>Lions Food Drive</p><span>Community collection in partnership with local Lions Club</span></div></div>
+          <div class="mitem anim"><div class="mi-dot"></div><div><p>Canadian Blood Services</p><span>Life-saving blood donation drives supported by our congregation</span></div></div>
+          <div class="mitem anim"><div class="mi-dot"></div><div><p>South Niagara Life Center</p><span>Regional outreach serving vulnerable community members</span></div></div>
+          <div class="mitem anim"><div class="mi-dot"></div><div><p>Clothes for Missions</p><span>Collecting and distributing clothing locally and globally</span></div></div>
+          <a href="#" onclick="go('homemissions')" style="display:inline-block;margin-top:16px;font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;">View all local outreach →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('worldmissions')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">World Missions →</a><a href="#" onclick="go('homemissions')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Home Missions →</a><a href="#" onclick="go('contact')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Contact Us →</a></div></div></div>
+</div>
+
+
+<!-- ══════════ SPORTS ══════════ -->
+<div id="page-sports" class="page">
+  <div class="page-hdr"><div class="page-hdr-inner"><p class="eyebrow anim">Have fun together</p><h1>Play Together,<br><em>Grow Together</em></h1></div></div>
+  <section style="background:var(--cream);">
+    <div class="sec">
+      <p class="sec-label anim">Active &amp; fun</p><div class="sec-rule"></div>
+      <h2 class="sec-title anim">Active fun for<br><em>everyone</em></h2>
+      <p class="sec-body">Sport is a powerful way to connect with others and live out our values together.</p>
+      <div class="sports-row">
+        <div class="sport-card anim"><div class="card-icon"><i class="fa-solid fa-volleyball"></i></div><h3>Volleyball</h3><p>Recreational volleyball open to all skill levels, meet people and stay active in a friendly, faith-centred environment.</p><a href="#" class="sport-link" onclick="go('contact')">Get Details →</a></div>
+        <div class="sport-card anim"><div class="card-icon"><i class="fa-solid fa-basketball"></i></div><h3>Basketball</h3><p>Pick-up games and organized play for all ages. Connecting through sport while building community.</p><a href="#" class="sport-link" onclick="go('contact')">Get Details →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('ministries')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">All Ministries →</a><a href="#" onclick="go('services')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Sunday Services →</a><a href="#" onclick="go('contact')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Contact Us →</a></div></div></div>
+</div>
+
+
+<!-- ══════════ RESOURCES ══════════ -->
+<div id="page-resources" class="page">
+  <div class="page-hdr"><div class="page-hdr-inner"><p class="eyebrow anim">Stay connected</p><h1>Stay Connected<br><em>with NorthPark</em></h1></div></div>
+  <section>
+    <div class="sec">
+      <p class="sec-label anim">Find us online</p><div class="sec-rule"></div>
+      <h2 class="sec-title anim">Sermons, Events<br><em>&amp; More</em></h2>
+      <div class="res-grid">
+        <div class="card-icon res-card-icon"><i class="fa-solid fa-tower-broadcast"></i></div><h4>Watch Live</h4><p>Join our Sunday service online.</p><span class="res-arrow">Go Live →</span></a>
+        <a href="https://facebook.com" target="_blank" class="res-card"><div class="card-icon res-card-icon"><i class="fa-brands fa-facebook-f"></i></div><h4>Facebook</h4><p>Updates, events, and community news.</p><span class="res-arrow">Follow →</span></a>
+        <a href="https://instagram.com" target="_blank" class="res-card"><div class="card-icon res-card-icon"><i class="fa-brands fa-instagram"></i></div><h4>Instagram</h4><p>Moments and daily inspiration.</p><span class="res-arrow">Follow →</span></a>
+        <a href="https://youtube.com" target="_blank" class="res-card"><div class="card-icon res-card-icon"><i class="fa-brands fa-youtube"></i></div><h4>YouTube</h4><p>Full service recordings and archives.</p><span class="res-arrow">Watch →</span></a>
+        <a href="https://tiktok.com" target="_blank" class="res-card"><div class="card-icon res-card-icon"><i class="fa-brands fa-tiktok"></i></div><h4>TikTok</h4><p>Short-form content and highlights.</p><span class="res-arrow">Follow →</span></a>
+        <a href="#" class="res-card" onclick="go('calendar')"><div class="card-icon res-card-icon"><i class="fa-solid fa-calendar-days"></i></div><h4>Calendar</h4><p>All upcoming events and services.</p><span class="res-arrow">View →</span></a>
+        <a href="#" class="res-card"><div class="card-icon res-card-icon"><i class="fa-solid fa-star"></i></div><h4>Special Events</h4><p>Called Out – Youth Rally and more.</p><span class="res-arrow">Learn More →</span></a>
+        <a href="mailto:claportcolborne@gmail.com" class="res-card"><div class="card-icon res-card-icon"><i class="fa-solid fa-envelope"></i></div><h4>Email Us</h4><p>claportcolborne@gmail.com</p><span class="res-arrow">Get in Touch →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('livestream')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Watch Live →</a><a href="#" onclick="go('calendar')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Calendar →</a><a href="#" onclick="go('services')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Sunday Services →</a><a href="#" onclick="go('contact')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Contact Us →</a></div></div></div>
+</div>
+
+
+<!-- ══════════ GIVING ══════════ -->
+<div id="page-giving" class="page">
+  <div class="page-hdr"><div class="page-hdr-inner"><p class="eyebrow anim">Partner with us</p><h1>Partner With Us<br><em>in Prayer &amp; Giving</em></h1></div></div>
+  <section style="background:var(--parchment);">
+    <div class="sec">
+      <div class="gp-grid">
+        <div class="gp-box anim"><div class="card-icon"><i class="fa-solid fa-hand-holding-heart"></i></div><h3>Giving</h3><div class="gp-rule"></div><p class="gp-intro">Your generosity supports our ministries, missions, and community outreach. Every gift makes a real difference.</p><div class="gp-item"><div class="gp-dot"></div><p><strong>E-Transfer</strong><br>Send to <a href="mailto:claportcolborne@gmail.com">claportcolborne@gmail.com</a></p></div><div class="gp-item"><div class="gp-dot"></div><p><strong>In Person</strong><br>Cash or cheque during Sunday service.</p></div><div class="gp-item"><div class="gp-dot"></div><p>Tax receipts available for eligible donations. Contact us for details.</p></div></div>
+        <div class="gp-box anim"><div class="card-icon"><i class="fa-solid fa-hands-praying"></i></div><h3>Prayer</h3><div class="gp-rule"></div><p class="gp-intro">We believe deeply in the power of prayer. Join us or send a request, we'd be honoured to pray with you.</p><div class="gp-item"><div class="gp-dot"></div><p><strong>Sunday Morning Prayer</strong><br>9:30 AM, all are welcome.</p></div><div class="gp-item"><div class="gp-dot"></div><p><strong>Wednesday Morning Prayer</strong><br>11:00 AM, midweek gathering.</p></div><div class="gp-item"><div class="gp-dot"></div><p><strong>Prayer Chain</strong><br>Email <a href="mailto:claportcolborne@gmail.com">claportcolborne@gmail.com</a></p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('services')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Sunday Services →</a><a href="#" onclick="go('livestream')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Watch Live →</a><a href="#" onclick="go('about')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">About Us →</a></div></div></div>
+</div>
+
+
+<!-- ══════════ CONTACT ══════════ -->
+<div id="page-contact" class="page">
+  <div class="page-hdr"><div class="page-hdr-inner"><p class="eyebrow anim">We'd love to meet you</p><h1>We'd Love to<br><em>Hear from You</em></h1></div></div>
+  <section style="background:var(--parchment);">
+    <div class="sec">
+      <div class="contact-grid">
+        <div>
+          <div class="ci anim"><div class="ci-icon"><i class="fa-solid fa-location-dot"></i></div><div><h5>Address</h5><p>484 Barrick Rd<br>Port Colborne, ON L3K 4B7</p></div></div>
+          <div class="ci anim"><div class="ci-icon"><i class="fa-solid fa-phone"></i></div><div><h5>Phone</h5><a href="tel:9058344313">905.834.4313</a></div></div>
+          <div class="ci anim"><div class="ci-icon"><i class="fa-solid fa-envelope"></i></div><div><h5>Email</h5><a href="mailto:claportcolborne@gmail.com">claportcolborne@gmail.com</a></div></div>
+          <div class="ci anim"><div class="ci-icon"><i class="fa-solid fa-clock"></i></div><div><h5>Service Times</h5><p>Sunday Prayer: 9:30 AM<br>Sunday Worship: 10:30 AM<br>Wednesday Morning Prayer: 11:00 AM<br>Wednesday Family Night: 6:30 PM</p></div></div>
+          <div class="ci anim"><div class="ci-icon"><i class="fa-solid fa-share-nodes"></i></div><div><h5>Follow Us</h5>
+            <div style="display:flex;gap:10px;margin-top:6px;flex-wrap:wrap;">
+              <a href="https://facebook.com" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--navy);text-decoration:none;background:var(--parchment);border:1px solid var(--border);padding:6px 12px;border-radius:4px;transition:border-color .15s,color .15s;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='var(--gold)'" onmouseout="this.style.color='var(--navy)';this.style.borderColor='var(--border)'"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+              <a href="https://instagram.com" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--navy);text-decoration:none;background:var(--parchment);border:1px solid var(--border);padding:6px 12px;border-radius:4px;transition:border-color .15s,color .15s;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='var(--gold)'" onmouseout="this.style.color='var(--navy)';this.style.borderColor='var(--border)'"><i class="fa-brands fa-instagram"></i> Instagram</a>
+              <a href="https://youtube.com" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--navy);text-decoration:none;background:var(--parchment);border:1px solid var(--border);padding:6px 12px;border-radius:4px;transition:border-color .15s,color .15s;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='var(--gold)'" onmouseout="this.style.color='var(--navy)';this.style.borderColor='var(--border)'"><i class="fa-brands fa-youtube"></i> YouTube</a>
+              <a href="https://tiktok.com" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--navy);text-decoration:none;background:var(--parchment);border:1px solid var(--border);padding:6px 12px;border-radius:4px;transition:border-color .15s,color .15s;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='var(--gold)'" onmouseout="this.style.color='var(--navy)';this.style.borderColor='var(--border)'"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+            </div>
+          </div></div>
+          <div class="ci anim"><div class="ci-icon"><i class="fa-solid fa-hand-holding-heart"></i></div><div><h5>Give Online</h5><p>E-transfer to <a href="mailto:claportcolborne@gmail.com" style="color:var(--gold);font-weight:700;">claportcolborne@gmail.com</a><br><span style="font-size:13px;color:var(--muted);">Tax receipts available on request</span></p></div></div>
+          <div class="map-ph"><div class="micon"><i class="fa-solid fa-map-location-dot" style="font-size:36px;color:var(--gold);opacity:.7;"></i></div><p>484 Barrick Rd<br>Port Colborne, ON</p><a href="https://www.google.com/maps/search/484+Barrick+Rd+Port+Colborne+ON" target="_blank">Open in Google Maps</a></div>
+        </div>
+        <div>
+          <div class="cf">
+            <h3>Send a Message</h3><div class="cf-rule"></div>
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Email Address">
+            <input type="tel" placeholder="Phone (optional)">
+            <textarea placeholder="Your message…" rows="5"></textarea>
+            <a href="mailto:claportcolborne@gmail.com" style="display:block;text-align:center;background:var(--gold);color:var(--ink);padding:14px;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;transition:background .2s;" onmouseover="this.style.background='#d4ae72'" onmouseout="this.style.background='var(--gold)'">Send Message</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('services')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Sunday Services →</a><a href="#" onclick="go('ministries')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">All Ministries →</a><a href="#" onclick="go('livestream')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Watch Live →</a></div></div></div>
+</div>
+
+
+<!-- ══════════ FOOTER ══════════ -->
+<div id="page-pathfinders" class="page">
+  <div class="page-hdr"><div class="page-hdr-inner"><p class="eyebrow anim">Youth Ministry</p><h1>Pathfinders<br><em>Youth Group</em></h1></div></div>
+  <div style="max-width:1200px;margin:0 auto;padding:16px 48px 0;"><a href="#" onclick="go('ministries')" style="font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;">← Back to All Ministries</a></div>
+  <section style="background:var(--parchment);"><div class="sec">
+    <div class="about-grid">
+      <div>
+        <p class="sec-label anim">Every Wednesday Evening</p><div class="sec-rule"></div>
+        <h2 class="sec-title anim">Built for <em>Teens</em></h2>
+        <p class="sec-body">Pathfinders is our high-energy, Spirit-filled youth group for teens in grades 7–12. Every Wednesday evening we gather for worship, real talk, games, and genuine community.</p>
+        <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:32px;">We believe in young people, in their faith, their gifts, and their ability to make a difference right now. Pathfinders is a place where teens can ask hard questions, build lasting friendships, and grow in their walk with Jesus.</p>
+        <a href="#" class="btn-watch" onclick="go('contact')" style="display:inline-block;">Get Involved</a>
+      </div>
+      <div class="img-frame"><div class="img-placeholder"><div class="cross">&#x271D;</div><p>Youth group photo coming soon</p></div></div>
+    </div>
+  </div></section>
+  <section><div class="sec">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
+      <div style="background:var(--parchment);border:1px solid var(--border);border-left:4px solid var(--gold);padding:24px;border-radius:4px;"><h4 style="font-family:var(--font-d);font-size:19px;font-weight:700;color:var(--navy);margin-bottom:8px;">When</h4><p style="font-size:15px;font-weight:400;color:var(--text);">Every Wednesday Evening<br>6:30 PM – 8:30 PM</p></div>
+      <div style="background:var(--parchment);border:1px solid var(--border);border-left:4px solid var(--gold);padding:24px;border-radius:4px;"><h4 style="font-family:var(--font-d);font-size:19px;font-weight:700;color:var(--navy);margin-bottom:8px;">Who</h4><p style="font-size:15px;font-weight:400;color:var(--text);">Students in Grades 7–12<br>All are welcome</p></div>
+      <div style="background:var(--parchment);border:1px solid var(--border);border-left:4px solid var(--gold);padding:24px;border-radius:4px;"><h4 style="font-family:var(--font-d);font-size:19px;font-weight:700;color:var(--navy);margin-bottom:8px;">Where</h4><p style="font-size:15px;font-weight:400;color:var(--text);">484 Barrick Rd<br>Port Colborne, ON</p></div>
+    </div>
+  </div></section>
+  <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('rooted')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Rooted Youth →</a><a href="#" onclick="go('wednesday')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Wednesday Night →</a><a href="#" onclick="go('kidspac')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Kids Pac →</a><a href="#" onclick="go('ministries')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">All Ministries →</a><a href="#" onclick="go('contact')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Contact Us →</a></div></div></div>
+</div>
+
+<div id="page-kidspac" class="page">
+  <div class="page-hdr"><div class="page-hdr-inner"><p class="eyebrow anim">Children's Ministry</p><h1>Kids Pac<br><em>Program</em></h1></div></div>
+  <div style="max-width:1200px;margin:0 auto;padding:16px 48px 0;"><a href="#" onclick="go('ministries')" style="font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;">← Back to All Ministries</a></div>
+  <section style="background:var(--parchment);"><div class="sec">
+    <div class="about-grid">
+      <div>
+        <p class="sec-label anim">Every Wednesday Evening</p><div class="sec-rule"></div>
+        <h2 class="sec-title anim">Fun for <em>Kids</em></h2>
+        <p class="sec-body">Kids Pac is our Wednesday evening program for children, packed with Bible stories, crafts, games, and the kind of friendship that lasts a lifetime.</p>
+        <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:32px;">We love kids and want every child to know they are seen, valued, and loved by God. Kids Pac runs alongside adult Bible Study so the whole family can come together on Wednesday nights.</p>
+        <a href="#" class="btn-watch" onclick="go('contact')" style="display:inline-block;">Get Involved</a>
+      </div>
+      <div class="img-frame"><div class="img-placeholder"><div class="cross">&#x271D;</div><p>Kids Pac photo coming soon</p></div></div>
+    </div>
+  </div></section>
+  <section><div class="sec">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
+      <div style="background:var(--parchment);border:1px solid var(--border);border-left:4px solid var(--gold);padding:24px;border-radius:4px;"><h4 style="font-family:var(--font-d);font-size:19px;font-weight:700;color:var(--navy);margin-bottom:8px;">When</h4><p style="font-size:15px;font-weight:400;color:var(--text);">Every Wednesday Evening<br>6:30 PM – 8:00 PM</p></div>
+      <div style="background:var(--parchment);border:1px solid var(--border);border-left:4px solid var(--gold);padding:24px;border-radius:4px;"><h4 style="font-family:var(--font-d);font-size:19px;font-weight:700;color:var(--navy);margin-bottom:8px;">Who</h4><p style="font-size:15px;font-weight:400;color:var(--text);">Children in Grades K–6<br>All are welcome</p></div>
+      <div style="background:var(--parchment);border:1px solid var(--border);border-left:4px solid var(--gold);padding:24px;border-radius:4px;"><h4 style="font-family:var(--font-d);font-size:19px;font-weight:700;color:var(--navy);margin-bottom:8px;">Also on Sunday</h4><p style="font-size:15px;font-weight:400;color:var(--text);">Super Kids Church<br>During the 10:30 AM service</p></div>
+    </div>
+  </div></section>
+  <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('pathfinders')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Pathfinders Youth →</a><a href="#" onclick="go('daycamp')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Day Camp →</a><a href="#" onclick="go('wednesday')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Wednesday Night →</a><a href="#" onclick="go('ministries')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">All Ministries →</a><a href="#" onclick="go('contact')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Contact Us →</a></div></div></div>
+</div>
+
+<div id="page-mens" class="page">
+  <div class="page-hdr"><div class="page-hdr-inner"><p class="eyebrow anim">Men's Ministry</p><h1>Men's<br><em>Ministry</em></h1></div></div>
+  <div style="max-width:1200px;margin:0 auto;padding:16px 48px 0;"><a href="#" onclick="go('ministries')" style="font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;">← Back to All Ministries</a></div>
+  <section style="background:var(--parchment);"><div class="sec">
+    <div class="about-grid">
+      <div>
+        <p class="sec-label anim">Regular Gatherings</p><div class="sec-rule"></div>
+        <h2 class="sec-title anim">Brotherhood <em>in Christ</em></h2>
+        <p class="sec-body">Men's Ministry is a place for men of all ages to build authentic friendships, hold each other accountable, and grow together in faith and purpose.</p>
+        <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:32px;">We gather regularly for fellowship, prayer, and study, covering topics relevant to men's lives, families, and faith. Whether you've been a Christian for decades or are just starting to explore, you're welcome here.</p>
+        <a href="#" class="btn-watch" onclick="go('contact')" style="display:inline-block;">Connect With Us</a>
+      </div>
+      <div class="img-frame"><div class="img-placeholder"><div class="cross">&#x271D;</div><p>Men's Ministry photo coming soon</p></div></div>
+    </div>
+  </div></section>
+  <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('womens')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Women's Ministry →</a><a href="#" onclick="go('biblestudy')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Bible Study →</a><a href="#" onclick="go('services')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Sunday Services →</a><a href="#" onclick="go('ministries')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">All Ministries →</a><a href="#" onclick="go('contact')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Contact Us →</a></div></div></div>
+</div>
+
+<div id="page-womens" class="page">
+  <div class="page-hdr"><div class="page-hdr-inner"><p class="eyebrow anim">Women's Ministry</p><h1>Women's<br><em>Ministry</em></h1></div></div>
+  <div style="max-width:1200px;margin:0 auto;padding:16px 48px 0;"><a href="#" onclick="go('ministries')" style="font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;">← Back to All Ministries</a></div>
+  <section style="background:var(--parchment);"><div class="sec">
+    <div class="about-grid">
+      <div>
+        <p class="sec-label anim">Regular Gatherings</p><div class="sec-rule"></div>
+        <h2 class="sec-title anim">Sisterhood <em>&amp; Community</em></h2>
+        <p class="sec-body">Women's Ministry is a welcoming space for women at every stage of life, to be known, encouraged, and to grow together in faith.</p>
+        <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:32px;">We meet for Bible study, prayer, and community events throughout the year. Our heart is for every woman to feel at home, to discover her gifts, and to walk confidently in God's purpose for her life.</p>
+        <a href="#" class="btn-watch" onclick="go('contact')" style="display:inline-block;">Connect With Us</a>
+      </div>
+      <div class="img-frame"><div class="img-placeholder"><div class="cross">&#x271D;</div><p>Women's Ministry photo coming soon</p></div></div>
+    </div>
+  </div></section>
+  <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('mens')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Men's Ministry →</a><a href="#" onclick="go('biblestudy')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Bible Study →</a><a href="#" onclick="go('services')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Sunday Services →</a><a href="#" onclick="go('ministries')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">All Ministries →</a><a href="#" onclick="go('contact')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Contact Us →</a></div></div></div>
+</div>
+
+<div id="page-biblestudy" class="page">
+  <div class="page-hdr"><div class="page-hdr-inner"><p class="eyebrow anim">Adult Ministry</p><h1>Bible Study</h1></div></div>
+  <div style="max-width:1200px;margin:0 auto;padding:16px 48px 0;"><a href="#" onclick="go('ministries')" style="font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;">← Back to All Ministries</a></div>
+  <section style="background:var(--parchment);"><div class="sec">
+    <div class="about-grid">
+      <div>
+        <p class="sec-label anim">Every Wednesday Evening</p><div class="sec-rule"></div>
+        <h2 class="sec-title anim">Going <em>Deeper</em></h2>
+        <p class="sec-body">Midweek Bible Study is a warm, discussion-based gathering for adults who want to go deeper into God's Word together.</p>
+        <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:32px;">We work through books of the Bible, ask honest questions, and apply Scripture to everyday life. No prior knowledge required, just a desire to learn and grow. Kids Pac and Pathfinders run at the same time, so bring the whole family.</p>
+        <a href="#" class="btn-watch" onclick="go('contact')" style="display:inline-block;">Join Us Wednesday</a>
+      </div>
+      <div class="img-frame"><div class="img-placeholder"><div class="cross">&#x271D;</div><p>Bible Study photo coming soon</p></div></div>
+    </div>
+  </div></section>
+  <section><div class="sec">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
+      <div style="background:var(--parchment);border:1px solid var(--border);border-left:4px solid var(--gold);padding:24px;border-radius:4px;"><h4 style="font-family:var(--font-d);font-size:19px;font-weight:700;color:var(--navy);margin-bottom:8px;">When</h4><p style="font-size:15px;color:var(--text);">Every Wednesday Evening<br>6:30 PM – 8:00 PM</p></div>
+      <div style="background:var(--parchment);border:1px solid var(--border);border-left:4px solid var(--gold);padding:24px;border-radius:4px;"><h4 style="font-family:var(--font-d);font-size:19px;font-weight:700;color:var(--navy);margin-bottom:8px;">Who</h4><p style="font-size:15px;color:var(--text);">Adults of all ages<br>All are welcome</p></div>
+      <div style="background:var(--parchment);border:1px solid var(--border);border-left:4px solid var(--gold);padding:24px;border-radius:4px;"><h4 style="font-family:var(--font-d);font-size:19px;font-weight:700;color:var(--navy);margin-bottom:8px;">Also</h4><p style="font-size:15px;color:var(--text);">Wednesday Morning Prayer<br>11:00 AM</p></div>
+    </div>
+  </div></section>
+  <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('firstthings')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">First Things First →</a><a href="#" onclick="go('wednesday')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Wednesday Night →</a><a href="#" onclick="go('services')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Sunday Services →</a><a href="#" onclick="go('ministries')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">All Ministries →</a><a href="#" onclick="go('contact')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Contact Us →</a></div></div></div>
+</div>
+
+<div id="page-rooted" class="page">
+  <div class="page-hdr"><div class="page-hdr-inner"><p class="eyebrow anim">High School Ministry</p><h1>Rooted<br><em>Youth Group</em></h1></div></div>
+  <div style="max-width:1200px;margin:0 auto;padding:16px 48px 0;"><a href="#" onclick="go('ministries')" style="font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;">← Back to All Ministries</a></div>
+  <section style="background:var(--parchment);"><div class="sec">
+    <div class="about-grid">
+      <div>
+        <p class="sec-label anim">Port Colborne High School</p><div class="sec-rule"></div>
+        <h2 class="sec-title anim">Put Down <em>Roots</em></h2>
+        <p class="sec-body">Rooted is our youth group specifically connecting with Port Colborne high school students, helping young people find their identity, community, and purpose in Christ.</p>
+        <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:32px;">High school is full of big questions. Rooted is a safe place to ask them. We meet, talk honestly, worship together, and build the kind of friendships that help teens stand firm in their faith.</p>
+        <a href="#" class="btn-watch" onclick="go('contact')" style="display:inline-block;">Get Connected</a>
+      </div>
+      <div class="img-frame"><div class="img-placeholder"><div class="cross">&#x271D;</div><p>Rooted photo coming soon</p></div></div>
+    </div>
+  </div></section>
+  <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('pathfinders')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Pathfinders Youth →</a><a href="#" onclick="go('wednesday')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Wednesday Night →</a><a href="#" onclick="go('services')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Sunday Services →</a><a href="#" onclick="go('ministries')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">All Ministries →</a><a href="#" onclick="go('contact')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Contact Us →</a></div></div></div>
+</div>
+
+<div id="page-firstthings" class="page">
+  <div class="page-hdr"><div class="page-hdr-inner"><p class="eyebrow anim">Discipleship</p><h1>First Things<br><em>First</em></h1></div></div>
+  <div style="max-width:1200px;margin:0 auto;padding:16px 48px 0;"><a href="#" onclick="go('ministries')" style="font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;">← Back to All Ministries</a></div>
+  <section style="background:var(--parchment);"><div class="sec">
+    <div class="about-grid">
+      <div>
+        <p class="sec-label anim">New &amp; Growing Believers</p><div class="sec-rule"></div>
+        <h2 class="sec-title anim">Beginning Your <em>Journey</em></h2>
+        <p class="sec-body">First Things First is a foundational discipleship program designed for those who are new to faith, or who want to revisit the essentials of following Jesus.</p>
+        <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:32px;">We cover the basics: who God is, what the Bible says, how to pray, and what it means to live as a follower of Jesus. It's practical, welcoming, and a great next step for anyone exploring Christian faith.</p>
+        <a href="#" class="btn-watch" onclick="go('contact')" style="display:inline-block;">Find Out More</a>
+      </div>
+      <div class="img-frame"><div class="img-placeholder"><div class="cross">&#x271D;</div><p>First Things First photo coming soon</p></div></div>
+    </div>
+  </div></section>
+  <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('biblestudy')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Bible Study →</a><a href="#" onclick="go('beliefs')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">What We Believe →</a><a href="#" onclick="go('services')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Sunday Services →</a><a href="#" onclick="go('ministries')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">All Ministries →</a><a href="#" onclick="go('contact')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Contact Us →</a></div></div></div>
+</div>
+
+<div id="page-daycamp" class="page">
+  <div class="page-hdr"><div class="page-hdr-inner"><p class="eyebrow anim">Summer Program</p><h1>Weeklong<br><em>Day Camp</em></h1></div></div>
+  <div style="max-width:1200px;margin:0 auto;padding:16px 48px 0;"><a href="#" onclick="go('ministries')" style="font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;">← Back to All Ministries</a></div>
+  <section style="background:var(--parchment);"><div class="sec">
+    <div class="about-grid">
+      <div>
+        <p class="sec-label anim">Summer</p><div class="sec-rule"></div>
+        <h2 class="sec-title anim">The Best Week <em>of Summer</em></h2>
+        <p class="sec-body">Our weeklong Day Camp is a highlight of the summer, two full weeks of outdoor activities, creative crafts, music, Bible stories, and friendships that last all year.</p>
+        <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:32px;">Day Camp runs for two weeks each summer and is open to all children in the community. It's a great week for kids to experience faith, fun, and belonging together in a safe and caring environment.</p>
+        <a href="#" class="btn-watch" onclick="go('contact')" style="display:inline-block;">Register Your Child</a>
+      </div>
+      <div class="img-frame"><div class="img-placeholder"><div class="cross">&#x271D;</div><p>Day Camp photo coming soon</p></div></div>
+    </div>
+  </div></section>
+  <section><div class="sec">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
+      <div style="background:var(--parchment);border:1px solid var(--border);border-left:4px solid var(--gold);padding:24px;border-radius:4px;"><h4 style="font-family:var(--font-d);font-size:19px;font-weight:700;color:var(--navy);margin-bottom:8px;">Week 1</h4><p style="font-size:15px;color:var(--text);">July 8 – 12<br>9:00 AM – 4:00 PM daily</p></div>
+      <div style="background:var(--parchment);border:1px solid var(--border);border-left:4px solid var(--gold);padding:24px;border-radius:4px;"><h4 style="font-family:var(--font-d);font-size:19px;font-weight:700;color:var(--navy);margin-bottom:8px;">Week 2</h4><p style="font-size:15px;color:var(--text);">July 15 – 18<br>9:00 AM – 4:00 PM daily</p></div>
+      <div style="background:var(--parchment);border:1px solid var(--border);border-left:4px solid var(--gold);padding:24px;border-radius:4px;"><h4 style="font-family:var(--font-d);font-size:19px;font-weight:700;color:var(--navy);margin-bottom:8px;">Who</h4><p style="font-size:15px;color:var(--text);">Children ages 5–12<br>All are welcome</p></div>
+    </div>
+  </div></section>
+  <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('kidspac')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Kids Pac →</a><a href="#" onclick="go('contact')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Summer Camp Info →</a><a href="#" onclick="go('services')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Sunday Services →</a><a href="#" onclick="go('ministries')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">All Ministries →</a></div></div></div>
+</div>
+
+<div id="page-mission" class="page">
+  <div class="page-hdr"><div class="page-hdr-inner"><p class="eyebrow anim">Our Heart</p><h1>Mission<br><em>&amp; Vision</em></h1></div></div>
+  <div style="max-width:1200px;margin:0 auto;padding:16px 48px 0;"><a href="#" onclick="go('about')" style="font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;">← Back to About Us</a></div>
+  <section style="background:var(--parchment);"><div class="sec">
+    <div class="about-grid">
+      <div>
+        <p class="sec-label anim">Why We Exist</p><div class="sec-rule"></div>
+        <h2 class="sec-title anim">Called to Love.<br><em>Sent to Serve.</em></h2>
+        <p class="sec-body">Our mission is to lead people into a growing relationship with Jesus Christ, equip believers for ministry, and reach our community and world with the hope of the gospel.</p>
+        <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:20px;"><strong>Our Vision:</strong> A church where every person, regardless of background, age, or stage of faith, finds a place to belong, grow, and serve.</p>
+        <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;">We pursue this by gathering for worship every Sunday, equipping believers through midweek ministries, and reaching our neighbours through compassionate outreach and global missions.</p>
+      </div>
+      <div class="img-frame"><div class="img-placeholder"><div class="cross">&#x271D;</div><p>Church photo coming soon</p></div></div>
+    </div>
+  </div></section>
+  <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('leadership')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Leadership Team →</a><a href="#" onclick="go('beliefs')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">What We Believe →</a><a href="#" onclick="go('paoc')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">PAOC →</a><a href="#" onclick="go('mcs')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">MCS College →</a><a href="#" onclick="go('about')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">About Us →</a><a href="#" onclick="go('contact')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Contact Us →</a></div></div></div>
+</div>
+
+<div id="page-leadership" class="page">
+  <div class="page-hdr"><div class="page-hdr-inner"><p class="eyebrow anim">Our Team</p><h1>Leadership<br><em>Team</em></h1></div></div>
+  <div style="max-width:1200px;margin:0 auto;padding:16px 48px 0;"><a href="#" onclick="go('about')" style="font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;">← Back to About Us</a></div>
+  <section style="background:var(--parchment);"><div class="sec">
+    <p class="sec-label anim">The people who lead us</p><div class="sec-rule"></div>
+    <h2 class="sec-title anim">Faithful Servants <em>of Christ</em></h2>
+    <p class="sec-body">Our leadership team is committed to God, to one another, and to the people of Port Colborne. Guided by Scripture and empowered by the Holy Spirit, they serve with humility and joy.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:32px;">
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:36px 28px;text-align:center;"><div style="width:80px;height:80px;border:2px solid rgba(201,135,58,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:28px;color:var(--gold);">&#x271D;</div><h4 style="font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--navy);">Lead Pastor</h4><p style="font-size:13px;font-weight:600;color:var(--gold);margin-top:5px;margin-bottom:10px;">Name to be added</p><p style="font-size:14px;color:var(--text);line-height:1.6;">Leading our congregation with vision, compassion, and a deep love for God's people.</p></div>
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:36px 28px;text-align:center;"><div style="width:80px;height:80px;border:2px solid rgba(201,135,58,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:28px;color:var(--gold);">&#x271D;</div><h4 style="font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--navy);">Youth Pastor</h4><p style="font-size:13px;font-weight:600;color:var(--gold);margin-top:5px;margin-bottom:10px;">Name to be added</p><p style="font-size:14px;color:var(--text);line-height:1.6;">Passionate about the next generation and building a thriving youth community.</p></div>
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:36px 28px;text-align:center;"><div style="width:80px;height:80px;border:2px solid rgba(201,135,58,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:28px;color:var(--gold);">&#x271D;</div><h4 style="font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--navy);">Children's Director</h4><p style="font-size:13px;font-weight:600;color:var(--gold);margin-top:5px;margin-bottom:10px;">Name to be added</p><p style="font-size:14px;color:var(--text);line-height:1.6;">Creating safe, joyful spaces where children encounter God's love every week.</p></div>
+    </div>
+  </div></section>
+  <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('mission')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Mission & Vision →</a><a href="#" onclick="go('beliefs')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">What We Believe →</a><a href="#" onclick="go('paoc')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">PAOC →</a><a href="#" onclick="go('about')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">About Us →</a><a href="#" onclick="go('contact')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Contact Us →</a></div></div></div>
+</div>
+
+<div id="page-beliefs" class="page">
+  <div class="page-hdr"><div class="page-hdr-inner"><p class="eyebrow anim">Doctrine &amp; Theology</p><h1>What We<br><em>Believe</em></h1></div></div>
+  <div style="max-width:1200px;margin:0 auto;padding:16px 48px 0;"><a href="#" onclick="go('about')" style="font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;">← Back to About Us</a></div>
+  <section style="background:var(--parchment);"><div class="sec">
+    <p class="sec-label anim">Our Statement of Faith</p><div class="sec-rule"></div>
+    <h2 class="sec-title anim">Our Core <em>Beliefs</em></h2>
+    <p class="sec-body">As a Pentecostal church affiliated with the PAOC, our faith is rooted in Scripture and expressed in the following core beliefs.</p>
+    <ul class="beliefs" style="max-width:740px;margin-top:24px;">
+      <li>We believe in one God, eternally existing in three persons: Father, Son, and Holy Spirit.</li>
+      <li>We believe the Bible is the inspired, infallible, and authoritative Word of God.</li>
+      <li>We believe in the deity of Jesus Christ, His virgin birth, sinless life, atoning death, bodily resurrection, and ascension.</li>
+      <li>We believe salvation comes through repentance and faith in Jesus Christ alone, not by works.</li>
+      <li>We believe in water baptism by immersion as a public declaration of faith.</li>
+      <li>We believe in the baptism of the Holy Spirit with the initial evidence of speaking in other tongues.</li>
+      <li>We believe in the ongoing gifts of the Holy Spirit for the Church today.</li>
+      <li>We believe in divine healing through the redemptive work of Christ.</li>
+      <li>We believe in the imminent, physical, and personal return of Jesus Christ.</li>
+      <li>We believe in the resurrection of the dead, eternal life for the saved, eternal separation for the lost.</li>
+    </ul>
+  </div></section>
+  <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('mission')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Mission & Vision →</a><a href="#" onclick="go('leadership')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Leadership Team →</a><a href="#" onclick="go('paoc')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">PAOC →</a><a href="#" onclick="go('services')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Sunday Services →</a><a href="#" onclick="go('about')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">About Us →</a></div></div></div>
+</div>
+
+<div id="page-paoc" class="page">
+  <div class="page-hdr"><div class="page-hdr-inner"><p class="eyebrow anim">Our Affiliation</p><h1>Pentecostal Assemblies<br><em>of Canada</em></h1></div></div>
+  <div style="max-width:1200px;margin:0 auto;padding:16px 48px 0;"><a href="#" onclick="go('about')" style="font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;">← Back to About Us</a></div>
+  <section style="background:var(--parchment);"><div class="sec">
+    <p class="sec-label anim">PAOC</p><div class="sec-rule"></div>
+    <h2 class="sec-title anim">Part of Something <em>Larger</em></h2>
+    <p class="sec-body">NorthPark Worship Centre is proudly affiliated with the Pentecostal Assemblies of Canada, one of the country's largest Evangelical denominations.</p>
+    <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:20px;">The PAOC is a fellowship of over 1,100 churches and 250,000 adherents across Canada, united by a common faith, a commitment to the authority of Scripture, and the empowering work of the Holy Spirit.</p>
+    <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:32px;">Our affiliation connects us to a national network of churches, mission workers, and ministry resources, so that the work we do locally is part of a much larger story of God's kingdom advancing across Canada and around the world.</p>
+    <a href="https://paoc.org" target="_blank" class="btn-watch" style="display:inline-block;">Visit PAOC.org</a>
+  </div></section>
+  <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('mission')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Mission & Vision →</a><a href="#" onclick="go('mcs')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">MCS College →</a><a href="#" onclick="go('beliefs')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">What We Believe →</a><a href="#" onclick="go('about')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">About Us →</a></div></div></div>
+</div>
+
+<div id="page-mcs" class="page">
+  <div class="page-hdr"><div class="page-hdr-inner"><p class="eyebrow anim">Theological Education</p><h1>MCS Bible<br><em>College Hub</em></h1></div></div>
+  <div style="max-width:1200px;margin:0 auto;padding:16px 48px 0;"><a href="#" onclick="go('about')" style="font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;">← Back to About Us</a></div>
+  <section style="background:var(--parchment);"><div class="sec">
+    <p class="sec-label anim">Local Training, National College</p><div class="sec-rule"></div>
+    <h2 class="sec-title anim">Grow Deeper<br><em>in Your Faith</em></h2>
+    <p class="sec-body">NorthPark serves as a local hub for Master's College and Seminary, bringing accredited theological education right here to Port Colborne.</p>
+    <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:20px;">MCS offers degree and certificate programs in ministry, theology, and leadership, designed for those who want to deepen their knowledge of Scripture and grow in their calling, whether for vocational ministry or personal growth.</p>
+    <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:32px;">As a local hub, NorthPark makes it possible to access quality theological education without leaving your community. Contact us to find out what's currently available.</p>
+    <a href="#" onclick="go('contact')" class="btn-watch" style="display:inline-block;">Ask Us About It</a>
+  </div></section>
+</div>
+
+<div id="page-wednesday" class="page">
+  <div class="page-hdr"><div class="page-hdr-inner"><p class="eyebrow anim">Midweek Programs</p><h1>Wednesday<br><em>Family Night</em></h1></div></div>
+  <div style="max-width:1200px;margin:0 auto;padding:16px 48px 0;"><a href="#" onclick="go('services')" style="font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;">← Back to Sunday Services</a></div>
+  <section style="background:var(--parchment);"><div class="sec">
+    <p class="sec-label anim">Every Wednesday Evening · 6:30 PM</p><div class="sec-rule"></div>
+    <h2 class="sec-title anim">The Whole Family<br><em>is Welcome</em></h2>
+    <p class="sec-body">Wednesday nights are designed so that every member of the family has somewhere to go, all at the same time, all under one roof.</p>
+    <div class="wed-cols" style="margin-top:32px;">
+      <div>
+        <div class="wed-entry anim"><div class="wed-num">01</div><div><h4>Pathfinders Youth</h4><p>High-energy teen ministry for grades 7–12. Worship, teaching, and genuine community.</p><a href="#" onclick="go('pathfinders')" style="color:var(--gold);font-size:14px;font-weight:700;text-decoration:none;margin-top:8px;display:inline-block;">Learn More →</a></div></div>
+        <div class="wed-entry anim"><div class="wed-num">02</div><div><h4>Kids Pac</h4><p>Bible stories, crafts, and games for children in Grades K–6.</p><a href="#" onclick="go('kidspac')" style="color:var(--gold);font-size:14px;font-weight:700;text-decoration:none;margin-top:8px;display:inline-block;">Learn More →</a></div></div>
+        <div class="wed-entry anim"><div class="wed-num">03</div><div><h4>Adult Bible Study</h4><p>Going deeper into Scripture together in a warm, discussion-based setting.</p><a href="#" onclick="go('biblestudy')" style="color:var(--gold);font-size:14px;font-weight:700;text-decoration:none;margin-top:8px;display:inline-block;">Learn More →</a></div></div>
+      </div>
+      <div class="wed-cta">
+        <p class="wc-label">Every Wednesday evening</p>
+        <h3>6:30 PM</h3>
+        <div class="wc-time">September – May</div>
+        <p>Drop off the kids, send the teens to Pathfinders, or join us for Bible Study, this night was built for your whole family.</p>
+        <a href="#" onclick="go('contact')" class="btn-watch">Get More Info</a>
+      </div>
+    </div>
+  </div></section>
+</div>
+
+<div id="page-worldmissions" class="page">
+  <div class="page-hdr"><div class="page-hdr-inner"><p class="eyebrow anim">Global Outreach</p><h1>World<br><em>Missions</em></h1></div></div>
+  <div style="max-width:1200px;margin:0 auto;padding:16px 48px 0;"><a href="#" onclick="go('missions')" style="font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;">← Back to All Missions</a></div>
+  <section style="background:var(--parchment);"><div class="sec">
+    <p class="sec-label anim">Our Global Partners</p><div class="sec-rule"></div>
+    <h2 class="sec-title anim">Reaching the<br><em>Nations</em></h2>
+    <p class="sec-body">NorthPark partners with and financially supports mission workers around the world, helping advance the gospel beyond our borders.</p>
+    <div style="display:grid;gap:16px;margin-top:32px;max-width:740px;">
+      <div style="background:var(--white);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:4px;padding:24px 28px;"><h4 style="font-family:var(--font-d);font-size:21px;font-weight:700;color:var(--navy);margin-bottom:6px;">Ed Dickson, Loads of Love</h4><p style="font-size:15px;font-weight:700;color:var(--gold);margin-bottom:10px;">Ukraine</p><p style="font-size:16px;font-weight:400;color:var(--text);line-height:1.75;">Humanitarian aid and gospel ministry in Ukraine. Ed Dickson brings practical relief and the hope of Christ to families affected by conflict.</p></div>
+      <div style="background:var(--white);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:4px;padding:24px 28px;"><h4 style="font-family:var(--font-d);font-size:21px;font-weight:700;color:var(--navy);margin-bottom:6px;">Jonathan &amp; Sarah Lublinkov</h4><p style="font-size:15px;font-weight:700;color:var(--gold);margin-bottom:10px;">PAOC World Missions</p><p style="font-size:16px;font-weight:400;color:var(--text);line-height:1.75;">International church planting and evangelism through the Pentecostal Assemblies of Canada's global mission network.</p></div>
+      <div style="background:var(--white);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:4px;padding:24px 28px;"><h4 style="font-family:var(--font-d);font-size:21px;font-weight:700;color:var(--navy);margin-bottom:6px;">Erdo</h4><p style="font-size:15px;font-weight:700;color:var(--gold);margin-bottom:10px;">International Partner</p><p style="font-size:16px;font-weight:400;color:var(--text);line-height:1.75;">Details to be updated. Contact us to learn more about this mission partnership.</p></div>
+    </div>
+  </div></section>
+  <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('homemissions')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Home Missions →</a><a href="#" onclick="go('contact')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Contact Us →</a><a href="#" onclick="go('missions')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">All Missions →</a></div></div></div>
+</div>
+
+<div id="page-homemissions" class="page">
+  <div class="page-hdr"><div class="page-hdr-inner"><p class="eyebrow anim">Local Outreach</p><h1>Home Missions<br><em>&amp; Outreach</em></h1></div></div>
+  <div style="max-width:1200px;margin:0 auto;padding:16px 48px 0;"><a href="#" onclick="go('missions')" style="font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;">← Back to All Missions</a></div>
+  <section style="background:var(--parchment);"><div class="sec">
+    <p class="sec-label anim">Serving Port Colborne</p><div class="sec-rule"></div>
+    <h2 class="sec-title anim">Loving Our<br><em>Neighbours</em></h2>
+    <p class="sec-body">We believe the church exists for its community. Here are some of the ways NorthPark serves the people of Port Colborne and the surrounding area.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:32px;">
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px 24px;"><h4 style="font-family:var(--font-d);font-size:20px;font-weight:700;color:var(--navy);margin-bottom:6px;">Port Cares Food Bank</h4><p style="font-size:15px;font-weight:400;color:var(--text);line-height:1.7;">Supporting local families with food security. We regularly collect and donate to the Port Cares Food Bank.</p></div>
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px 24px;"><h4 style="font-family:var(--font-d);font-size:20px;font-weight:700;color:var(--navy);margin-bottom:6px;">Lions Food Drive</h4><p style="font-size:15px;font-weight:400;color:var(--text);line-height:1.7;">Community food collection in partnership with the local Lions Club, keeping pantries stocked for those in need.</p></div>
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px 24px;"><h4 style="font-family:var(--font-d);font-size:20px;font-weight:700;color:var(--navy);margin-bottom:6px;">Canadian Blood Services</h4><p style="font-size:15px;font-weight:400;color:var(--text);line-height:1.7;">Our congregation supports life-saving blood donation drives, one of the most direct ways to help save lives.</p></div>
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px 24px;"><h4 style="font-family:var(--font-d);font-size:20px;font-weight:700;color:var(--navy);margin-bottom:6px;">South Niagara Life Center</h4><p style="font-size:15px;font-weight:400;color:var(--text);line-height:1.7;">A regional outreach partner serving vulnerable community members across South Niagara.</p></div>
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px 24px;"><h4 style="font-family:var(--font-d);font-size:20px;font-weight:700;color:var(--navy);margin-bottom:6px;">Clothes for Missions</h4><p style="font-size:15px;font-weight:400;color:var(--text);line-height:1.7;">Collecting and distributing clothing to those in need, locally in Port Colborne and globally through our mission partners.</p></div>
+    </div>
+  </div></section>
+  <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('worldmissions')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">World Missions →</a><a href="#" onclick="go('contact')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Contact Us →</a><a href="#" onclick="go('missions')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">All Missions →</a></div></div></div>
+</div>
+
+<div id="page-livestream" class="page">
+  <div class="page-hdr"><div class="page-hdr-inner">
+    <p class="eyebrow anim">Messages, archives and live services</p>
+    <h1>Sermons &amp; <em>Watch Live</em></h1>
+  </div></div>
+
+  <!-- SERMONS INTRO -->
+  <section style="background:var(--parchment);">
+    <div class="sec">
+      <p class="sec-label">Available anytime</p><div class="sec-rule"></div>
+      <h2 class="sec-title">Recent <em>Messages</em></h2>
+      <p style="font-size:16px;font-weight:400;color:var(--muted);line-height:1.8;max-width:600px;margin-bottom:32px;">
+        Catch up on past sermons from NorthPark Worship Centre. Every Sunday message is recorded and available to watch or listen to anytime.
+      </p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;">
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden;cursor:pointer;" onclick="go('livestream');setTimeout(function(){switchStream('archive');},50)">
+          <div style="background:linear-gradient(135deg,var(--navy),#0d2040);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;"><i class="fa-brands fa-youtube" style="font-size:36px;color:rgba(255,255,255,.25);"></i></div>
+          <div style="padding:16px 18px;">
+            <p style="font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Most Recent</p>
+            <h4 style="font-family:var(--font-d);font-size:18px;font-weight:700;color:var(--navy);margin-bottom:4px;">Building People, Making Disciples</h4>
+            <p style="font-size:13px;color:var(--muted);">Sunday Service · NorthPark Worship Centre</p>
+          </div>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden;cursor:pointer;" onclick="go('livestream');setTimeout(function(){switchStream('archive');},50)">
+          <div style="background:linear-gradient(135deg,#0d1520,var(--navy));aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;"><i class="fa-brands fa-youtube" style="font-size:36px;color:rgba(255,255,255,.25);"></i></div>
+          <div style="padding:16px 18px;">
+            <p style="font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Previous Week</p>
+            <h4 style="font-family:var(--font-d);font-size:18px;font-weight:700;color:var(--navy);margin-bottom:4px;">Sermon title to be added</h4>
+            <p style="font-size:13px;color:var(--muted);">Sunday Service · NorthPark Worship Centre</p>
+          </div>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden;cursor:pointer;" onclick="go('livestream');setTimeout(function(){switchStream('archive');},50)">
+          <div style="background:linear-gradient(135deg,#0a1825,#112240);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;"><i class="fa-brands fa-youtube" style="font-size:36px;color:rgba(255,255,255,.25);"></i></div>
+          <div style="padding:16px 18px;">
+            <p style="font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">2 Weeks Ago</p>
+            <h4 style="font-family:var(--font-d);font-size:18px;font-weight:700;color:var(--navy);margin-bottom:4px;">Sermon title to be added</h4>
+            <p style="font-size:13px;color:var(--muted);">Sunday Service · NorthPark Worship Centre</p>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="https://youtube.com" target="_blank" class="btn-navy" style="display:inline-flex;align-items:center;gap:8px;"><i class="fa-brands fa-youtube"></i> Full Archive on YouTube</a>
+        <a href="#" onclick="document.getElementById('stream-section').scrollIntoView({behavior:'smooth'})" class="btn-watch" style="display:inline-flex;align-items:center;gap:8px;"><i class="fa-solid fa-circle" style="font-size:8px;animation:pulse 1.2s infinite;"></i> Watch Live</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE STATUS BANNER -->
+  <div id="live-banner" style="background:var(--gold);padding:14px 48px;text-align:center;display:none;">
+    <span style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink);">
+      <i class="fa-solid fa-circle" style="font-size:9px;margin-right:6px;animation:pulse 1.2s infinite;"></i>
+      We are live right now, join the service below
+    </span>
+  </div>
+
+  <!-- MAIN EMBED -->
+  <section id="stream-section" style="background:var(--ink);padding:40px 48px;">
+    <div class="sec">
+
+      <!-- TAB SWITCHER -->
+      <div style="display:flex;gap:0;margin-bottom:24px;border:1px solid rgba(255,255,255,.12);border-radius:6px;overflow:hidden;width:fit-content;"><button onclick="switchStream('archive')" id="tab-archive" style="padding:11px 28px;font-family:var(--font-b);font-size:13px;font-weight:700;cursor:pointer;border:none;background:var(--gold);color:var(--ink);transition:background .2s;"><i class="fa-solid fa-film" style="margin-right:7px;"></i>Past Sermons</button><button onclick="switchStream('youtube')" id="tab-youtube" style="padding:11px 28px;font-family:var(--font-b);font-size:13px;font-weight:700;cursor:pointer;border:none;background:rgba(255,255,255,.07);color:rgba(255,255,255,.65);transition:background .2s;"><i class="fa-brands fa-youtube" style="margin-right:7px;"></i>YouTube</button><button onclick="switchStream('facebook')" id="tab-facebook" style="padding:11px 28px;font-family:var(--font-b);font-size:13px;font-weight:700;cursor:pointer;border:none;background:rgba(255,255,255,.07);color:rgba(255,255,255,.65);transition:background .2s;"><i class="fa-brands fa-facebook-f" style="margin-right:7px;"></i>Facebook</button><button onclick="switchStream('embed')" id="tab-embed" style="padding:11px 28px;font-family:var(--font-b);font-size:13px;font-weight:700;cursor:pointer;border:none;background:rgba(255,255,255,.07);color:rgba(255,255,255,.65);transition:background .2s;"><i class="fa-solid fa-tv" style="margin-right:7px;"></i>Watch Here</button></div>
+
+      <!-- YOUTUBE PANEL -->
+      <div id="stream-youtube" class="stream-panel" style="display:none;">
+        <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:48px;text-align:center;">
+          <i class="fa-brands fa-youtube" style="font-size:56px;color:#FF0000;margin-bottom:20px;display:block;"></i>
+          <h3 style="font-family:var(--font-d);font-size:26px;font-weight:700;color:white;margin-bottom:10px;">Watch on YouTube</h3>
+          <p style="font-size:15px;font-weight:400;color:rgba(255,255,255,.75);line-height:1.7;max-width:480px;margin:0 auto 28px;">Subscribe to our YouTube channel to watch services live every Sunday at 10:30 AM and access our full sermon archive anytime.</p>
+          <a href="https://youtube.com" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#FF0000;color:white;padding:14px 32px;font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;transition:opacity .2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+            <i class="fa-brands fa-youtube"></i> Open YouTube Channel
+          </a>
+          <p style="font-size:12px;color:rgba(255,255,255,.35);margin-top:16px;">Replace this link with your church YouTube channel URL</p>
+        </div>
+      </div>
+
+      <!-- FACEBOOK PANEL -->
+      <div id="stream-facebook" class="stream-panel" style="display:none;">
+        <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:48px;text-align:center;">
+          <i class="fa-brands fa-facebook" style="font-size:56px;color:#1877F2;margin-bottom:20px;display:block;"></i>
+          <h3 style="font-family:var(--font-d);font-size:26px;font-weight:700;color:white;margin-bottom:10px;">Watch on Facebook</h3>
+          <p style="font-size:15px;font-weight:400;color:rgba(255,255,255,.75);line-height:1.7;max-width:480px;margin:0 auto 28px;">Follow our Facebook page to catch services live and watch replays. Like the page to get notified when we go live.</p>
+          <a href="https://facebook.com" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#1877F2;color:white;padding:14px 32px;font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;transition:opacity .2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+            <i class="fa-brands fa-facebook-f"></i> Open Facebook Page
+          </a>
+          <p style="font-size:12px;color:rgba(255,255,255,.35);margin-top:16px;">Replace this link with your church Facebook page URL</p>
+        </div>
+      </div>
+
+      <!-- EMBED PANEL -->
+      <div id="stream-embed" class="stream-panel" style="display:none;">
+        <div style="background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.1);border-radius:6px;overflow:hidden;">
+          <div style="position:relative;padding-bottom:56.25%;height:0;">
+            <iframe
+              id="yt-embed"
+              src="https://www.youtube.com/embed/live_stream?channel=CHANNEL_ID_HERE&autoplay=0"
+              style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div style="padding:16px 20px;background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+            <p style="font-size:13px;color:rgba(255,255,255,.55);">
+              <i class="fa-solid fa-circle-info" style="margin-right:6px;color:var(--gold);"></i>
+              Replace <code style="background:rgba(255,255,255,.1);padding:2px 6px;border-radius:3px;font-size:11px;">CHANNEL_ID_HERE</code> with your YouTube Channel ID to enable live embedding.
+            </p>
+            <a href="https://youtube.com" target="_blank" style="font-size:13px;font-weight:700;color:var(--gold);text-decoration:none;">Open in YouTube →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAST SERMONS / ARCHIVE PANEL -->
+      <div id="stream-archive" class="stream-panel">
+        <div style="background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.1);border-radius:6px;overflow:hidden;">
+          <div style="position:relative;padding-bottom:56.25%;height:0;">
+            <iframe
+              src="https://www.youtube.com/embed/videoseries?list=PLAYLIST_ID_HERE"
+              style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div style="padding:16px 20px;background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+            <p style="font-size:13px;color:rgba(255,255,255,.7);">
+              <i class="fa-solid fa-circle-info" style="margin-right:6px;color:var(--gold);"></i>
+              Replace <code style="background:rgba(255,255,255,.1);padding:2px 6px;border-radius:3px;font-size:11px;">PLAYLIST_ID_HERE</code> with your YouTube Playlist ID to show all past sermons here.
+            </p>
+            <a href="https://youtube.com" target="_blank" style="font-size:13px;font-weight:700;color:var(--gold);text-decoration:none;">Browse all on YouTube →</a>
+          </div>
+        </div>
+        <div style="margin-top:24px;">
+          <h3 style="font-family:var(--font-d);font-size:22px;font-weight:700;color:white;margin-bottom:18px;">Recent Messages</h3>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;">
+            <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;overflow:hidden;">
+              <div style="background:linear-gradient(135deg,var(--navy),#0d2040);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;"><i class="fa-brands fa-youtube" style="font-size:40px;color:rgba(255,255,255,.2);"></i></div>
+              <div style="padding:16px;">
+                <p style="font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Most Recent</p>
+                <h4 style="font-family:var(--font-d);font-size:18px;font-weight:700;color:white;margin-bottom:6px;">Building People, Making Disciples</h4>
+                <p style="font-size:13px;color:rgba(255,255,255,.75);">Sunday Service · NorthPark</p>
+                <a href="https://youtube.com" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:13px;font-weight:700;color:var(--gold);text-decoration:none;">Watch Now →</a>
+              </div>
+            </div>
+            <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;overflow:hidden;">
+              <div style="background:linear-gradient(135deg,#0d1520,var(--navy));aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;"><i class="fa-brands fa-youtube" style="font-size:40px;color:rgba(255,255,255,.2);"></i></div>
+              <div style="padding:16px;">
+                <p style="font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Previous Week</p>
+                <h4 style="font-family:var(--font-d);font-size:18px;font-weight:700;color:white;margin-bottom:6px;">Sermon title to be added</h4>
+                <p style="font-size:13px;color:rgba(255,255,255,.75);">Sunday Service · NorthPark</p>
+                <a href="https://youtube.com" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:13px;font-weight:700;color:var(--gold);text-decoration:none;">Watch Now →</a>
+              </div>
+            </div>
+            <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;overflow:hidden;">
+              <div style="background:linear-gradient(135deg,#0a1825,#112240);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;"><i class="fa-brands fa-youtube" style="font-size:40px;color:rgba(255,255,255,.2);"></i></div>
+              <div style="padding:16px;">
+                <p style="font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">2 Weeks Ago</p>
+                <h4 style="font-family:var(--font-d);font-size:18px;font-weight:700;color:white;margin-bottom:6px;">Sermon title to be added</h4>
+                <p style="font-size:13px;color:rgba(255,255,255,.75);">Sunday Service · NorthPark</p>
+                <a href="https://youtube.com" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:13px;font-weight:700;color:var(--gold);text-decoration:none;">Watch Now →</a>
+              </div>
+            </div>
+          </div>
+          <div style="text-align:center;margin-top:24px;">
+            <a href="https://youtube.com" target="_blank" style="display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(184,150,90,.35);color:var(--gold);padding:12px 28px;font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .2s;" onmouseover="this.style.background='rgba(201,135,58,.1)'" onmouseout="this.style.background='transparent'">
+              <i class="fa-brands fa-youtube"></i> View Full Sermon Archive on YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICE INFO + WHAT TO EXPECT -->
+  <section style="background:var(--parchment);">
+    <div class="sec">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
+        <div>
+          <p class="sec-label anim">Service times</p><div class="sec-rule"></div>
+          <h2 class="sec-title anim">When We Go <em>Live</em></h2>
+          <div style="display:flex;flex-direction:column;gap:14px;margin-top:8px;">
+            <div style="display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--border);">
+              <div style="min-width:52px;text-align:center;background:var(--navy);border-radius:4px;padding:8px 6px;"><div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);">Sun</div><div style="font-family:var(--font-d);font-size:24px;font-weight:400;color:white;line-height:1;">10:30</div></div>
+              <div><h4 style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:4px;">Sunday Worship Service</h4><p style="font-size:14px;font-weight:400;color:var(--text);">Our main service streams live every Sunday. Usually 60–70 minutes including worship, announcements, and the message.</p></div>
+            </div>
+            <div style="display:flex;gap:16px;align-items:flex-start;padding:16px 0;">
+              <div style="min-width:52px;text-align:center;background:var(--navy);border-radius:4px;padding:8px 6px;"><div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);">Any</div><div style="font-family:var(--font-d);font-size:14px;font-weight:400;color:white;line-height:1.2;margin-top:4px;">time</div></div>
+              <div><h4 style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:4px;">Sermon Archive</h4><p style="font-size:14px;font-weight:400;color:var(--text);">Missed a Sunday? All past messages are available on YouTube anytime you need them.</p></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="sec-label anim">What to expect</p><div class="sec-rule"></div>
+          <h2 class="sec-title anim">Joining Us <em>Online</em></h2>
+          <div style="display:flex;flex-direction:column;gap:12px;margin-top:8px;">
+            <div style="display:flex;gap:14px;align-items:flex-start;">
+              <div class="card-icon"><i class="fa-solid fa-wifi"></i></div>
+              <div><h5 style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:3px;">No login required</h5><p style="font-size:14px;color:var(--text);">Just click the link, no account needed to watch on YouTube.</p></div>
+            </div>
+            <div style="display:flex;gap:14px;align-items:flex-start;">
+              <div class="card-icon"><i class="fa-solid fa-comments"></i></div>
+              <div><h5 style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:3px;">Live chat</h5><p style="font-size:14px;color:var(--text);">Say hi and connect with others watching from home in the live chat.</p></div>
+            </div>
+            <div style="display:flex;gap:14px;align-items:flex-start;">
+              <div class="card-icon"><i class="fa-solid fa-bell"></i></div>
+              <div><h5 style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:3px;">Get notified</h5><p style="font-size:14px;color:var(--text);">Subscribe and hit the bell on YouTube so you never miss a service.</p></div>
+            </div>
+            <div style="display:flex;gap:14px;align-items:flex-start;">
+              <div class="card-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+              <div><h5 style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:3px;">Give online</h5><p style="font-size:14px;color:var(--text);">Watching from home? You can still give via e-transfer to <a href="mailto:claportcolborne@gmail.com" style="color:var(--gold);text-decoration:none;font-weight:700;">claportcolborne@gmail.com</a></p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:var(--navy);padding:48px;">
+    <div style="max-width:700px;margin:0 auto;text-align:center;">
+      <h2 style="font-family:var(--font-d);font-size:32px;font-weight:700;color:white;margin-bottom:12px;">We'd love to see you <em style="color:var(--gold-lt);">in person</em></h2>
+      <p style="font-size:16px;font-weight:400;color:rgba(255,255,255,.80);line-height:1.75;margin-bottom:28px;">Online church is a great option, but there's nothing like being together. If you're local to Port Colborne, come join us any Sunday at 10:30 AM.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="#" onclick="go('services')" class="btn-watch">Plan Your Visit</a>
+        <a href="#" onclick="go('contact')" class="btn-listen">Get Directions</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="fb-logo">North<em>Park</em> Worship Centre</div>
+      <div class="fb-sub">Christian Life Assembly · Port Colborne, ON</div>
+      <div class="fb-rule"></div>
+      <p class="fb-desc">A Spirit-filled community in Port Colborne, Ontario, welcoming all to know Christ, grow in faith, and serve the world.</p>
+      <div class="footer-social">
+        <a href="https://facebook.com" target="_blank" class="soc" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://instagram.com" target="_blank" class="soc" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://youtube.com" target="_blank" class="soc" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://tiktok.com" target="_blank" class="soc" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="mailto:claportcolborne@gmail.com" class="soc" title="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="fc"><h4>About</h4><a href="#" onclick="go('about')">About Us</a><a href="#" onclick="go('about')">Mission &amp; Vision</a><a href="#" onclick="go('about')">What We Believe</a><a href="#" onclick="go('about')">Leadership Team</a><a href="#" onclick="go('about')">PAOC</a><a href="#" onclick="go('about')">MCS College Hub</a></div>
+    <div class="fc"><h4>Ministries</h4><a href="#" onclick="go('ministries')">Pathfinders Youth</a><a href="#" onclick="go('ministries')">Kids Pac</a><a href="#" onclick="go('ministries')">Men's Ministry</a><a href="#" onclick="go('ministries')">Women's Ministry</a><a href="#" onclick="go('ministries')">Bible Study</a><a href="#" onclick="go('ministries')">Day Camp</a></div>
+    <div class="fc"><h4>Connect</h4><a href="#" onclick="go('services')">Sunday Service</a><a href="#" onclick="go('missions')">Missions</a><a href="#" onclick="go('sports')">Sports</a><a href="#" onclick="go('livestream')">Sermons</a><a href="#" onclick="go('resources')">Resources</a><a href="#" onclick="go('livestream')">Watch Live</a><a href="#" onclick="go('giving')">Give</a><a href="#" onclick="go('contact')">Contact</a></div>
+  </div>
+  <div class="footer-bot">© 2025 NorthPark Worship Centre (Christian Life Assembly) · 484 Barrick Rd, Port Colborne ON L3K 4B7 · <a href="tel:9058344313">905.834.4313</a> · <a href="mailto:claportcolborne@gmail.com">claportcolborne@gmail.com</a></div>
+</footer>
+
+
+<!-- ══════════ CALENDAR ══════════ -->
+<div id="page-calendar" class="page">
+  <div class="page-hdr">
+    <div class="page-hdr-inner">
+      <p class="eyebrow anim">What's coming up</p>
+      <h1>Events <em>Calendar</em></h1>
+    </div>
+  </div>
+  <section style="background:var(--parchment);">
+    <div class="sec">
+      <div class="cal-wrap">
+        <!-- Month nav -->
+        <div class="cal-header">
+          <button class="cal-arrow" onclick="calPrev()">&#8592;</button>
+          <h2 class="cal-month-title" id="calTitle"></h2>
+          <button class="cal-arrow" onclick="calNext()">&#8594;</button>
+        </div>
+        <!-- Day-of-week labels -->
+        <div class="cal-dow">
+          <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+        </div>
+        <!-- Day cells -->
+        <div class="cal-grid" id="calGrid"></div>
+        <!-- Legend / upcoming list -->
+        <div class="cal-legend">
+          <h3>Recurring Weekly</h3>
+          <div class="cal-events-list" id="calEventsList"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('services')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Sunday Services →</a><a href="#" onclick="go('livestream')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Watch Live →</a><a href="#" onclick="go('resources')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Resources →</a><a href="#" onclick="go('contact')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Contact Us →</a></div></div></div>
+</div>
+<style>
+.cal-wrap{max-width:860px;}
+.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
+.cal-month-title{font-family:var(--font-d);font-size:28px;font-weight:700;color:var(--navy);}
+.cal-arrow{background:none;border:1px solid var(--border);padding:8px 18px;font-size:18px;cursor:pointer;color:var(--navy);border-radius:4px;transition:background .2s,color .2s;}
+.cal-arrow:hover{background:var(--navy);color:white;}
+.cal-dow{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:4px;}
+.cal-dow span{text-align:center;font-size:12px;font-weight:700;color:var(--muted);padding:6px 0;text-transform:uppercase;letter-spacing:1px;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;}
+.cal-day{background:var(--white);border:1px solid var(--border);min-height:80px;padding:8px 6px;border-radius:4px;cursor:default;}
+.cal-day.empty{background:transparent;border-color:transparent;}
+.cal-day.today{border-color:var(--gold);border-width:2px;}
+.cal-day.has-event{background:#fff8f1;}
+.cal-day-num{font-size:13px;font-weight:700;color:var(--text);display:block;margin-bottom:4px;}
+.cal-day.today .cal-day-num{background:var(--gold);color:white;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;}
+.cal-pill{display:block;font-size:10.5px;font-weight:600;color:var(--white);background:var(--navy);border-radius:3px;padding:2px 5px;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.4;}
+.cal-pill.gold{background:var(--gold);color:var(--ink);}
+.cal-legend{margin-top:32px;border-top:2px solid var(--border);padding-top:28px;}
+.cal-legend h3{font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--navy);margin-bottom:20px;}
+.cal-events-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;}
+.cal-event-card{background:var(--white);border:1px solid var(--border);border-left:4px solid var(--navy);border-radius:4px;padding:14px 16px;}
+.cal-event-card.gold-border{border-left-color:var(--gold);}
+.cal-event-card h4{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:3px;}
+.cal-event-card p{font-size:13.5px;color:var(--text);line-height:1.5;}
+.cal-event-card .when{font-size:12px;font-weight:600;color:var(--gold);margin-top:5px;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+</style>
+
+<script>
+(function(){
+  var cur = new Date();
+  cur.setDate(1);
+
+  var recurringEvents = [
+    {dow:0, title:"Morning Prayer",    time:"9:30 AM",  gold:false},
+    {dow:0, title:"Sunday Worship",    time:"10:30 AM", gold:true},
+    {dow:3, title:"Midweek Prayer",    time:"11:00 AM", gold:false},
+    {dow:3, title:"Pathfinders Youth", time:"6:30 PM",  gold:false},
+    {dow:3, title:"Kids Pac",          time:"6:30 PM",  gold:false},
+    {dow:3, title:"Bible Study",       time:"6:30 PM",  gold:false},
+  ];
+
+  var specialEvents = [
+    {month:5, day:24, title:"Called Out – Youth Rally", gold:true},
+  ];
+
+  var MONTHS = ["January","February","March","April","May","June",
+                "July","August","September","October","November","December"];
+
+  function render(){
+    var y = cur.getFullYear(), m = cur.getMonth();
+    document.getElementById("calTitle").textContent = MONTHS[m] + " " + y;
+    var first = new Date(y,m,1).getDay();
+    var days  = new Date(y,m+1,0).getDate();
+    var today = new Date();
+    var grid  = document.getElementById("calGrid");
+    grid.innerHTML = "";
+
+    for(var i=0;i<first;i++){
+      var e=document.createElement("div");e.className="cal-day empty";grid.appendChild(e);
+    }
+    for(var d=1;d<=days;d++){
+      var cell = document.createElement("div");
+      var isToday = (d===today.getDate()&&m===today.getMonth()&&y===today.getFullYear());
+      var dow = new Date(y,m,d).getDay();
+      var dayEvents = recurringEvents.filter(function(ev){return ev.dow===dow;});
+      var specials  = specialEvents.filter(function(ev){return ev.month===m&&ev.day===d;});
+      var hasEv = dayEvents.length>0||specials.length>0;
+      cell.className = "cal-day"+(isToday?" today":"")+(hasEv?" has-event":"");
+      var numEl = document.createElement(isToday?"div":"span");
+      numEl.className="cal-day-num";numEl.textContent=d;cell.appendChild(numEl);
+
+      // Show max 2 pills to avoid overflow
+      var shown=0;
+      specials.forEach(function(ev){
+        if(shown>=2)return;
+        var p=document.createElement("span");
+        p.className="cal-pill gold";p.textContent=ev.title;
+        cell.appendChild(p);shown++;
+      });
+      dayEvents.forEach(function(ev){
+        if(shown>=2)return;
+        var p=document.createElement("span");
+        p.className="cal-pill"+(ev.gold?" gold":"");p.textContent=ev.title;
+        cell.appendChild(p);shown++;
+      });
+      if(dayEvents.length+specials.length>shown){
+        var more=document.createElement("span");
+        more.style.cssText="font-size:10px;color:var(--muted);display:block;margin-top:2px;";
+        more.textContent="+"+(dayEvents.length+specials.length-shown)+" more";
+        cell.appendChild(more);
+      }
+      grid.appendChild(cell);
+    }
+
+    // Render legend
+    var list = document.getElementById("calEventsList");
+    list.innerHTML="";
+    var legendItems=[
+      {title:"Sunday Morning Prayer", time:"Every Sunday 9:30 AM", gold:false},
+      {title:"Sunday Worship Service",time:"Every Sunday 10:30 AM",gold:true},
+      {title:"Midweek Prayer",        time:"Every Wednesday 11:00 AM",gold:false},
+      {title:"Pathfinders Youth",     time:"Every Wednesday 6:30 PM",gold:false},
+      {title:"Kids Pac Program",      time:"Every Wednesday 6:30 PM",gold:false},
+      {title:"Adult Bible Study",     time:"Every Wednesday 6:30 PM",gold:false},
+    ];
+    legendItems.forEach(function(ev){
+      var c=document.createElement("div");
+      c.className="cal-event-card"+(ev.gold?" gold-border":"");
+      c.innerHTML="<h4>"+ev.title+"</h4><p class='when'>"+ev.time+"</p>";
+      list.appendChild(c);
+    });
+  }
+
+  window.calPrev=function(){cur.setMonth(cur.getMonth()-1);render();}
+  window.calNext=function(){cur.setMonth(cur.getMonth()+1);render();}
+  window.renderCalendar=render;
+  render();
+})();
+</script>
+
+<script>
+const pages=['home','about','ministries','services','missions','sports','resources','giving','contact','calendar','pathfinders','kidspac','mens','womens','biblestudy','rooted','firstthings','daycamp','mission','leadership','beliefs','paoc','mcs','wednesday','worldmissions','homemissions','livestream'];
+
+// ── PAGE NAVIGATION ───────────────────────────────────────────────────────
+function go(id){
+  pages.forEach(p=>{const el=document.getElementById('page-'+p);if(el)el.classList.remove('active');});
+  const t=document.getElementById('page-'+id);
+  if(t){
+    t.classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+    if(id==='calendar'&&window.renderCalendar)window.renderCalendar();
+    if(id==='home') setTimeout(initAnims, 60);
+  }
+}
+
+// ── STREAM TAB SWITCHER ───────────────────────────────────────────────────
+function switchStream(platform) {
+  ['youtube','facebook','embed','archive'].forEach(function(p) {
+    document.getElementById('stream-' + p).style.display = p === platform ? 'block' : 'none';
+    var tab = document.getElementById('tab-' + p);
+    if (tab) {
+      tab.style.background = p === platform ? 'var(--gold)' : 'rgba(255,255,255,.07)';
+      tab.style.color = p === platform ? 'var(--ink)' : 'rgba(255,255,255,.65)';
+    }
+  });
+}
+
+// ── MOBILE NAV ────────────────────────────────────────────────────────────
+function toggleMobile(){document.getElementById('mobileNav').classList.toggle('open');}
+
+// ── HERO SLIDER ───────────────────────────────────────────────────────────
+var cur=0, tot=5, timer;
+
+function updateSlider(){
+  document.getElementById('slides').style.transform=`translateX(-${cur*100}%)`;
+  document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
+  markActiveSlide();
+}
+function nextSlide(){cur=(cur+1)%tot; updateSlider(); resetTimer();}
+function prevSlide(){cur=(cur-1+tot)%tot; updateSlider(); resetTimer();}
+function goSlide(i){cur=i; updateSlider(); resetTimer();}
+function resetTimer(){clearInterval(timer); timer=setInterval(nextSlide,5000);}
+
+// Mark which slide is active for CSS entrance animation
+function markActiveSlide(){
+  document.querySelectorAll('.slide').forEach((s,i)=>{
+    s.classList.toggle('active-slide', i===cur);
+  });
+}
+
+// Start slider & reveal, deferred until DOM ready
+document.addEventListener('DOMContentLoaded', function() {
+  timer = setInterval(nextSlide, 5000);
+  markActiveSlide();
+  initAnims(); // home page only
+});
+
+// ── SCROLL REVEAL ─────────────────────────────────────────────────────────
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      if (e.target.classList.contains('anim-trigger')) {
+        Array.from(e.target.children).forEach((child, i) => {
+          child.style.transitionDelay = (i * 0.05) + 's';
+          child.classList.add('anim','visible');
+        });
+      }
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+function initAnims() {
+  document.querySelectorAll('.anim,.anim-left,.anim-right,.anim-scale,.sec-rule,.anim-trigger').forEach(el => {
+    el.classList.remove('visible');
+    revealObserver.observe(el);
+  });
+}
+</script>
+</body>
+</html>
