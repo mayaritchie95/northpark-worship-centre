@@ -59,9 +59,6 @@ nav{background:var(--white);border-bottom:1px solid var(--border);position:stick
 .slider-dots{position:absolute;bottom:16px;right:32px;display:flex;gap:8px;z-index:2;}
 .dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.3);cursor:pointer;transition:background .2s;}
 .dot.active{background:var(--gold);}
-.slider-arrows{position:absolute;top:50%;transform:translateY(-50%);width:100%;display:flex;justify-content:space-between;padding:0 16px;z-index:2;}
-.slider-arrow{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;transition:background .2s;}
-.slider-arrow:hover{background:var(--gold);}
 
 /* ─── SERVICE TIME BANNER ─── */
 .svc-banner{background:var(--white);text-align:center;padding:20px 16px;border-bottom:3px solid var(--gold);}
@@ -238,6 +235,45 @@ section{padding:60px 48px;}
 .cf input:focus,.cf textarea:focus{border-color:var(--gold);}
 .cf textarea{resize:vertical;min-height:100px;}
 
+/* ── REGISTRATION FORM ── */
+.reg-form{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:36px;margin-top:24px;}
+.reg-section{margin-bottom:28px;}
+.reg-section:last-child{margin-bottom:0;}
+.reg-section h4{font-family:var(--font-d);font-size:20px;font-weight:700;color:var(--navy);margin-bottom:4px;padding-bottom:12px;border-bottom:2px solid var(--gold);}
+.reg-section-note{font-size:13px;color:var(--muted);line-height:1.6;margin:8px 0 14px;}
+.reg-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px;}
+.reg-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:14px;}
+.reg-field{margin-bottom:14px;}
+.reg-field label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.reg-field input[type="text"],.reg-field input[type="email"],.reg-field input[type="tel"],.reg-field input[type="date"],.reg-field input[type="number"],.reg-field textarea,.reg-field select{
+  width:100%;padding:11px 14px;background:var(--parchment);border:1px solid var(--border);
+  font-family:var(--font-b);font-size:15px;font-weight:400;color:var(--text);outline:none;
+  border-radius:4px;transition:border-color .2s;
+}
+.reg-field input:focus,.reg-field textarea:focus,.reg-field select:focus{border-color:var(--gold);background:var(--white);}
+.reg-field textarea{resize:vertical;min-height:70px;}
+.reg-radio-group{display:flex;gap:20px;flex-wrap:wrap;margin-top:4px;}
+.reg-radio-group label{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:400;color:var(--text);cursor:pointer;}
+.reg-radio-group input[type="radio"],.reg-radio-group input[type="checkbox"]{width:16px;height:16px;accent-color:var(--gold);cursor:pointer;}
+.reg-check-row{display:flex;align-items:flex-start;gap:10px;margin-top:8px;}
+.reg-check-row input[type="checkbox"]{width:18px;height:18px;accent-color:var(--gold);margin-top:2px;flex-shrink:0;cursor:pointer;}
+.reg-check-row label{font-size:14px;color:var(--text);line-height:1.6;cursor:pointer;}
+.reg-week-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:8px;}
+.reg-week-card{position:relative;}
+.reg-week-card input[type="radio"]{position:absolute;opacity:0;cursor:pointer;}
+.reg-week-card label{display:block;background:var(--parchment);border:2px solid var(--border);border-radius:8px;padding:18px 20px;cursor:pointer;transition:border-color .2s,background .2s;}
+.reg-week-card input[type="radio"]:checked + label{border-color:var(--gold);background:rgba(201,135,58,.08);}
+.reg-week-card label .wk-title{font-family:var(--font-d);font-size:18px;font-weight:700;color:var(--navy);display:block;}
+.reg-week-card label .wk-sub{font-size:13px;color:var(--muted);display:block;margin-top:2px;}
+#daycamp-success{display:none;background:var(--white);border:2px solid var(--gold);border-radius:8px;padding:48px;text-align:center;margin-top:24px;}
+#daycamp-success .si-icon{font-size:44px;color:var(--gold);margin-bottom:16px;}
+#daycamp-success h3{font-family:var(--font-d);font-size:26px;font-weight:700;color:var(--navy);margin-bottom:10px;}
+#daycamp-success p{font-size:15px;color:var(--muted);max-width:480px;margin:0 auto;line-height:1.7;}
+.reg-submit-btn{width:100%;background:var(--gold);color:var(--ink);padding:16px;font-size:15px;font-weight:700;text-decoration:none;border-radius:4px;border:none;cursor:pointer;transition:background .2s;font-family:var(--font-b);}
+.reg-submit-btn:hover{background:var(--gold-lt);}
+.reg-submit-btn:disabled{opacity:.6;cursor:not-allowed;}
+@media(max-width:640px){.reg-row,.reg-row-3{grid-template-columns:1fr;}}
+
 /* ─── FOOTER ─── */
 footer{background:var(--ink);}
 .footer-top{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding:56px 48px 44px;border-bottom:1px solid rgba(255,255,255,.06);}
@@ -316,6 +352,8 @@ footer{background:var(--ink);}
 .page.active{animation:pageEnter .18s ease forwards;}
 
 /* ── SCROLL REVEAL CLASSES ───────────────────────────────────────────── */
+#page-calendar{display:flex;flex-direction:column;min-height:calc(100vh - 96px);}
+#page-calendar section{flex:1;}
 #page-home .anim{opacity:0;transform:translateY(28px);transition:opacity .35s ease,transform .35s ease;}
 #page-home .anim.visible{opacity:1;transform:translateY(0);}
 #page-home .anim-left{opacity:0;transform:translateX(-36px);transition:opacity .35s ease,transform .35s ease;}
@@ -379,8 +417,6 @@ footer{background:var(--ink);}
 .slide-btn-secondary:hover{transform:translateY(-2px);}
 
 /* ── SLIDER ARROW HOVER ──────────────────────────────────────────────── */
-.slider-arrow{transition:background .2s,transform .2s ease;}
-.slider-arrow:hover{transform:scale(1.1);}
 
 /* ── GIVE BOX LINK ───────────────────────────────────────────────────── */
 .give-box a{transition:background .2s,transform .15s ease;}
@@ -520,7 +556,7 @@ footer{background:var(--ink);}
 
       <!-- SLIDE 2 -->
       <div class="slide">
-        <div class="slide-bg" style="background:linear-gradient(135deg,#0b1623 0%,#1a3360 60%,#0b2213 100%);"></div>
+        <div class="slide-bg" style="background:url(https://images.pexels.com/photos/4543714/pexels-photo-4543714.jpeg?auto=compress&cs=tinysrgb&w=1400&h=700&fit=crop) center/cover;"></div>
         <div class="slide-content">
           <div class="slide-eyebrow">Port Colborne, Ontario</div>
           <h2>A place to belong,<br><em>believe &amp; grow</em></h2>
@@ -530,7 +566,7 @@ footer{background:var(--ink);}
 
       <!-- SLIDE 3 -->
       <div class="slide">
-        <div class="slide-bg" style="background:linear-gradient(135deg,#0b1623 0%,#2a1a0a 60%,#3a2208 100%);"></div>
+        <div class="slide-bg" style="background:url(https://images.pexels.com/photos/2019333/pexels-photo-2019333.jpeg?auto=compress&cs=tinysrgb&w=1400&h=700&fit=crop) center/cover;"></div>
         <div class="slide-content">
           <div class="slide-eyebrow">Everyone is welcome</div>
           <h2>Come as you are<br><em>this Sunday</em></h2>
@@ -540,7 +576,7 @@ footer{background:var(--ink);}
 
       <!-- SLIDE 4 -->
       <div class="slide">
-        <div class="slide-bg" style="background:linear-gradient(135deg,#0b1623 0%,#0b220e 60%,#112240 100%);"></div>
+        <div class="slide-bg" style="background:url(https://images.pexels.com/photos/15537984/pexels-photo-15537984.jpeg?auto=compress&cs=tinysrgb&w=1400&h=700&fit=crop) center/cover;"></div>
         <div class="slide-content">
           <div class="slide-eyebrow">Something for every age</div>
           <h2>Bring the whole<br><em>family along</em></h2>
@@ -550,7 +586,7 @@ footer{background:var(--ink);}
 
       <!-- SLIDE 5 -->
       <div class="slide">
-        <div class="slide-bg" style="background:linear-gradient(135deg,#0b1623 0%,#1a2a40 50%,#2a1a05 100%);"></div>
+        <div class="slide-bg" style="background:url(https://images.pexels.com/photos/6646924/pexels-photo-6646924.jpeg?auto=compress&cs=tinysrgb&w=1400&h=700&fit=crop) center/cover;"></div>
         <div class="slide-content">
           <div class="slide-eyebrow">Loving our neighbours</div>
           <h2>Reaching<br><em>Our World</em></h2>
@@ -558,10 +594,6 @@ footer{background:var(--ink);}
         </div>
       </div>
 
-    </div>
-    <div class="slider-arrows">
-      <div class="slider-arrow" onclick="prevSlide()">&#8592;</div>
-      <div class="slider-arrow" onclick="nextSlide()">&#8594;</div>
     </div>
     <div class="slider-dots" id="dots">
       <div class="dot active" onclick="goSlide(0)"></div>
@@ -585,15 +617,15 @@ footer{background:var(--ink);}
       <div class="tile-label"><span>About Us</span><div class="tile-label-rule"></div><small>Our Story</small></div>
     </a>
     <a href="#" class="tile" onclick="go('services')">
-      <div class="tile-bg" style="background:linear-gradient(145deg,#0b1a0f,#163020);"></div>
+      <div class="tile-bg" style="background:url(https://images.pexels.com/photos/13131284/pexels-photo-13131284.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop) center/cover;"></div>
       <div class="tile-label"><span>Sunday Service</span><div class="tile-label-rule"></div><small>10:30 AM</small></div>
     </a>
     <a href="#" class="tile" onclick="go('ministries')">
-      <div class="tile-bg" style="background:linear-gradient(145deg,#1a1205,#2e1f08);"></div>
+      <div class="tile-bg" style="background:url(https://images.pexels.com/photos/28494845/pexels-photo-28494845.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop) center/cover;"></div>
       <div class="tile-label"><span>Ministries</span><div class="tile-label-rule"></div><small>Get Involved</small></div>
     </a>
     <a href="#" class="tile" onclick="go('missions')">
-      <div class="tile-bg" style="background:linear-gradient(145deg,#0b1623,#1a2040);"></div>
+      <div class="tile-bg" style="background:url(https://images.pexels.com/photos/6646924/pexels-photo-6646924.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop) center/cover;"></div>
       <div class="tile-label"><span>Missions</span><div class="tile-label-rule"></div><small>Local &amp; Global</small></div>
     </a>
     <a href="#" class="tile" onclick="go('giving')">
@@ -601,19 +633,19 @@ footer{background:var(--ink);}
       <div class="tile-label"><span>Give</span><div class="tile-label-rule"></div><small>Support the Mission</small></div>
     </a>
     <a href="#" class="tile" onclick="go('ministries')">
-      <div class="tile-bg" style="background:linear-gradient(145deg,#0d1a30,#1a2a50);"></div>
+      <div class="tile-bg" style="background:url(https://images.pexels.com/photos/10118240/pexels-photo-10118240.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop) center/cover;"></div>
       <div class="tile-label"><span>Youth</span><div class="tile-label-rule"></div><small>Pathfinders &amp; Rooted</small></div>
     </a>
     <a href="#" class="tile" onclick="go('ministries')">
-      <div class="tile-bg" style="background:linear-gradient(145deg,#0b1a0a,#122510);"></div>
+      <div class="tile-bg" style="background:url(https://images.pexels.com/photos/4543714/pexels-photo-4543714.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop) center/cover;"></div>
       <div class="tile-label"><span>Kids</span><div class="tile-label-rule"></div><small>Kids Pac &amp; Day Camp</small></div>
     </a>
     <a href="#" class="tile" onclick="go('ministries')">
-      <div class="tile-bg" style="background:linear-gradient(145deg,#1a1210,#2a1a15);"></div>
+      <div class="tile-bg" style="background:url(https://images.pexels.com/photos/7150075/pexels-photo-7150075.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop) center/cover;"></div>
       <div class="tile-label"><span>Women</span><div class="tile-label-rule"></div><small>Women's Ministry</small></div>
     </a>
     <a href="#" class="tile" onclick="go('ministries')">
-      <div class="tile-bg" style="background:linear-gradient(145deg,#101a25,#1a2535);"></div>
+      <div class="tile-bg" style="background:url(https://images.pexels.com/photos/29608267/pexels-photo-29608267.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop) center/cover;"></div>
       <div class="tile-label"><span>Men</span><div class="tile-label-rule"></div><small>Men's Ministry</small></div>
     </a>
     <a href="#" class="tile" onclick="go('resources')">
@@ -685,7 +717,7 @@ footer{background:var(--ink);}
       <h3 style="display:flex;align-items:center;justify-content:space-between;">Find Us <a href="#" onclick="go('contact')" style="font-size:13px;font-weight:700;color:var(--gold);text-decoration:none;">Full info →</a></h3>
       <div class="contact-item anim">
         <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
-        <div><h5>Address</h5><p>484 Barrick Rd<br>Port Colborne, ON L3K 4B7</p></div>
+        <div><h5>Address</h5><a href="https://www.google.com/maps/dir//Christian+Life+Assembly,+484+Barrick+Rd,+Port+Colborne,+ON+L3K+4B7/@42.9162496,-79.2199168,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x89d336c8faf33ad5:0xb0848714b1e57a86!2m2!1d-79.2642855!2d42.9096311" target="_blank" style="color:var(--text);text-decoration:none;">484 Barrick Rd<br>Port Colborne, ON L3K 4B7</a></div>
       </div>
       <div class="contact-item anim">
         <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
@@ -715,11 +747,26 @@ footer{background:var(--ink);}
         <div>
           <p class="sec-label anim">Our heart for Port Colborne</p><div class="sec-rule"></div>
           <h2 class="sec-title anim">A warm community<br><em>in Port Colborne</em></h2>
-          <p class="sec-body">Our mission is to lead people into a growing relationship with Jesus Christ, equip believers for ministry, and reach our community and the world with the hope of the gospel.</p>
-          <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;">We are proudly affiliated with the <strong style="font-weight:600;color:var(--navy);">Pentecostal Assemblies of Canada (PAOC)</strong> and partner with the <strong style="font-weight:600;color:var(--navy);">MCS Bible College Hub</strong> for theological education.</p>
-        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:24px;"><a href="#" onclick="go('paoc')" style="font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;">About PAOC →</a><a href="#" onclick="go('mcs')" style="font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;">MCS College Hub →</a></div>
+          <p class="sec-body">We value family, community and discipleship. We are a loving community being transformed by God, serving Port Colborne, the Niagara region and the world.</p>
+          <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;"><strong style="font-weight:600;color:var(--navy);">Our Mission:</strong> Building passionate followers of Jesus Christ to go and make disciples.</p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:24px;"><a href="#" onclick="go('mission')" style="font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;">Our Mission &amp; Vision →</a><a href="#" onclick="go('paoc')" style="font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;">About PAOC →</a><a href="#" onclick="go('mcs')" style="font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;">MCS College Hub →</a></div>
         </div>
-        <div class="img-frame"><div class="img-placeholder"><div class="cross"></div><p>Church photo coming soon</p></div></div>
+        <div class="img-frame"><div class="img-placeholder" style="padding:0;overflow:hidden;"><img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Church community" style="width:100%;height:100%;object-fit:cover;display:block;"></div></div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--parchment);">
+    <div class="sec">
+      <p class="sec-label anim">How We Live It Out</p><div class="sec-rule"></div>
+      <h2 class="sec-title anim">Our <em>Values</em></h2>
+      <p class="sec-body">These values shape everything we do, from Sunday mornings to midweek ministries to how we serve our neighbours.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;">
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px;"><div class="card-icon"><i class="fa-solid fa-book-bible"></i></div><h4 style="font-family:var(--font-d);font-size:18px;font-weight:700;color:var(--navy);margin-bottom:6px;">The Bible</h4><p style="font-size:14px;color:var(--muted);line-height:1.7;">We value the Bible, believing it to be God's message to the world.</p></div>
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px;"><div class="card-icon"><i class="fa-solid fa-people-roof"></i></div><h4 style="font-family:var(--font-d);font-size:18px;font-weight:700;color:var(--navy);margin-bottom:6px;">Community &amp; Family</h4><p style="font-size:14px;color:var(--muted);line-height:1.7;">We value community and family, as the church operates like a family caring for the physical, spiritual, social, and psychological needs of one another.</p></div>
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px;"><div class="card-icon"><i class="fa-solid fa-hand-holding-heart"></i></div><h4 style="font-family:var(--font-d);font-size:18px;font-weight:700;color:var(--navy);margin-bottom:6px;">Caring for Our Community</h4><p style="font-size:14px;color:var(--muted);line-height:1.7;">We value caring for the community by reaching out with love to the lost and those in need.</p></div>
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px;"><div class="card-icon"><i class="fa-solid fa-gift"></i></div><h4 style="font-family:var(--font-d);font-size:18px;font-weight:700;color:var(--navy);margin-bottom:6px;">Generosity</h4><p style="font-size:14px;color:var(--muted);line-height:1.7;">We value generosity through sacrificial giving.</p></div>
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px;"><div class="card-icon"><i class="fa-solid fa-globe"></i></div><h4 style="font-family:var(--font-d);font-size:18px;font-weight:700;color:var(--navy);margin-bottom:6px;">Every Generation &amp; Nation</h4><p style="font-size:14px;color:var(--muted);line-height:1.7;">We value all generations and nationalities of people.</p></div>
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px;"><div class="card-icon"><i class="fa-solid fa-seedling"></i></div><h4 style="font-family:var(--font-d);font-size:18px;font-weight:700;color:var(--navy);margin-bottom:6px;">Growth</h4><p style="font-size:14px;color:var(--muted);line-height:1.7;">We value growth, believing that God's desire for the church and His people is to multiply.</p></div>
       </div>
     </div>
   </section>
@@ -885,7 +932,8 @@ footer{background:var(--ink);}
         <a href="https://youtube.com" target="_blank" class="res-card"><div class="card-icon res-card-icon"><i class="fa-brands fa-youtube"></i></div><h4>YouTube</h4><p>Full service recordings and archives.</p><span class="res-arrow">Watch →</span></a>
         <a href="https://tiktok.com" target="_blank" class="res-card"><div class="card-icon res-card-icon"><i class="fa-brands fa-tiktok"></i></div><h4>TikTok</h4><p>Short-form content and highlights.</p><span class="res-arrow">Follow →</span></a>
         <a href="#" class="res-card" onclick="go('calendar')"><div class="card-icon res-card-icon"><i class="fa-solid fa-calendar-days"></i></div><h4>Calendar</h4><p>All upcoming events and services.</p><span class="res-arrow">View →</span></a>
-        <a href="#" class="res-card"><div class="card-icon res-card-icon"><i class="fa-solid fa-star"></i></div><h4>Special Events</h4><p>Called Out – Youth Rally and more.</p><span class="res-arrow">Learn More →</span></a>
+        <a href="#" onclick="go('daycamp');setTimeout(function(){document.getElementById('daycamp-register').scrollIntoView({behavior:'smooth'});},80)" class="res-card"><div class="card-icon res-card-icon"><i class="fa-solid fa-pen-to-square"></i></div><h4>Day Camp Form</h4><p>2026 registration, online or print.</p><span class="res-arrow">Register →</span></a>
+        <a href="#" class="res-card"><div class="card-icon res-card-icon"><i class="fa-solid fa-star"></i></div><h4>Special Events</h4><p>Called Out, Youth Rally and more.</p><span class="res-arrow">Learn More →</span></a>
         <a href="mailto:claportcolborne@gmail.com" class="res-card"><div class="card-icon res-card-icon"><i class="fa-solid fa-envelope"></i></div><h4>Email Us</h4><p>claportcolborne@gmail.com</p><span class="res-arrow">Get in Touch →</span></a>
       </div>
     </div>
@@ -931,7 +979,17 @@ footer{background:var(--ink);}
             </div>
           </div></div>
           <div class="ci anim"><div class="ci-icon"><i class="fa-solid fa-hand-holding-heart"></i></div><div><h5>Give Online</h5><p>E-transfer to <a href="mailto:claportcolborne@gmail.com" style="color:var(--gold);font-weight:700;">claportcolborne@gmail.com</a><br><span style="font-size:13px;color:var(--muted);">Tax receipts available on request</span></p></div></div>
-          <div class="map-ph"><div class="micon"><i class="fa-solid fa-map-location-dot" style="font-size:36px;color:var(--gold);opacity:.7;"></i></div><p>484 Barrick Rd<br>Port Colborne, ON</p><a href="https://www.google.com/maps/search/484+Barrick+Rd+Port+Colborne+ON" target="_blank">Open in Google Maps</a></div>
+          <div class="map-ph" style="padding:0;overflow:hidden;position:relative;aspect-ratio:16/9;">
+            <iframe
+              src="https://www.google.com/maps?q=Christian+Life+Assembly,484+Barrick+Rd,Port+Colborne,ON+L3K+4B7&output=embed"
+              style="width:100%;height:100%;border:0;display:block;"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+          <div style="text-align:center;margin-top:16px;">
+            <a href="https://www.google.com/maps/dir//Christian+Life+Assembly,+484+Barrick+Rd,+Port+Colborne,+ON+L3K+4B7/@42.9162496,-79.2199168,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x89d336c8faf33ad5:0xb0848714b1e57a86!2m2!1d-79.2642855!2d42.9096311" target="_blank" style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--navy);text-decoration:none;background:var(--white);border:1px solid var(--border);padding:10px 22px;border-radius:4px;transition:border-color .15s,color .15s;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='var(--gold)'" onmouseout="this.style.color='var(--navy)';this.style.borderColor='var(--border)'"><i class="fa-solid fa-diamond-turn-right"></i> Get Directions on Google Maps</a>
+          </div>
         </div>
         <div>
           <div class="cf">
@@ -964,7 +1022,7 @@ footer{background:var(--ink);}
         <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:32px;">We believe in young people, in their faith, their gifts, and their ability to make a difference right now. Pathfinders is a place where teens can ask hard questions, build lasting friendships, and grow in their walk with Jesus.</p>
         <a href="#" class="btn-watch" onclick="go('contact')" style="display:inline-block;">Get Involved</a>
       </div>
-      <div class="img-frame"><div class="img-placeholder"><div class="cross">&#x271D;</div><p>Youth group photo coming soon</p></div></div>
+      <div class="img-frame"><div class="img-placeholder" style="padding:0;overflow:hidden;"><img src="https://images.pexels.com/photos/10118240/pexels-photo-10118240.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Youth group" style="width:100%;height:100%;object-fit:cover;display:block;"></div></div>
     </div>
   </div></section>
   <section><div class="sec">
@@ -989,7 +1047,7 @@ footer{background:var(--ink);}
         <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:32px;">We love kids and want every child to know they are seen, valued, and loved by God. Kids Pac runs alongside adult Bible Study so the whole family can come together on Wednesday nights.</p>
         <a href="#" class="btn-watch" onclick="go('contact')" style="display:inline-block;">Get Involved</a>
       </div>
-      <div class="img-frame"><div class="img-placeholder"><div class="cross">&#x271D;</div><p>Kids Pac photo coming soon</p></div></div>
+      <div class="img-frame"><div class="img-placeholder" style="padding:0;overflow:hidden;"><img src="https://images.pexels.com/photos/4543714/pexels-photo-4543714.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Kids program" style="width:100%;height:100%;object-fit:cover;display:block;"></div></div>
     </div>
   </div></section>
   <section><div class="sec">
@@ -1014,7 +1072,7 @@ footer{background:var(--ink);}
         <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:32px;">We gather regularly for fellowship, prayer, and study, covering topics relevant to men's lives, families, and faith. Whether you've been a Christian for decades or are just starting to explore, you're welcome here.</p>
         <a href="#" class="btn-watch" onclick="go('contact')" style="display:inline-block;">Connect With Us</a>
       </div>
-      <div class="img-frame"><div class="img-placeholder"><div class="cross">&#x271D;</div><p>Men's Ministry photo coming soon</p></div></div>
+      <div class="img-frame"><div class="img-placeholder" style="padding:0;overflow:hidden;"><img src="https://images.pexels.com/photos/29608267/pexels-photo-29608267.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Men together" style="width:100%;height:100%;object-fit:cover;display:block;"></div></div>
     </div>
   </div></section>
   <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('womens')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Women's Ministry →</a><a href="#" onclick="go('biblestudy')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Bible Study →</a><a href="#" onclick="go('services')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Sunday Services →</a><a href="#" onclick="go('ministries')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">All Ministries →</a><a href="#" onclick="go('contact')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Contact Us →</a></div></div></div>
@@ -1032,7 +1090,7 @@ footer{background:var(--ink);}
         <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:32px;">We meet for Bible study, prayer, and community events throughout the year. Our heart is for every woman to feel at home, to discover her gifts, and to walk confidently in God's purpose for her life.</p>
         <a href="#" class="btn-watch" onclick="go('contact')" style="display:inline-block;">Connect With Us</a>
       </div>
-      <div class="img-frame"><div class="img-placeholder"><div class="cross">&#x271D;</div><p>Women's Ministry photo coming soon</p></div></div>
+      <div class="img-frame"><div class="img-placeholder" style="padding:0;overflow:hidden;"><img src="https://images.pexels.com/photos/7150075/pexels-photo-7150075.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Women together" style="width:100%;height:100%;object-fit:cover;display:block;"></div></div>
     </div>
   </div></section>
   <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('mens')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Men's Ministry →</a><a href="#" onclick="go('biblestudy')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Bible Study →</a><a href="#" onclick="go('services')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Sunday Services →</a><a href="#" onclick="go('ministries')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">All Ministries →</a><a href="#" onclick="go('contact')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Contact Us →</a></div></div></div>
@@ -1050,7 +1108,7 @@ footer{background:var(--ink);}
         <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:32px;">We work through books of the Bible, ask honest questions, and apply Scripture to everyday life. No prior knowledge required, just a desire to learn and grow. Kids Pac and Pathfinders run at the same time, so bring the whole family.</p>
         <a href="#" class="btn-watch" onclick="go('contact')" style="display:inline-block;">Join Us Wednesday</a>
       </div>
-      <div class="img-frame"><div class="img-placeholder"><div class="cross">&#x271D;</div><p>Bible Study photo coming soon</p></div></div>
+      <div class="img-frame"><div class="img-placeholder" style="padding:0;overflow:hidden;"><img src="https://images.pexels.com/photos/1467239/pexels-photo-1467239.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Bible study" style="width:100%;height:100%;object-fit:cover;display:block;"></div></div>
     </div>
   </div></section>
   <section><div class="sec">
@@ -1075,7 +1133,7 @@ footer{background:var(--ink);}
         <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:32px;">High school is full of big questions. Rooted is a safe place to ask them. We meet, talk honestly, worship together, and build the kind of friendships that help teens stand firm in their faith.</p>
         <a href="#" class="btn-watch" onclick="go('contact')" style="display:inline-block;">Get Connected</a>
       </div>
-      <div class="img-frame"><div class="img-placeholder"><div class="cross">&#x271D;</div><p>Rooted photo coming soon</p></div></div>
+      <div class="img-frame"><div class="img-placeholder" style="padding:0;overflow:hidden;"><img src="https://images.pexels.com/photos/573297/pexels-photo-573297.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Youth rooted" style="width:100%;height:100%;object-fit:cover;display:block;"></div></div>
     </div>
   </div></section>
   <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('pathfinders')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Pathfinders Youth →</a><a href="#" onclick="go('wednesday')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Wednesday Night →</a><a href="#" onclick="go('services')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Sunday Services →</a><a href="#" onclick="go('ministries')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">All Ministries →</a><a href="#" onclick="go('contact')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Contact Us →</a></div></div></div>
@@ -1093,7 +1151,7 @@ footer{background:var(--ink);}
         <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:32px;">We cover the basics: who God is, what the Bible says, how to pray, and what it means to live as a follower of Jesus. It's practical, welcoming, and a great next step for anyone exploring Christian faith.</p>
         <a href="#" class="btn-watch" onclick="go('contact')" style="display:inline-block;">Find Out More</a>
       </div>
-      <div class="img-frame"><div class="img-placeholder"><div class="cross">&#x271D;</div><p>First Things First photo coming soon</p></div></div>
+      <div class="img-frame"><div class="img-placeholder" style="padding:0;overflow:hidden;"><img src="https://images.pexels.com/photos/2608817/pexels-photo-2608817.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Discipleship" style="width:100%;height:100%;object-fit:cover;display:block;"></div></div>
     </div>
   </div></section>
   <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('biblestudy')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Bible Study →</a><a href="#" onclick="go('beliefs')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">What We Believe →</a><a href="#" onclick="go('services')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Sunday Services →</a><a href="#" onclick="go('ministries')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">All Ministries →</a><a href="#" onclick="go('contact')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Contact Us →</a></div></div></div>
@@ -1105,22 +1163,249 @@ footer{background:var(--ink);}
   <section style="background:var(--parchment);"><div class="sec">
     <div class="about-grid">
       <div>
-        <p class="sec-label anim">Summer</p><div class="sec-rule"></div>
+        <p class="sec-label anim">Summer 2026</p><div class="sec-rule"></div>
         <h2 class="sec-title anim">The Best Week <em>of Summer</em></h2>
-        <p class="sec-body">Our weeklong Day Camp is a highlight of the summer, two full weeks of outdoor activities, creative crafts, music, Bible stories, and friendships that last all year.</p>
-        <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:32px;">Day Camp runs for two weeks each summer and is open to all children in the community. It's a great week for kids to experience faith, fun, and belonging together in a safe and caring environment.</p>
-        <a href="#" class="btn-watch" onclick="go('contact')" style="display:inline-block;">Register Your Child</a>
+        <p class="sec-body">Our weeklong Day Camp is a highlight of the summer for kids in JK through Grade 8. Games, sports, dramas, crafts, snacks, a trip to Safari Niagara, and tons of fun, all in a safe and caring environment built on faith and friendship.</p>
+        <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:32px;">Choose either Week 1 (July 6 to 10) or Week 2 (July 13 to 17). Spots are limited to 50 kids per week, so early registration is encouraged.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;">
+          <a href="#daycamp-register" class="btn-watch" style="display:inline-flex;align-items:center;gap:8px;" onclick="setTimeout(function(){document.getElementById('daycamp-register').scrollIntoView({behavior:'smooth'});},10)"><i class="fa-solid fa-pen-to-square"></i> Register Online</a>
+          <a href="Day_Camp_Registration_Form_2026.pdf" target="_blank" class="btn-listen" style="display:inline-flex;align-items:center;gap:8px;"><i class="fa-solid fa-file-pdf"></i> Printable Form</a>
+        </div>
       </div>
-      <div class="img-frame"><div class="img-placeholder"><div class="cross">&#x271D;</div><p>Day Camp photo coming soon</p></div></div>
+      <div class="img-frame"><div class="img-placeholder" style="padding:0;overflow:hidden;"><img src="https://images.pexels.com/photos/1720186/pexels-photo-1720186.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Summer camp" style="width:100%;height:100%;object-fit:cover;display:block;"></div></div>
     </div>
   </div></section>
+
+  <!-- DATES & SCHEDULE -->
   <section><div class="sec">
+    <p class="sec-label anim">When &amp; Who</p><div class="sec-rule"></div>
+    <h2 class="sec-title anim">Dates &amp; <em>Schedule</em></h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
-      <div style="background:var(--parchment);border:1px solid var(--border);border-left:4px solid var(--gold);padding:24px;border-radius:4px;"><h4 style="font-family:var(--font-d);font-size:19px;font-weight:700;color:var(--navy);margin-bottom:8px;">Week 1</h4><p style="font-size:15px;color:var(--text);">July 8 – 12<br>9:00 AM – 4:00 PM daily</p></div>
-      <div style="background:var(--parchment);border:1px solid var(--border);border-left:4px solid var(--gold);padding:24px;border-radius:4px;"><h4 style="font-family:var(--font-d);font-size:19px;font-weight:700;color:var(--navy);margin-bottom:8px;">Week 2</h4><p style="font-size:15px;color:var(--text);">July 15 – 18<br>9:00 AM – 4:00 PM daily</p></div>
-      <div style="background:var(--parchment);border:1px solid var(--border);border-left:4px solid var(--gold);padding:24px;border-radius:4px;"><h4 style="font-family:var(--font-d);font-size:19px;font-weight:700;color:var(--navy);margin-bottom:8px;">Who</h4><p style="font-size:15px;color:var(--text);">Children ages 5–12<br>All are welcome</p></div>
+      <div style="background:var(--parchment);border:1px solid var(--border);border-left:4px solid var(--gold);padding:24px;border-radius:4px;"><h4 style="font-family:var(--font-d);font-size:19px;font-weight:700;color:var(--navy);margin-bottom:8px;">Week 1</h4><p style="font-size:15px;color:var(--text);">July 6 to 10<br>9:00 AM to 4:00 PM daily</p></div>
+      <div style="background:var(--parchment);border:1px solid var(--border);border-left:4px solid var(--gold);padding:24px;border-radius:4px;"><h4 style="font-family:var(--font-d);font-size:19px;font-weight:700;color:var(--navy);margin-bottom:8px;">Week 2</h4><p style="font-size:15px;color:var(--text);">July 13 to 17<br>9:00 AM to 4:00 PM daily</p></div>
+      <div style="background:var(--parchment);border:1px solid var(--border);border-left:4px solid var(--gold);padding:24px;border-radius:4px;"><h4 style="font-family:var(--font-d);font-size:19px;font-weight:700;color:var(--navy);margin-bottom:8px;">Who</h4><p style="font-size:15px;color:var(--text);">Children JK to Grade 8<br>Limit of 50 kids per week</p></div>
+      <div style="background:var(--parchment);border:1px solid var(--border);border-left:4px solid var(--gold);padding:24px;border-radius:4px;"><h4 style="font-family:var(--font-d);font-size:19px;font-weight:700;color:var(--navy);margin-bottom:8px;">Safari Niagara Trip</h4><p style="font-size:15px;color:var(--text);">July 9 or 16<br>$25 per accompanying adult</p></div>
     </div>
   </div></section>
+
+  <!-- PRICING -->
+  <section style="background:var(--navy);"><div class="sec">
+    <p class="sec-label anim" style="color:var(--gold);">Registration Pricing</p><div class="sec-rule" style="background:var(--gold);"></div>
+    <h2 class="sec-title anim" style="color:white;">Register <em style="color:var(--gold-lt);">Early &amp; Save</em></h2>
+    <p style="font-size:16px;font-weight:400;color:rgba(255,255,255,.80);line-height:1.8;max-width:600px;margin-bottom:32px;">Cash only, please. Registration takes place Wednesdays from 6:30 to 8:00 PM throughout April, or call to arrange a time.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:28px 24px;">
+        <p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Early Bird</p>
+        <p style="font-size:13px;color:rgba(255,255,255,.6);margin-bottom:10px;">March 1 to May 30</p>
+        <p style="font-family:var(--font-d);font-size:34px;font-weight:700;color:white;">$100<span style="font-size:15px;font-weight:400;color:rgba(255,255,255,.6);"> / child</span></p>
+      </div>
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:28px 24px;">
+        <p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Regular</p>
+        <p style="font-size:13px;color:rgba(255,255,255,.6);margin-bottom:10px;">June 1 to June 30</p>
+        <p style="font-family:var(--font-d);font-size:34px;font-weight:700;color:white;">$110<span style="font-size:15px;font-weight:400;color:rgba(255,255,255,.6);"> / child</span></p>
+      </div>
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:28px 24px;">
+        <p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Late</p>
+        <p style="font-size:13px;color:rgba(255,255,255,.6);margin-bottom:10px;">July 1 to July 4</p>
+        <p style="font-family:var(--font-d);font-size:34px;font-weight:700;color:white;">$125<span style="font-size:15px;font-weight:400;color:rgba(255,255,255,.6);"> / child</span></p>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- HOW TO REGISTER -->
+  <section style="background:var(--parchment);"><div class="sec">
+    <p class="sec-label anim">Get Ready for Summer</p><div class="sec-rule"></div>
+    <h2 class="sec-title anim">How to <em>Register</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-bottom:32px;">
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px;">
+        <div class="card-icon"><i class="fa-solid fa-pen-to-square"></i></div>
+        <h4 style="font-family:var(--font-d);font-size:18px;font-weight:700;color:var(--navy);margin-bottom:6px;">1. Fill Out the Form</h4>
+        <p style="font-size:14px;color:var(--muted);line-height:1.6;">Complete the registration form online below, or print and fill out the PDF version.</p>
+      </div>
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px;">
+        <div class="card-icon"><i class="fa-solid fa-calendar-check"></i></div>
+        <h4 style="font-family:var(--font-d);font-size:18px;font-weight:700;color:var(--navy);margin-bottom:6px;">2. We Confirm Your Spot</h4>
+        <p style="font-size:14px;color:var(--muted);line-height:1.6;">Our team will be in touch. If you'd rather drop off a paper form, come by Wednesday evenings (6:30 to 8:00 PM) in April.</p>
+      </div>
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px;">
+        <div class="card-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+        <h4 style="font-family:var(--font-d);font-size:18px;font-weight:700;color:var(--navy);margin-bottom:6px;">3. Pay (Cash Only)</h4>
+        <p style="font-size:14px;color:var(--muted);line-height:1.6;">Bring exact cash for your registration tier at drop-off or camp check-in.</p>
+      </div>
+    </div>
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+      <div class="card-icon" style="width:52px;height:52px;font-size:20px;flex-shrink:0;"><i class="fa-solid fa-hand-holding-heart"></i></div>
+      <div style="flex:1;min-width:240px;">
+        <h4 style="font-family:var(--font-d);font-size:19px;font-weight:700;color:var(--navy);margin-bottom:4px;">Want to Volunteer?</h4>
+        <p style="font-size:14px;color:var(--muted);">Volunteer opportunities are available, including community hours for high school students. Contact us to join the team.</p>
+      </div>
+      <a href="#" onclick="go('contact')" class="btn-navy" style="display:inline-block;flex-shrink:0;">Get in Touch</a>
+    </div>
+  </div></section>
+
+  <!-- ONLINE REGISTRATION FORM -->
+  <section id="daycamp-register" style="background:var(--ink);">
+    <div class="sec">
+      <p class="sec-label anim" style="color:var(--gold);">Register Online</p><div class="sec-rule" style="background:var(--gold);"></div>
+      <h2 class="sec-title anim" style="color:white;">Complete Your <em style="color:var(--gold-lt);">Registration</em></h2>
+      <p style="font-size:16px;font-weight:400;color:rgba(255,255,255,.80);line-height:1.8;max-width:640px;margin-bottom:8px;">Fill out the form below and submit it directly to our office. We'll be in touch to confirm your spot. Payment (cash only) is collected when you drop off or at camp check-in.</p>
+      <p style="font-size:13px;font-weight:400;color:rgba(255,255,255,.45);line-height:1.7;max-width:640px;margin-bottom:8px;">Prefer paper? <a href="Day_Camp_Registration_Form_2026.pdf" target="_blank" style="color:var(--gold);font-weight:700;text-decoration:none;">Download the printable PDF form</a> instead.</p>
+
+      <form id="daycampForm" class="reg-form" action="https://formsubmit.co/claportcolborne@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New Day Camp 2026 Registration - NorthPark Worship Centre">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+
+        <!-- WEEK SELECTION -->
+        <div class="reg-section">
+          <h4>Choose Your Week</h4>
+          <p class="reg-section-note">Limit of 50 kids per week. Please select one.</p>
+          <div class="reg-week-cards">
+            <div class="reg-week-card">
+              <input type="radio" id="week1" name="Week Selected" value="Week 1: July 6-10" required>
+              <label for="week1"><span class="wk-title">Week 1</span><span class="wk-sub">July 6 to 10, 2026</span></label>
+            </div>
+            <div class="reg-week-card">
+              <input type="radio" id="week2" name="Week Selected" value="Week 2: July 13-17">
+              <label for="week2"><span class="wk-title">Week 2</span><span class="wk-sub">July 13 to 17, 2026</span></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHILD INFO -->
+        <div class="reg-section">
+          <h4>Child Information</h4>
+          <div class="reg-field"><label for="childName">Name of Child</label><input type="text" id="childName" name="Child Name" required></div>
+          <div class="reg-field"><label for="childAddress">Address</label><input type="text" id="childAddress" name="Address" required></div>
+          <div class="reg-row">
+            <div class="reg-field"><label for="postal">Postal Code</label><input type="text" id="postal" name="Postal Code"></div>
+            <div class="reg-field"><label for="grade">Grade Entering Sept. 2026</label><input type="text" id="grade" name="Grade Entering Sept" placeholder="e.g. Grade 3" required></div>
+          </div>
+          <div class="reg-row-3">
+            <div class="reg-field"><label for="gender">Gender</label><input type="text" id="gender" name="Gender"></div>
+            <div class="reg-field"><label for="age">Age</label><input type="number" id="age" name="Age" min="3" max="15" required></div>
+            <div class="reg-field"><label for="dob">Birth Date</label><input type="date" id="dob" name="Birth Date" required></div>
+          </div>
+          <div class="reg-field"><label for="healthcard">Health Card Number</label><input type="text" id="healthcard" name="Health Card Number" required></div>
+        </div>
+
+        <!-- PARENT INFO -->
+        <div class="reg-section">
+          <h4>Parent / Guardian Information</h4>
+          <div class="reg-field"><label for="parentName">Parent's Name</label><input type="text" id="parentName" name="Parent Name" required></div>
+          <div class="reg-row-3">
+            <div class="reg-field"><label for="phone">Phone</label><input type="tel" id="phone" name="Phone"></div>
+            <div class="reg-field"><label for="mobile">Mobile</label><input type="tel" id="mobile" name="Mobile" required></div>
+            <div class="reg-field"><label for="work">Work</label><input type="tel" id="work" name="Work Phone"></div>
+          </div>
+          <div class="reg-field"><label for="email">Email</label><input type="email" id="email" name="Parent Email" required></div>
+        </div>
+
+        <!-- EMERGENCY CONTACT -->
+        <div class="reg-section">
+          <h4>Emergency Contact</h4>
+          <p class="reg-section-note">This should be someone other than the parent/guardian listed above, in case they cannot be reached.</p>
+          <div class="reg-row">
+            <div class="reg-field"><label for="ecName">Name</label><input type="text" id="ecName" name="Emergency Contact Name" required></div>
+            <div class="reg-field"><label for="ecRelation">Relationship to Child</label><input type="text" id="ecRelation" name="Relationship to Child" required></div>
+          </div>
+          <div class="reg-row">
+            <div class="reg-field"><label for="ecHome">Home Phone</label><input type="tel" id="ecHome" name="Emergency Home Phone"></div>
+            <div class="reg-field"><label for="ecMobile">Mobile Phone</label><input type="tel" id="ecMobile" name="Emergency Mobile Phone" required></div>
+          </div>
+        </div>
+
+        <!-- HEALTH & SAFETY -->
+        <div class="reg-section">
+          <h4>Health &amp; Safety</h4>
+          <div class="reg-field">
+            <label>Does your child have any physical, emotional, mental, or behavioural concerns or limitations our team should be aware of?</label>
+            <div class="reg-radio-group">
+              <label><input type="radio" name="Concerns or Limitations" value="Yes" required> Yes</label>
+              <label><input type="radio" name="Concerns or Limitations" value="No"> No</label>
+            </div>
+          </div>
+          <div class="reg-field"><label for="concernsDetail">If yes, please explain</label><textarea id="concernsDetail" name="Concerns Details" rows="2"></textarea></div>
+          <p class="reg-section-note">If your child has limitations requiring one-on-one care, please send a care person with your child, as we do not have volunteers to accommodate this.</p>
+
+          <div class="reg-field">
+            <label>Does your child have allergies?</label>
+            <div class="reg-radio-group">
+              <label><input type="radio" name="Has Allergies" value="Yes" required> Yes</label>
+              <label><input type="radio" name="Has Allergies" value="No"> No</label>
+            </div>
+          </div>
+          <div class="reg-field">
+            <label>If yes, how would you classify these allergies?</label>
+            <div class="reg-radio-group">
+              <label><input type="checkbox" name="Allergy: Mild" value="Mild"> Mild</label>
+              <label><input type="checkbox" name="Allergy: Major" value="Major"> Major</label>
+              <label><input type="checkbox" name="Allergy: EpiPen" value="EpiPen"> EpiPen</label>
+            </div>
+          </div>
+          <div class="reg-field"><label for="allergyDetail">Allergy details (if any)</label><textarea id="allergyDetail" name="Allergy Details" rows="2"></textarea></div>
+
+          <div class="reg-field">
+            <label>Is your child bringing medication with them?</label>
+            <div class="reg-radio-group">
+              <label><input type="radio" name="Bringing Medication" value="Yes" required> Yes</label>
+              <label><input type="radio" name="Bringing Medication" value="No"> No</label>
+            </div>
+          </div>
+          <p class="reg-section-note">If yes, please request a medication form. Please understand that NorthPark Worship Centre does not dispense any medication to children.</p>
+        </div>
+
+        <!-- SAFARI NIAGARA -->
+        <div class="reg-section">
+          <h4>Safari Niagara Trip</h4>
+          <div class="reg-field">
+            <label>Will you allow your child to attend the trip to Safari Niagara (July 9 or 16)?</label>
+            <div class="reg-radio-group">
+              <label><input type="radio" name="Safari Niagara" value="Yes" required> Yes</label>
+              <label><input type="radio" name="Safari Niagara" value="No"> No</label>
+            </div>
+          </div>
+          <p class="reg-section-note">Children 7 and under must be accompanied by a parent/guardian. Please include $25.00 for yourself and any other family member attending.</p>
+          <div class="reg-field"><label for="zooParent">Name of Parent/Guardian Attending the Zoo (if applicable)</label><input type="text" id="zooParent" name="Zoo Attending Parent"></div>
+        </div>
+
+        <!-- CONSENT -->
+        <div class="reg-section">
+          <h4>Consent &amp; Acknowledgement</h4>
+          <p class="reg-section-note">
+            Information received is confidential and is gathered for the purpose of serving your child while in the care of NorthPark Worship Centre (formerly Christian Life Assembly). Any medical information collected here authorizes NorthPark, its staff, and volunteers to obtain medical assistance in emergencies. The safety of your child is our primary concern, and precautions will be taken for their wellbeing and protection.
+          </p>
+          <p class="reg-section-note">
+            By submitting this form, I/we, the parent(s) or guardian(s) of the child named above, authorize the Senior Pastor, Assistant Pastor, or a member of NorthPark ministry staff to consent to medical treatment and to authorize any physician or hospital to provide medical assessment, treatment, or procedures for the participant named on this form. I/we agree to indemnify and hold blameless the Senior Pastor, Assistant Pastor, ministry staff, Board, and volunteers of NorthPark Worship Centre from and against any loss, damage, or injury suffered by the participant as a result of participating in NorthPark activities.
+          </p>
+          <p class="reg-section-note">
+            <strong>Photos:</strong> We will be taking photographs during the week for a slideshow presented on a Sunday service, and may post pictures on our church website and social media.
+          </p>
+          <div class="reg-check-row">
+            <input type="checkbox" id="photoOptOut" name="Photo Opt-Out" value="Yes, prefer photo not used">
+            <label for="photoOptOut">I would prefer my child's photo not be used.</label>
+          </div>
+          <div class="reg-check-row">
+            <input type="checkbox" id="agree" name="Agreement" value="I have read, understood and agree with the above." required>
+            <label for="agree"><strong>I have read, understood, and agree with the above.</strong> (required)</label>
+          </div>
+          <div class="reg-row" style="margin-top:14px;">
+            <div class="reg-field"><label for="signature">Parent/Guardian Signature (type full name)</label><input type="text" id="signature" name="Parent Signature" required></div>
+            <div class="reg-field"><label for="signDate">Date</label><input type="date" id="signDate" name="Date Signed" required></div>
+          </div>
+        </div>
+
+        <button type="submit" class="reg-submit-btn" id="daycampSubmitBtn">Submit Registration</button>
+        <p style="font-size:12px;color:rgba(255,255,255,.4);text-align:center;margin-top:12px;" id="daycampFormNote">This form will be sent securely to the NorthPark office. Cash payment is collected separately, this form does not process payment.</p>
+      </form>
+
+      <div id="daycamp-success">
+        <div class="si-icon"><i class="fa-solid fa-circle-check"></i></div>
+        <h3>Registration Received!</h3>
+        <p>Thank you for registering for Day Camp 2026. Our team will be in touch to confirm your spot. Please remember that payment is cash only and is collected at drop-off or check-in.</p>
+      </div>
+    </div>
+  </section>
   <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('kidspac')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Kids Pac →</a><a href="#" onclick="go('contact')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Summer Camp Info →</a><a href="#" onclick="go('services')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Sunday Services →</a><a href="#" onclick="go('ministries')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">All Ministries →</a></div></div></div>
 </div>
 
@@ -1132,12 +1417,49 @@ footer{background:var(--ink);}
       <div>
         <p class="sec-label anim">Why We Exist</p><div class="sec-rule"></div>
         <h2 class="sec-title anim">Called to Love.<br><em>Sent to Serve.</em></h2>
-        <p class="sec-body">Our mission is to lead people into a growing relationship with Jesus Christ, equip believers for ministry, and reach our community and world with the hope of the gospel.</p>
-        <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:20px;"><strong>Our Vision:</strong> A church where every person, regardless of background, age, or stage of faith, finds a place to belong, grow, and serve.</p>
+        <p class="sec-body"><strong style="font-weight:600;color:var(--navy);">Who we are:</strong> We value family, community and discipleship. We are a loving community being transformed by God, serving Port Colborne, the Niagara region and the world.</p>
+        <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:20px;"><strong>Our Mission:</strong> Building passionate followers of Jesus Christ to go and make disciples.</p>
         <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;">We pursue this by gathering for worship every Sunday, equipping believers through midweek ministries, and reaching our neighbours through compassionate outreach and global missions.</p>
       </div>
-      <div class="img-frame"><div class="img-placeholder"><div class="cross">&#x271D;</div><p>Church photo coming soon</p></div></div>
+      <div class="img-frame"><div class="img-placeholder" style="padding:0;overflow:hidden;"><img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Church community" style="width:100%;height:100%;object-fit:cover;display:block;"></div></div>
     </div>
+  </div></section>
+
+  <!-- HOW -->
+  <section style="background:var(--navy);"><div class="sec">
+    <p class="sec-label anim" style="color:var(--gold);">How We Live Out Our Mission</p><div class="sec-rule" style="background:var(--gold);"></div>
+    <h2 class="sec-title anim" style="color:white;">Reaching. Teaching. <em style="color:var(--gold-lt);">Sending.</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:24px;">
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:28px 24px;">
+        <div class="card-icon"><i class="fa-solid fa-heart"></i></div>
+        <h4 style="font-family:var(--font-d);font-size:20px;font-weight:700;color:white;margin-bottom:8px;">Reaching in Love</h4>
+        <p style="font-size:14px;color:rgba(255,255,255,.75);line-height:1.7;">We reach out to our community and world with the love of Christ.</p>
+      </div>
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:28px 24px;">
+        <div class="card-icon"><i class="fa-solid fa-book-open"></i></div>
+        <h4 style="font-family:var(--font-d);font-size:20px;font-weight:700;color:white;margin-bottom:8px;">Teaching the Truth</h4>
+        <p style="font-size:14px;color:rgba(255,255,255,.75);line-height:1.7;">We teach the truth of God's Word, faithfully and clearly.</p>
+      </div>
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:28px 24px;">
+        <div class="card-icon"><i class="fa-solid fa-paper-plane"></i></div>
+        <h4 style="font-family:var(--font-d);font-size:20px;font-weight:700;color:white;margin-bottom:8px;">Sending in Power</h4>
+        <p style="font-size:14px;color:rgba(255,255,255,.75);line-height:1.7;">We send believers out in the power of the Holy Spirit to make disciples.</p>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- VALUES -->
+  <section style="background:var(--parchment);"><div class="sec">
+    <p class="sec-label anim">Our Values</p><div class="sec-rule"></div>
+    <h2 class="sec-title anim">What We <em>Stand For</em></h2>
+    <ul class="beliefs" style="max-width:740px;margin-top:24px;">
+      <li>We value the Bible, believing it to be God's message to the world.</li>
+      <li>We value community and family, as the church operates like a family caring for the physical, spiritual, social and psychological needs of one another.</li>
+      <li>We value caring for the community by reaching out with love to the lost and those who are in need.</li>
+      <li>We value generosity through sacrificial giving.</li>
+      <li>We value all generations and nationalities of people.</li>
+      <li>We value growth, believing that God's desire for the church and His people is to multiply.</li>
+    </ul>
   </div></section>
   <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('leadership')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Leadership Team →</a><a href="#" onclick="go('beliefs')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">What We Believe →</a><a href="#" onclick="go('paoc')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">PAOC →</a><a href="#" onclick="go('mcs')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">MCS College →</a><a href="#" onclick="go('about')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">About Us →</a><a href="#" onclick="go('contact')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Contact Us →</a></div></div></div>
 </div>
@@ -1149,6 +1471,7 @@ footer{background:var(--ink);}
     <p class="sec-label anim">The people who lead us</p><div class="sec-rule"></div>
     <h2 class="sec-title anim">Faithful Servants <em>of Christ</em></h2>
     <p class="sec-body">Our leadership team is committed to God, to one another, and to the people of Port Colborne. Guided by Scripture and empowered by the Holy Spirit, they serve with humility and joy.</p>
+    <p style="font-size:16px;font-weight:400;color:var(--text);line-height:1.8;max-width:680px;margin-bottom:8px;">We have an elected board who work alongside the Lead Pastor and staff to accomplish God's calling for our local church.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:32px;">
       <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:36px 28px;text-align:center;"><div style="width:80px;height:80px;border:2px solid rgba(201,135,58,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:28px;color:var(--gold);">&#x271D;</div><h4 style="font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--navy);">Lead Pastor</h4><p style="font-size:13px;font-weight:600;color:var(--gold);margin-top:5px;margin-bottom:10px;">Name to be added</p><p style="font-size:14px;color:var(--text);line-height:1.6;">Leading our congregation with vision, compassion, and a deep love for God's people.</p></div>
       <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:36px 28px;text-align:center;"><div style="width:80px;height:80px;border:2px solid rgba(201,135,58,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:28px;color:var(--gold);">&#x271D;</div><h4 style="font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--navy);">Youth Pastor</h4><p style="font-size:13px;font-weight:600;color:var(--gold);margin-top:5px;margin-bottom:10px;">Name to be added</p><p style="font-size:14px;color:var(--text);line-height:1.6;">Passionate about the next generation and building a thriving youth community.</p></div>
@@ -1177,6 +1500,7 @@ footer{background:var(--ink);}
       <li>We believe in the imminent, physical, and personal return of Jesus Christ.</li>
       <li>We believe in the resurrection of the dead, eternal life for the saved, eternal separation for the lost.</li>
     </ul>
+    <p style="font-size:15px;font-weight:400;color:var(--muted);margin-top:24px;">Read the official PAOC statement of faith at <a href="https://paoc.org/family/what-we-believe" target="_blank" style="color:var(--gold);font-weight:700;text-decoration:none;">paoc.org/family/what-we-believe</a></p>
   </div></section>
   <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('mission')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Mission & Vision →</a><a href="#" onclick="go('leadership')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Leadership Team →</a><a href="#" onclick="go('paoc')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">PAOC →</a><a href="#" onclick="go('services')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Sunday Services →</a><a href="#" onclick="go('about')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">About Us →</a></div></div></div>
 </div>
@@ -1190,7 +1514,10 @@ footer{background:var(--ink);}
     <p class="sec-body">NorthPark Worship Centre is proudly affiliated with the Pentecostal Assemblies of Canada, one of the country's largest Evangelical denominations.</p>
     <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:20px;">The PAOC is a fellowship of over 1,100 churches and 250,000 adherents across Canada, united by a common faith, a commitment to the authority of Scripture, and the empowering work of the Holy Spirit.</p>
     <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:32px;">Our affiliation connects us to a national network of churches, mission workers, and ministry resources, so that the work we do locally is part of a much larger story of God's kingdom advancing across Canada and around the world.</p>
-    <a href="https://paoc.org" target="_blank" class="btn-watch" style="display:inline-block;">Visit PAOC.org</a>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;">
+      <a href="https://paoc.org" target="_blank" class="btn-watch" style="display:inline-flex;align-items:center;gap:8px;"><i class="fa-solid fa-arrow-up-right-from-square"></i> Visit PAOC.org</a>
+      <a href="https://wodistrict.org" target="_blank" class="btn-listen" style="display:inline-flex;align-items:center;gap:8px;"><i class="fa-solid fa-arrow-up-right-from-square"></i> Western Ontario District</a>
+    </div>
   </div></section>
   <div style="background:var(--parchment);border-top:1px solid var(--border);"><div style="max-width:1200px;margin:0 auto;padding:28px 48px;"><p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">You might also be interested in</p><div style="display:flex;gap:10px;flex-wrap:wrap;"><a href="#" onclick="go('mission')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">Mission & Vision →</a><a href="#" onclick="go('mcs')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">MCS College →</a><a href="#" onclick="go('beliefs')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">What We Believe →</a><a href="#" onclick="go('about')" style="display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'">About Us →</a></div></div></div>
 </div>
@@ -1204,7 +1531,10 @@ footer{background:var(--ink);}
     <p class="sec-body">NorthPark serves as a local hub for Master's College and Seminary, bringing accredited theological education right here to Port Colborne.</p>
     <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:20px;">MCS offers degree and certificate programs in ministry, theology, and leadership, designed for those who want to deepen their knowledge of Scripture and grow in their calling, whether for vocational ministry or personal growth.</p>
     <p style="font-size:17px;font-weight:400;color:var(--text);line-height:1.85;margin-bottom:32px;">As a local hub, NorthPark makes it possible to access quality theological education without leaving your community. Contact us to find out what's currently available.</p>
-    <a href="#" onclick="go('contact')" class="btn-watch" style="display:inline-block;">Ask Us About It</a>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;">
+      <a href="https://mcs.edu" target="_blank" class="btn-watch" style="display:inline-flex;align-items:center;gap:8px;"><i class="fa-solid fa-arrow-up-right-from-square"></i> Visit MCS.edu</a>
+      <a href="#" onclick="go('contact')" class="btn-listen" style="display:inline-flex;align-items:center;gap:8px;"><i class="fa-solid fa-phone"></i> Ask Us About It</a>
+    </div>
   </div></section>
 </div>
 
@@ -1258,7 +1588,7 @@ footer{background:var(--ink);}
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:32px;">
       <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px 24px;"><h4 style="font-family:var(--font-d);font-size:20px;font-weight:700;color:var(--navy);margin-bottom:6px;">Port Cares Food Bank</h4><p style="font-size:15px;font-weight:400;color:var(--text);line-height:1.7;">Supporting local families with food security. We regularly collect and donate to the Port Cares Food Bank.</p></div>
       <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px 24px;"><h4 style="font-family:var(--font-d);font-size:20px;font-weight:700;color:var(--navy);margin-bottom:6px;">Lions Food Drive</h4><p style="font-size:15px;font-weight:400;color:var(--text);line-height:1.7;">Community food collection in partnership with the local Lions Club, keeping pantries stocked for those in need.</p></div>
-      <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px 24px;"><h4 style="font-family:var(--font-d);font-size:20px;font-weight:700;color:var(--navy);margin-bottom:6px;">Canadian Blood Services</h4><p style="font-size:15px;font-weight:400;color:var(--text);line-height:1.7;">Our congregation supports life-saving blood donation drives, one of the most direct ways to help save lives.</p></div>
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px 24px;"><h4 style="font-family:var(--font-d);font-size:20px;font-weight:700;color:var(--navy);margin-bottom:6px;">Canadian Blood Services</h4><p style="font-size:15px;font-weight:400;color:var(--text);line-height:1.7;margin-bottom:12px;">Our congregation supports life-saving blood donation drives, one of the most direct ways to help save lives.</p><a href="https://www.blood.ca/en" target="_blank" style="font-size:13px;font-weight:700;color:var(--gold);text-decoration:none;">blood.ca →</a></div>
       <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px 24px;"><h4 style="font-family:var(--font-d);font-size:20px;font-weight:700;color:var(--navy);margin-bottom:6px;">South Niagara Life Center</h4><p style="font-size:15px;font-weight:400;color:var(--text);line-height:1.7;">A regional outreach partner serving vulnerable community members across South Niagara.</p></div>
       <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px 24px;"><h4 style="font-family:var(--font-d);font-size:20px;font-weight:700;color:var(--navy);margin-bottom:6px;">Clothes for Missions</h4><p style="font-size:15px;font-weight:400;color:var(--text);line-height:1.7;">Collecting and distributing clothing to those in need, locally in Port Colborne and globally through our mission partners.</p></div>
     </div>
@@ -1700,6 +2030,37 @@ function switchStream(platform) {
 
 // ── MOBILE NAV ────────────────────────────────────────────────────────────
 function toggleMobile(){document.getElementById('mobileNav').classList.toggle('open');}
+
+// ── DAY CAMP REGISTRATION FORM ───────────────────────────────────────────
+(function(){
+  var form = document.getElementById('daycampForm');
+  if(!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = document.getElementById('daycampSubmitBtn');
+    var note = document.getElementById('daycampFormNote');
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+    var formData = new FormData(form);
+    fetch('https://formsubmit.co/ajax/claportcolborne@gmail.com', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: formData
+    })
+    .then(function(res){ return res.json(); })
+    .then(function(data){
+      form.style.display = 'none';
+      document.getElementById('daycamp-success').style.display = 'block';
+      document.getElementById('daycamp-success').scrollIntoView({behavior:'smooth'});
+    })
+    .catch(function(err){
+      btn.disabled = false;
+      btn.textContent = 'Submit Registration';
+      note.textContent = 'Something went wrong sending this form. Please call us at 905.834.4313 or download the PDF form above.';
+      note.style.color = '#f87171';
+    });
+  });
+})();
 
 // ── HERO SLIDER ───────────────────────────────────────────────────────────
 var cur=0, tot=5, timer;
