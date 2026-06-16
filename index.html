@@ -293,6 +293,8 @@ footer{background:var(--ink);}
 
 /* ─── PAGE SWITCHING ─── */
 .page{display:none;}
+.page.active{display:flex;flex-direction:column;min-height:calc(100vh - 98px);}
+.page.active>section:last-of-type{flex:1 0 auto;}
 .page.active{display:block;}
 
 /* ─── MOBILE MENU ─── */
@@ -340,10 +342,10 @@ footer{background:var(--ink);}
 .slide-live-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(220,38,38,.15);border:1px solid rgba(220,38,38,.4);border-radius:20px;padding:5px 14px;margin-bottom:16px;}
 .slide-live-dot{width:8px;height:8px;border-radius:50%;background:#ef4444;animation:pulse 1.2s infinite;flex-shrink:0;}
 .slide-live-badge span{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fca5a5;}
-.slide-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;}
-.slide-btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--ink);padding:13px 28px;font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .2s;}
+.slide-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;align-items:center;}
+.slide-btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:var(--ink);padding:13px 28px;font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;line-height:1;transition:background .2s;}
 .slide-btn-primary:hover{background:var(--gold-lt);}
-.slide-btn-secondary{display:inline-flex;align-items:center;gap:8px;border:1.5px solid rgba(255,255,255,.4);color:rgba(255,255,255,.9);padding:13px 28px;font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;transition:border-color .2s,color .2s;}
+.slide-btn-secondary{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1.5px solid rgba(255,255,255,.4);color:rgba(255,255,255,.9);padding:13px 28px;font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;line-height:1;transition:border-color .2s,color .2s;}
 .slide-btn-secondary:hover{border-color:var(--gold);color:var(--gold);}
 .slide-broadcast-icon{position:absolute;right:80px;top:50%;transform:translateY(-50%);font-size:180px;color:rgba(255,255,255,.04);z-index:0;line-height:1;}
 
@@ -352,8 +354,7 @@ footer{background:var(--ink);}
 .page.active{animation:pageEnter .18s ease forwards;}
 
 /* ── SCROLL REVEAL CLASSES ───────────────────────────────────────────── */
-#page-calendar{display:flex;flex-direction:column;min-height:calc(100vh - 96px);}
-#page-calendar section{flex:1;}
+/* calendar footer handled by .page.active rule */
 #page-home .anim{opacity:0;transform:translateY(28px);transition:opacity .35s ease,transform .35s ease;}
 #page-home .anim.visible{opacity:1;transform:translateY(0);}
 #page-home .anim-left{opacity:0;transform:translateX(-36px);transition:opacity .35s ease,transform .35s ease;}
@@ -659,10 +660,10 @@ footer{background:var(--ink);}
   <div style="background:var(--ink);border-bottom:1px solid rgba(184,150,90,.15);">
     <div style="max-width:1280px;margin:0 auto;padding:0 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;min-height:48px;">
       <p style="font-size:13px;font-weight:600;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px;"><i class="fa-solid fa-tower-broadcast" style="color:var(--gold);"></i> Live every Sunday at 10:30 AM, join us online or in person</p>
-      <div style="display:flex;gap:10px;">
-        <a href="#" onclick="go('livestream')" style="font-size:12px;font-weight:700;color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:6px;"><i class="fa-solid fa-circle" style="font-size:7px;animation:pulse 1.5s infinite;"></i>Watch Live</a>
-        <span style="color:rgba(255,255,255,.2);">|</span>
-        <a href="#" onclick="go('livestream');setTimeout(function(){switchStream('archive');},50)" style="font-size:12px;font-weight:700;color:rgba(255,255,255,.5);text-decoration:none;">Past Sermons</a>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <a href="#" onclick="go('livestream')" style="font-size:12px;font-weight:700;color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:6px;line-height:1;"><i class="fa-solid fa-circle" style="font-size:7px;animation:pulse 1.5s infinite;flex-shrink:0;"></i>Watch Live</a>
+        <span style="color:rgba(255,255,255,.2);line-height:1;display:inline-flex;align-items:center;">|</span>
+        <a href="#" onclick="go('livestream');setTimeout(function(){switchStream('archive');},50)" style="font-size:12px;font-weight:700;color:rgba(255,255,255,.5);text-decoration:none;display:inline-flex;align-items:center;line-height:1;">Past Sermons</a>
       </div>
     </div>
   </div>
@@ -949,7 +950,7 @@ footer{background:var(--ink);}
   <section style="background:var(--parchment);">
     <div class="sec">
       <div class="gp-grid">
-        <div class="gp-box anim"><div class="card-icon"><i class="fa-solid fa-hand-holding-heart"></i></div><h3>Giving</h3><div class="gp-rule"></div><p class="gp-intro">Your generosity supports our ministries, missions, and community outreach. Every gift makes a real difference.</p><div class="gp-item"><div class="gp-dot"></div><p><strong>E-Transfer</strong><br>Send to <a href="mailto:claportcolborne@gmail.com">claportcolborne@gmail.com</a></p></div><div class="gp-item"><div class="gp-dot"></div><p><strong>In Person</strong><br>Cash or cheque during Sunday service.</p></div><div class="gp-item"><div class="gp-dot"></div><p>Tax receipts available for eligible donations. Contact us for details.</p></div></div>
+        <div class="gp-box anim"><div class="card-icon"><i class="fa-solid fa-hand-holding-heart"></i></div><h3>Giving</h3><div class="gp-rule"></div><p class="gp-intro">Your generosity supports our ministries, missions, and community outreach. Every gift makes a real difference.</p><div class="gp-item"><div class="gp-dot"></div><p><strong>E-Transfer</strong><br>Send to <a href="mailto:claportcolborne@gmail.com">claportcolborne@gmail.com</a></p></div><div class="gp-item"><div class="gp-dot"></div><p><strong>In Person</strong><br>Cash or cheque during Sunday service.</p></div><p style="font-size:13px;font-style:italic;color:var(--muted);margin-top:14px;"><i class="fa-solid fa-circle-info" style="color:var(--gold);margin-right:6px;"></i>Tax receipts available for eligible donations. Contact us for details.</p></div>
         <div class="gp-box anim"><div class="card-icon"><i class="fa-solid fa-hands-praying"></i></div><h3>Prayer</h3><div class="gp-rule"></div><p class="gp-intro">We believe deeply in the power of prayer. Join us or send a request, we'd be honoured to pray with you.</p><div class="gp-item"><div class="gp-dot"></div><p><strong>Sunday Morning Prayer</strong><br>9:30 AM, all are welcome.</p></div><div class="gp-item"><div class="gp-dot"></div><p><strong>Wednesday Morning Prayer</strong><br>11:00 AM, midweek gathering.</p></div><div class="gp-item"><div class="gp-dot"></div><p><strong>Prayer Chain</strong><br>Email <a href="mailto:claportcolborne@gmail.com">claportcolborne@gmail.com</a></p></div></div>
       </div>
     </div>
@@ -1824,28 +1825,6 @@ footer{background:var(--ink);}
   </section>
 </div>
 
-<footer>
-  <div class="footer-top">
-    <div>
-      <div class="fb-logo">North<em>Park</em> Worship Centre</div>
-      <div class="fb-sub">Christian Life Assembly · Port Colborne, ON</div>
-      <div class="fb-rule"></div>
-      <p class="fb-desc">A Spirit-filled community in Port Colborne, Ontario, welcoming all to know Christ, grow in faith, and serve the world.</p>
-      <div class="footer-social">
-        <a href="https://facebook.com" target="_blank" class="soc" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="https://instagram.com" target="_blank" class="soc" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://youtube.com" target="_blank" class="soc" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://tiktok.com" target="_blank" class="soc" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-        <a href="mailto:claportcolborne@gmail.com" class="soc" title="Email"><i class="fa-solid fa-envelope"></i></a>
-      </div>
-    </div>
-    <div class="fc"><h4>About</h4><a href="#" onclick="go('about')">About Us</a><a href="#" onclick="go('about')">Mission &amp; Vision</a><a href="#" onclick="go('about')">What We Believe</a><a href="#" onclick="go('about')">Leadership Team</a><a href="#" onclick="go('about')">PAOC</a><a href="#" onclick="go('about')">MCS College Hub</a></div>
-    <div class="fc"><h4>Ministries</h4><a href="#" onclick="go('ministries')">Pathfinders Youth</a><a href="#" onclick="go('ministries')">Kids Pac</a><a href="#" onclick="go('ministries')">Men's Ministry</a><a href="#" onclick="go('ministries')">Women's Ministry</a><a href="#" onclick="go('ministries')">Bible Study</a><a href="#" onclick="go('ministries')">Day Camp</a></div>
-    <div class="fc"><h4>Connect</h4><a href="#" onclick="go('services')">Sunday Service</a><a href="#" onclick="go('missions')">Missions</a><a href="#" onclick="go('sports')">Sports</a><a href="#" onclick="go('livestream')">Sermons</a><a href="#" onclick="go('resources')">Resources</a><a href="#" onclick="go('livestream')">Watch Live</a><a href="#" onclick="go('giving')">Give</a><a href="#" onclick="go('contact')">Contact</a></div>
-  </div>
-  <div class="footer-bot">© 2025 NorthPark Worship Centre (Christian Life Assembly) · 484 Barrick Rd, Port Colborne ON L3K 4B7 · <a href="tel:9058344313">905.834.4313</a> · <a href="mailto:claportcolborne@gmail.com">claportcolborne@gmail.com</a></div>
-</footer>
-
 
 <!-- ══════════ CALENDAR ══════════ -->
 <div id="page-calendar" class="page">
@@ -2111,5 +2090,28 @@ function initAnims() {
   });
 }
 </script>
-</body>
+
+
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="fb-logo">North<em>Park</em> Worship Centre</div>
+      <div class="fb-sub">Christian Life Assembly · Port Colborne, ON</div>
+      <div class="fb-rule"></div>
+      <p class="fb-desc">A Spirit-filled community in Port Colborne, Ontario, welcoming all to know Christ, grow in faith, and serve the world.</p>
+      <div class="footer-social">
+        <a href="https://facebook.com" target="_blank" class="soc" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://instagram.com" target="_blank" class="soc" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://youtube.com" target="_blank" class="soc" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://tiktok.com" target="_blank" class="soc" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="mailto:claportcolborne@gmail.com" class="soc" title="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="fc"><h4>About</h4><a href="#" onclick="go('about')">About Us</a><a href="#" onclick="go('about')">Mission &amp; Vision</a><a href="#" onclick="go('about')">What We Believe</a><a href="#" onclick="go('about')">Leadership Team</a><a href="#" onclick="go('about')">PAOC</a><a href="#" onclick="go('about')">MCS College Hub</a></div>
+    <div class="fc"><h4>Ministries</h4><a href="#" onclick="go('ministries')">Pathfinders Youth</a><a href="#" onclick="go('ministries')">Kids Pac</a><a href="#" onclick="go('ministries')">Men's Ministry</a><a href="#" onclick="go('ministries')">Women's Ministry</a><a href="#" onclick="go('ministries')">Bible Study</a><a href="#" onclick="go('ministries')">Day Camp</a></div>
+    <div class="fc"><h4>Connect</h4><a href="#" onclick="go('services')">Sunday Service</a><a href="#" onclick="go('missions')">Missions</a><a href="#" onclick="go('sports')">Sports</a><a href="#" onclick="go('livestream')">Sermons</a><a href="#" onclick="go('resources')">Resources</a><a href="#" onclick="go('livestream')">Watch Live</a><a href="#" onclick="go('giving')">Give</a><a href="#" onclick="go('contact')">Contact</a></div>
+  </div>
+  <div class="footer-bot">© 2025 NorthPark Worship Centre (Christian Life Assembly) · 484 Barrick Rd, Port Colborne ON L3K 4B7 · <a href="tel:9058344313">905.834.4313</a> · <a href="mailto:claportcolborne@gmail.com">claportcolborne@gmail.com</a></div>
+</footer></body>
 </html>
