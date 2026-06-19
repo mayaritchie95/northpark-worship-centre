@@ -1993,8 +1993,14 @@ footer{background:var(--ink);}
 <script>
 const pages=['home','about','ministries','services','missions','sports','resources','giving','contact','calendar','pathfinders','kidspac','mens','womens','biblestudy','rooted','firstthings','daycamp','mission','leadership','beliefs','paoc','mcs','wednesday','worldmissions','homemissions','livestream','events'];
 
+// Prevent href="#" links from resetting the URL hash after go() sets it
+document.addEventListener('click', function(e){
+  const a = e.target.closest('a[href="#"]');
+  if(a) e.preventDefault();
+});
+
 // ── PAGE NAVIGATION ───────────────────────────────────────────────────────
-function go(id){
+function go(id, skipHistory){
   pages.forEach(p=>{const el=document.getElementById('page-'+p);if(el)el.classList.remove('active');});
   const t=document.getElementById('page-'+id);
   if(t){
@@ -2002,8 +2008,29 @@ function go(id){
     window.scrollTo({top:0,behavior:'smooth'});
     if(id==='calendar'&&window.renderCalendar)window.renderCalendar();
     if(id==='home') setTimeout(initAnims, 60);
+    if(!skipHistory){
+      if(window.location.hash !== '#'+id){
+        history.pushState({page:id}, '', '#'+id);
+      }
+    }
   }
 }
+
+// Handle browser back/forward buttons
+window.addEventListener('popstate', function(e){
+  const id = (e.state && e.state.page) || (window.location.hash ? window.location.hash.slice(1) : 'home');
+  go(pages.includes(id) ? id : 'home', true);
+});
+
+// On initial load, open whichever page is in the URL hash (supports direct links + refresh)
+document.addEventListener('DOMContentLoaded', function(){
+  const initial = window.location.hash ? window.location.hash.slice(1) : 'home';
+  if(pages.includes(initial) && initial !== 'home'){
+    go(initial, true);
+  } else {
+    history.replaceState({page:'home'}, '', '#home');
+  }
+});
 
 // ── STREAM TAB SWITCHER ───────────────────────────────────────────────────
 function switchStream(platform) {
