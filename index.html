@@ -644,7 +644,7 @@ footer{background:var(--ink);}
             <a href="#" class="slide-btn-primary" onclick="go('livestream')">
               <i class="fa-solid fa-circle" style="font-size:8px;animation:pulse 1.2s infinite;"></i> Watch Live
             </a>
-            <a href="#" class="slide-btn-secondary" onclick="go('livestream')">
+            <a href="#" class="slide-btn-secondary" onclick="go('livestream');setTimeout(function(){showStream('past');},60)">
               <i class="fa-solid fa-film"></i> Past Sermons
             </a>
           </div>
@@ -759,7 +759,7 @@ footer{background:var(--ink);}
       <div style="display:flex;gap:10px;align-items:center;">
         <a href="#" onclick="go('livestream')" style="font-size:12px;font-weight:700;color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:6px;line-height:1;"><i class="fa-solid fa-circle" style="font-size:7px;animation:pulse 1.5s infinite;flex-shrink:0;"></i>Watch Live</a>
         <span style="color:rgba(255,255,255,.2);line-height:1;display:inline-flex;align-items:center;">|</span>
-        <a href="#" onclick="go('livestream')" style="font-size:12px;font-weight:700;color:rgba(255,255,255,.5);text-decoration:none;display:inline-flex;align-items:center;line-height:1;">Past Sermons</a>
+        <a href="#" onclick="go('livestream');setTimeout(function(){showStream('past');},60)" style="font-size:12px;font-weight:700;color:rgba(255,255,255,.5);text-decoration:none;display:inline-flex;align-items:center;line-height:1;">Past Sermons</a>
       </div>
     </div>
   </div>
@@ -775,7 +775,7 @@ footer{background:var(--ink);}
         <p class="sermon-series">Current Sermon Series &nbsp;·&nbsp; NorthPark Worship Centre</p>
         <div class="sermon-btns">
           <a href="#" class="btn-watch" onclick="go('livestream')"><i class="fa-solid fa-circle" style="font-size:9px;margin-right:7px;animation:pulse 1.5s infinite;"></i>Watch Live</a>
-          <a href="#" class="btn-listen" onclick="go('livestream')" id="home-archive-btn">Past Sermons</a>
+          <a href="#" class="btn-listen" onclick="go('livestream');setTimeout(function(){showStream('past');},60)" id="home-archive-btn">Past Sermons</a>
           <a href="#" class="btn-listen" onclick="go('livestream')">Watch Online</a>
         </div>
       </div>
@@ -1772,43 +1772,50 @@ footer{background:var(--ink);}
   <section id="stream-section" style="background:var(--ink);padding:56px 48px;">
     <div class="sec">
 
-      <p class="sec-label" style="color:var(--gold-lt);">Watch Live</p><div class="sec-rule" style="background:var(--gold-lt);"></div>
-      <h2 class="sec-title" style="color:white;margin-bottom:28px;">Sunday Service, <em style="color:var(--gold-lt);">Live</em></h2>
+      <p class="sec-label" style="color:var(--gold-lt);">Watch</p><div class="sec-rule" style="background:var(--gold-lt);"></div>
+      <h2 class="sec-title" style="color:white;margin-bottom:28px;">Sunday Service &amp; <em style="color:var(--gold-lt);">Sermons</em></h2>
 
-      <!-- LIVE VIEWING SCREEN (Watch Here) -->
-      <div style="background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;">
-        <div style="position:relative;padding-bottom:56.25%;height:0;">
-          <iframe
-            id="yt-live-iframe"
-            src="https://www.youtube.com/embed/live_stream?channel=UCLprpsixwHt2X1jEaVMJXoQ"
-            style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
-        </div>
-        <div style="padding:16px 20px;background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-          <p style="font-size:13px;color:rgba(255,255,255,.55);">
-            <i class="fa-solid fa-circle-info" style="margin-right:6px;color:var(--gold-lt);"></i>
-            This player shows our Sunday service live at 10:30 AM. If nothing is playing, we are not currently live.
-          </p>
-          <a href="https://www.youtube.com/channel/UCLprpsixwHt2X1jEaVMJXoQ" target="_blank" style="font-size:13px;font-weight:700;color:var(--gold-lt);text-decoration:none;">Open in YouTube →</a>
+      <!-- TAB SWITCHER -->
+      <div style="display:flex;gap:0;margin-bottom:24px;border:1px solid rgba(255,255,255,.14);border-radius:8px;overflow:hidden;width:fit-content;">
+        <button onclick="showStream('live')" id="tab-live" style="padding:12px 30px;font-family:var(--font-b);font-size:14px;font-weight:700;cursor:pointer;border:none;background:var(--gold-lt);color:var(--ink);transition:background .2s,color .2s;"><i class="fa-solid fa-circle" style="font-size:8px;margin-right:8px;animation:pulse 1.4s infinite;"></i>Watch Live</button>
+        <button onclick="showStream('past')" id="tab-past" style="padding:12px 30px;font-family:var(--font-b);font-size:14px;font-weight:700;cursor:pointer;border:none;background:rgba(255,255,255,.07);color:rgba(255,255,255,.65);transition:background .2s,color .2s;"><i class="fa-solid fa-film" style="margin-right:8px;"></i>Previous Sermons</button>
+      </div>
+
+      <!-- LIVE PANEL -->
+      <div id="panel-live" style="display:block;">
+        <div style="background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;">
+          <div style="position:relative;padding-bottom:56.25%;height:0;">
+            <iframe
+              id="yt-live-iframe"
+              src="https://www.youtube.com/embed/live_stream?channel=UCLprpsixwHt2X1jEaVMJXoQ"
+              style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div style="padding:16px 20px;background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+            <p style="font-size:13px;color:rgba(255,255,255,.55);">
+              <i class="fa-solid fa-circle-info" style="margin-right:6px;color:var(--gold-lt);"></i>
+              Our Sunday service streams here live at 10:30 AM. If nothing is playing, we are not currently live.
+            </p>
+            <a href="https://www.youtube.com/channel/UCLprpsixwHt2X1jEaVMJXoQ" target="_blank" style="font-size:13px;font-weight:700;color:var(--gold-lt);text-decoration:none;">Open in YouTube →</a>
+          </div>
         </div>
       </div>
 
-      <!-- RECENT MESSAGES / ARCHIVE -->
-      <div style="margin-top:48px;">
-        <h3 style="font-family:var(--font-d);font-size:26px;font-weight:700;color:white;margin-bottom:8px;">Recent Messages</h3>
-        <p style="font-size:15px;color:rgba(255,255,255,.6);margin-bottom:24px;">Missed a Sunday? Catch up on past services below.</p>
+      <!-- PAST SERMONS PANEL -->
+      <div id="panel-past" style="display:none;">
         <div style="background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;">
           <div style="position:relative;padding-bottom:56.25%;height:0;">
             <iframe src="https://www.youtube.com/embed/videoseries?list=PLH26Aqz56wQ0" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
-          <div style="padding:16px 20px;background:rgba(255,255,255,.04);text-align:center;">
-            <p style="font-size:13px;color:rgba(255,255,255,.55);">Every sermon we upload appears here automatically.</p>
+          <div style="padding:16px 20px;background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+            <p style="font-size:13px;color:rgba(255,255,255,.55);">
+              <i class="fa-solid fa-circle-info" style="margin-right:6px;color:var(--gold-lt);"></i>
+              Every sermon we upload appears here automatically. Use the playlist menu to browse all past messages.
+            </p>
+            <a href="https://www.youtube.com/channel/UCLprpsixwHt2X1jEaVMJXoQ" target="_blank" style="font-size:13px;font-weight:700;color:var(--gold-lt);text-decoration:none;">Subscribe on YouTube →</a>
           </div>
-        </div>
-        <div style="text-align:center;margin-top:24px;">
-          <a href="https://www.youtube.com/channel/UCLprpsixwHt2X1jEaVMJXoQ" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:var(--gold-lt);color:var(--ink);padding:12px 24px;font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;"><i class="fa-brands fa-youtube"></i> Subscribe on YouTube</a>
         </div>
       </div>
 
@@ -2184,8 +2191,25 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 });
 
-// ── (Tabs removed — the livestream page now shows the live screen then Recent Messages) ──
-function switchStream(platform) { /* no-op retained for backward compatibility */ }
+// ── STREAM TAB SWITCHER (Watch Live / Previous Sermons) ───────────────────
+function showStream(which) {
+  var live = document.getElementById('panel-live');
+  var past = document.getElementById('panel-past');
+  var tabLive = document.getElementById('tab-live');
+  var tabPast = document.getElementById('tab-past');
+  if (!live || !past) return;
+  if (which === 'past') {
+    live.style.display = 'none'; past.style.display = 'block';
+    tabPast.style.background = 'var(--gold-lt)'; tabPast.style.color = 'var(--ink)';
+    tabLive.style.background = 'rgba(255,255,255,.07)'; tabLive.style.color = 'rgba(255,255,255,.65)';
+  } else {
+    live.style.display = 'block'; past.style.display = 'none';
+    tabLive.style.background = 'var(--gold-lt)'; tabLive.style.color = 'var(--ink)';
+    tabPast.style.background = 'rgba(255,255,255,.07)'; tabPast.style.color = 'rgba(255,255,255,.65)';
+  }
+}
+// Backward-compatible alias for older buttons that requested the archive
+function switchStream(platform) { showStream(platform === 'archive' || platform === 'past' ? 'past' : 'live'); }
 
 // ── MOBILE NAV ────────────────────────────────────────────────────────────
 function toggleMobile(){document.getElementById('mobileNav').classList.toggle('open');}
