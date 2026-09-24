@@ -126,8 +126,8 @@ nav{background:var(--white);border-bottom:1px solid var(--border);position:stick
 .dropdown a:hover{color:var(--gold);background:var(--parchment);}
 .nav-give{background:var(--gold)!important;color:var(--white)!important;padding:10px 22px!important;margin-left:8px;display:inline-flex!important;align-items:center!important;border-radius:4px;font-size:13px!important;font-weight:700!important;letter-spacing:0!important;line-height:1!important;transition:background .2s!important;}
 .nav-give:hover{background:var(--navy)!important;}
-.nav-watch-live{background:#c0392b!important;color:white!important;padding:10px 18px!important;border-radius:4px!important;font-size:13px!important;font-weight:700!important;letter-spacing:0!important;text-decoration:none!important;transition:background .2s!important;white-space:nowrap;}
-.nav-watch-live:hover{background:#a93226!important;color:white!important;}
+.nav-watch-live{background:var(--ink)!important;color:white!important;padding:10px 18px!important;border-radius:4px!important;font-size:13px!important;font-weight:700!important;letter-spacing:0!important;text-decoration:none!important;transition:background .2s!important;white-space:nowrap;}
+.nav-watch-live:hover{background:#1f3535!important;color:white!important;}
 .nav-watch-live::after{display:none!important;}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
 .hamburger span{display:block;width:22px;height:1.5px;background:#444;}
@@ -425,11 +425,14 @@ footer{background:var(--ink);}
 .res-card .card-icon{margin-bottom:12px;}
 .sport-card .card-icon{margin-bottom:18px;background:rgba(143,184,20,0.15);border-color:rgba(143,184,20,0.3);}
 .gp-box .card-icon{margin-bottom:16px;background:rgba(143,184,20,0.15);border-color:rgba(143,184,20,0.35);}
-@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+@keyframes livedot{0%{box-shadow:0 0 0 0 rgba(13,28,28,.5);}70%{box-shadow:0 0 0 6px rgba(13,28,28,0);}100%{box-shadow:0 0 0 0 rgba(13,28,28,0);}}
+@keyframes livedotG{0%{box-shadow:0 0 0 0 rgba(173,218,42,.55);}70%{box-shadow:0 0 0 6px rgba(173,218,42,0);}100%{box-shadow:0 0 0 0 rgba(173,218,42,0);}}
+.live-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#0d1c1c;flex-shrink:0;animation:livedot 1.6s infinite;vertical-align:middle;}
+.live-dot.on-dark{background:#adda2a;animation:livedotG 1.6s infinite;}
 
-.slide-live-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(220,38,38,.15);border:1px solid rgba(220,38,38,.4);border-radius:20px;padding:5px 14px;margin-bottom:16px;}
-.slide-live-dot{width:8px;height:8px;border-radius:50%;background:#ef4444;animation:pulse 1.2s infinite;flex-shrink:0;}
-.slide-live-badge span{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fca5a5;}
+.slide-live-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(173,218,42,.14);border:1px solid rgba(173,218,42,.45);border-radius:20px;padding:5px 14px;margin-bottom:16px;}
+.slide-live-dot{width:8px;height:8px;border-radius:50%;background:#adda2a;animation:livedotG 1.6s infinite;flex-shrink:0;}
+.slide-live-badge span{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#d4ec8f;}
 .slide-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;align-items:center;}
 .slide-btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--gold-lt);color:var(--ink);padding:13px 28px;font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;line-height:1;transition:background .2s;}
 .slide-btn-primary:hover{background:var(--gold-lt);}
@@ -512,7 +515,7 @@ footer{background:var(--ink);}
 .give-box a:hover{transform:scale(1.02);}
 
 /* ── LIVE BADGE RING PULSE ───────────────────────────────────────────── */
-@keyframes ringPulse{0%{box-shadow:0 0 0 0 rgba(239,68,68,.45)}70%{box-shadow:0 0 0 10px rgba(239,68,68,0)}100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}}
+@keyframes ringPulse{0%{box-shadow:0 0 0 0 rgba(173,218,42,.4)}70%{box-shadow:0 0 0 10px rgba(173,218,42,0)}100%{box-shadow:0 0 0 0 rgba(173,218,42,0)}}
 .slide-live-badge{animation:ringPulse 2.2s infinite;}
 
 /* ── FOOTER LINK SLIDE ───────────────────────────────────────────────── */
@@ -612,7 +615,7 @@ footer{background:var(--ink);}
   <a href="#" onclick="go('sports');toggleMobile()">Sports</a>
   <a href="#" onclick="go('livestream');toggleMobile()">Sermons</a>
   <a href="#" onclick="go('resources');toggleMobile()">Resources</a>
-  <a href="#" onclick="go('livestream');toggleMobile()" style="color:white;font-weight:700;background:#c0392b;margin:8px 16px;border-radius:4px;padding:12px 20px!important;"><i class="fa-solid fa-circle" style="font-size:7px;margin-right:7px;animation:pulse 1.2s infinite;"></i>Watch Live</a>
+  <a href="#" onclick="go('livestream');toggleMobile()" style="color:white;font-weight:700;background:var(--ink);margin:8px 16px;border-radius:4px;padding:12px 20px!important;"><span class="live-dot on-dark" style="margin-right:7px;"></span>Watch Live</a>
   <a href="#" onclick="go('calendar');toggleMobile()">Calendar</a>
   <a href="#" onclick="go('events');toggleMobile()">Upcoming Events</a>
   <a href="#" onclick="go('giving');toggleMobile()">Giving &amp; Prayer</a>
@@ -630,8 +633,6 @@ footer{background:var(--ink);}
       <!-- SLIDE 1: WATCH LIVE, front and centre -->
       <div class="slide">
         <div class="slide-bg" data-bg="IMG0" ></div>
-        <!-- subtle broadcast grid pattern -->
-        <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(184,150,90,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(184,150,90,.03) 1px,transparent 1px);background-size:48px 48px;z-index:0;pointer-events:none;"></div>
         
         <div class="slide-content">
           <div class="slide-live-badge">
@@ -642,7 +643,7 @@ footer{background:var(--ink);}
           <p style="font-size:16px;font-weight:400;color:rgba(255,255,255,.75);line-height:1.6;margin-bottom:4px;">Join us live or catch up on past messages, from anywhere, anytime.</p>
           <div class="slide-btns">
             <a href="#" class="slide-btn-primary" onclick="go('livestream')">
-              <i class="fa-solid fa-circle" style="font-size:8px;animation:pulse 1.2s infinite;"></i> Watch Live
+              <span class="live-dot on-dark"></span> Watch Live
             </a>
             <a href="#" class="slide-btn-secondary" onclick="go('livestream');setTimeout(function(){showStream('past');},60)">
               <i class="fa-solid fa-film"></i> Past Sermons
@@ -757,7 +758,7 @@ footer{background:var(--ink);}
     <div style="max-width:1280px;margin:0 auto;padding:0 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;min-height:48px;">
       <p style="font-size:13px;font-weight:600;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px;"><i class="fa-solid fa-tower-broadcast" style="color:var(--gold);"></i> Live every Sunday at 10:30 AM, join us online or in person</p>
       <div style="display:flex;gap:10px;align-items:center;">
-        <a href="#" onclick="go('livestream')" style="font-size:12px;font-weight:700;color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:6px;line-height:1;"><i class="fa-solid fa-circle" style="font-size:7px;animation:pulse 1.5s infinite;flex-shrink:0;"></i>Watch Live</a>
+        <a href="#" onclick="go('livestream')" style="font-size:12px;font-weight:700;color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:6px;line-height:1;"><span class="live-dot on-dark"></span>Watch Live</a>
         <span style="color:rgba(255,255,255,.2);line-height:1;display:inline-flex;align-items:center;">|</span>
         <a href="#" onclick="go('livestream');setTimeout(function(){showStream('past');},60)" style="font-size:12px;font-weight:700;color:rgba(255,255,255,.5);text-decoration:none;display:inline-flex;align-items:center;line-height:1;">Past Sermons</a>
       </div>
@@ -774,7 +775,7 @@ footer{background:var(--ink);}
         <h2>Building People -<br><em>Making Disciples</em></h2>
         <p class="sermon-series">Current Sermon Series &nbsp;·&nbsp; NorthPark Worship Centre</p>
         <div class="sermon-btns">
-          <a href="#" class="btn-watch" onclick="go('livestream')"><i class="fa-solid fa-circle" style="font-size:9px;margin-right:7px;animation:pulse 1.5s infinite;"></i>Watch Live</a>
+          <a href="#" class="btn-watch" onclick="go('livestream')"><span class="live-dot" style="margin-right:7px;"></span>Watch Live</a>
           <a href="#" class="btn-listen" onclick="go('livestream');setTimeout(function(){showStream('past');},60)" id="home-archive-btn">Past Sermons</a>
           <a href="#" class="btn-listen" onclick="go('livestream')">Watch Online</a>
         </div>
@@ -1763,7 +1764,7 @@ footer{background:var(--ink);}
   <!-- LIVE STATUS BANNER -->
   <div id="live-banner" style="background:var(--gold);padding:14px 48px;text-align:center;display:none;">
     <span style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink);">
-      <i class="fa-solid fa-circle" style="font-size:9px;margin-right:6px;animation:pulse 1.2s infinite;"></i>
+      <span class="live-dot" style="margin-right:6px;"></span>
       We are live right now, join the service below
     </span>
   </div>
@@ -1777,7 +1778,7 @@ footer{background:var(--ink);}
 
       <!-- TAB SWITCHER -->
       <div style="display:flex;gap:0;margin-bottom:24px;border:1px solid rgba(255,255,255,.14);border-radius:8px;overflow:hidden;width:fit-content;">
-        <button onclick="showStream('live')" id="tab-live" style="padding:12px 30px;font-family:var(--font-b);font-size:14px;font-weight:700;cursor:pointer;border:none;background:var(--gold-lt);color:var(--ink);transition:background .2s,color .2s;"><i class="fa-solid fa-circle" style="font-size:8px;margin-right:8px;animation:pulse 1.4s infinite;"></i>Watch Live</button>
+        <button onclick="showStream('live')" id="tab-live" style="display:inline-flex;align-items:center;padding:12px 30px;font-family:var(--font-b);font-size:14px;font-weight:700;cursor:pointer;border:none;background:var(--gold-lt);color:var(--ink);transition:background .2s,color .2s;"><span class="live-dot" style="margin-right:8px;"></span>Watch Live</button>
         <button onclick="showStream('past')" id="tab-past" style="padding:12px 30px;font-family:var(--font-b);font-size:14px;font-weight:700;cursor:pointer;border:none;background:rgba(255,255,255,.07);color:rgba(255,255,255,.65);transition:background .2s,color .2s;"><i class="fa-solid fa-film" style="margin-right:8px;"></i>Previous Sermons</button>
       </div>
 
@@ -1938,7 +1939,7 @@ footer{background:var(--ink);}
 .cal-event-card h4{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:3px;}
 .cal-event-card p{font-size:13.5px;color:var(--text);line-height:1.5;}
 .cal-event-card .when{font-size:12px;font-weight:600;color:var(--gold);margin-top:5px;}
-@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+@keyframes livedot{0%{box-shadow:0 0 0 0 rgba(13,28,28,.5);}70%{box-shadow:0 0 0 6px rgba(13,28,28,0);}100%{box-shadow:0 0 0 0 rgba(13,28,28,0);}}
 </style>
 
 <script>
