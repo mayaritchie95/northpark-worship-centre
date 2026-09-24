@@ -1795,7 +1795,7 @@ footer{background:var(--ink);}
     <div class="sec">
 
       <!-- TAB SWITCHER -->
-      <div style="display:flex;gap:0;margin-bottom:24px;border:1px solid rgba(255,255,255,.12);border-radius:6px;overflow:hidden;width:fit-content;"><button onclick="switchStream('archive')" id="tab-archive" style="padding:11px 28px;font-family:var(--font-b);font-size:13px;font-weight:700;cursor:pointer;border:none;background:var(--gold);color:var(--ink);transition:background .2s;"><i class="fa-solid fa-film" style="margin-right:7px;"></i>Past Sermons</button><button onclick="switchStream('youtube')" id="tab-youtube" style="padding:11px 28px;font-family:var(--font-b);font-size:13px;font-weight:700;cursor:pointer;border:none;background:rgba(255,255,255,.07);color:rgba(255,255,255,.65);transition:background .2s;"><i class="fa-brands fa-youtube" style="margin-right:7px;"></i>YouTube</button><button onclick="switchStream('facebook')" id="tab-facebook" style="padding:11px 28px;font-family:var(--font-b);font-size:13px;font-weight:700;cursor:pointer;border:none;background:rgba(255,255,255,.07);color:rgba(255,255,255,.65);transition:background .2s;"><i class="fa-brands fa-facebook-f" style="margin-right:7px;"></i>Facebook</button><button onclick="switchStream('embed')" id="tab-embed" style="padding:11px 28px;font-family:var(--font-b);font-size:13px;font-weight:700;cursor:pointer;border:none;background:rgba(255,255,255,.07);color:rgba(255,255,255,.65);transition:background .2s;"><i class="fa-solid fa-tv" style="margin-right:7px;"></i>Watch Here</button></div>
+      <div style="display:flex;gap:0;margin-bottom:24px;border:1px solid rgba(255,255,255,.12);border-radius:6px;overflow:hidden;width:fit-content;"><button onclick="switchStream('archive')" id="tab-archive" style="padding:11px 28px;font-family:var(--font-b);font-size:13px;font-weight:700;cursor:pointer;border:none;background:var(--gold);color:var(--ink);transition:background .2s;"><i class="fa-solid fa-film" style="margin-right:7px;"></i>Past Sermons</button><button onclick="switchStream('youtube')" id="tab-youtube" style="padding:11px 28px;font-family:var(--font-b);font-size:13px;font-weight:700;cursor:pointer;border:none;background:rgba(255,255,255,.07);color:rgba(255,255,255,.65);transition:background .2s;"><i class="fa-brands fa-youtube" style="margin-right:7px;"></i>YouTube</button><button onclick="switchStream('embed')" id="tab-embed" style="padding:11px 28px;font-family:var(--font-b);font-size:13px;font-weight:700;cursor:pointer;border:none;background:rgba(255,255,255,.07);color:rgba(255,255,255,.65);transition:background .2s;"><i class="fa-solid fa-tv" style="margin-right:7px;"></i>Watch Here</button></div>
 
       <!-- YOUTUBE PANEL -->
       <div id="stream-youtube" class="stream-panel" style="display:none;">
@@ -1806,23 +1806,11 @@ footer{background:var(--ink);}
           <a href="https://www.youtube.com/channel/UCLprpsixwHt2X1jEaVMJXoQ" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#FF0000;color:white;padding:14px 32px;font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;transition:opacity .2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
             <i class="fa-brands fa-youtube"></i> Open YouTube Channel
           </a>
-          <p style="font-size:12px;color:rgba(255,255,255,.35);margin-top:16px;">Replace this link with your church YouTube channel URL</p>
+          
         </div>
       </div>
 
       <!-- FACEBOOK PANEL -->
-      <div id="stream-facebook" class="stream-panel" style="display:none;">
-        <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:48px;text-align:center;">
-          <i class="fa-brands fa-facebook" style="font-size:56px;color:#1877F2;margin-bottom:20px;display:block;"></i>
-          <h3 style="font-family:var(--font-d);font-size:26px;font-weight:700;color:white;margin-bottom:10px;">Watch on Facebook</h3>
-          <p style="font-size:15px;font-weight:400;color:rgba(255,255,255,.75);line-height:1.7;max-width:480px;margin:0 auto 28px;">Follow our Facebook page to catch services live and watch replays. Like the page to get notified when we go live.</p>
-          <a href="https://www.facebook.com/people/NorthPark-Worship-Centre/61593485567965/" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#1877F2;color:white;padding:14px 32px;font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;transition:opacity .2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
-            <i class="fa-brands fa-facebook-f"></i> Open Facebook Page
-          </a>
-          <p style="font-size:12px;color:rgba(255,255,255,.35);margin-top:16px;">Replace this link with your church Facebook page URL</p>
-        </div>
-      </div>
-
       <!-- EMBED PANEL -->
       <div id="stream-embed" class="stream-panel" style="display:none;">
         <div style="background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.1);border-radius:6px;overflow:hidden;">
@@ -1908,12 +1896,12 @@ footer{background:var(--ink);}
           <p class="sec-label anim">Service times</p><div class="sec-rule"></div>
           <h2 class="sec-title anim">When We Go <em>Live</em></h2>
           <div style="display:flex;flex-direction:column;gap:14px;margin-top:8px;">
-            <div style="display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--border);">
-              <div style="min-width:52px;text-align:center;background:var(--navy);border-radius:4px;padding:8px 6px;"><div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);">Sun</div><div style="font-family:var(--font-d);font-size:20px;font-weight:400;color:white;line-height:1.1;">10:30–<br>Noon</div></div>
+            <div style="display:flex;gap:18px;align-items:center;padding:20px 0;border-bottom:1px solid var(--border);">
+              <div style="width:76px;min-width:76px;text-align:center;background:var(--navy);border-radius:8px;padding:12px 8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;"><div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-lt);">Sun</div><div style="font-family:var(--font-d);font-size:22px;font-weight:700;color:white;line-height:1;">10:30</div><div style="font-size:11px;font-weight:500;color:rgba(255,255,255,.65);">to Noon</div></div>
               <div><h4 style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:4px;">Sunday Worship Service</h4><p style="font-size:14px;font-weight:400;color:var(--text);">Our main service streams live every Sunday. Usually 60–70 minutes including worship, announcements, and the message.</p></div>
             </div>
-            <div style="display:flex;gap:16px;align-items:flex-start;padding:16px 0;">
-              <div style="min-width:52px;text-align:center;background:var(--navy);border-radius:4px;padding:8px 6px;"><div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);">Any</div><div style="font-family:var(--font-d);font-size:14px;font-weight:400;color:white;line-height:1.2;margin-top:4px;">time</div></div>
+            <div style="display:flex;gap:18px;align-items:center;padding:20px 0;">
+              <div style="width:76px;min-width:76px;text-align:center;background:var(--navy);border-radius:8px;padding:12px 8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;"><div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-lt);">Any</div><div style="font-family:var(--font-d);font-size:22px;font-weight:700;color:white;line-height:1;">Time</div></div>
               <div><h4 style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:4px;">Sermon Archive</h4><p style="font-size:14px;font-weight:400;color:var(--text);">Missed a Sunday? All past messages are available on YouTube anytime you need them.</p></div>
             </div>
           </div>
@@ -2275,7 +2263,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 // ── STREAM TAB SWITCHER ───────────────────────────────────────────────────
 function switchStream(platform) {
-  ['youtube','facebook','embed','archive'].forEach(function(p) {
+  ['youtube','embed','archive'].forEach(function(p) {
     document.getElementById('stream-' + p).style.display = p === platform ? 'block' : 'none';
     var tab = document.getElementById('tab-' + p);
     if (tab) {
