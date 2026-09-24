@@ -173,7 +173,7 @@ nav{background:var(--white);border-bottom:1px solid var(--border);position:stick
 .sermon-inner h2 em{font-style:normal;color:var(--gold-lt);}
 .sermon-series{font-size:15px;font-weight:400;color:rgba(255,255,255,.90);letter-spacing:0;margin-bottom:24px;}
 .sermon-btns{display:flex;gap:12px;flex-wrap:wrap;}
-.btn-watch{background:var(--gold);color:var(--ink);padding:12px 30px;font-size:15.5px;font-weight:700;letter-spacing:0;text-transform:none;text-decoration:none;border-radius:4px;transition:background .2s;}
+.btn-watch{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--ink);padding:12px 30px;font-size:15.5px;font-weight:700;letter-spacing:0;text-transform:none;text-decoration:none;border-radius:4px;transition:background .2s;}
 .btn-watch:hover{background:var(--gold-lt);}
 .btn-listen{border:1px solid rgba(255,255,255,.35);color:rgba(255,255,255,.8);padding:12px 30px;font-size:15.5px;font-weight:700;letter-spacing:0;text-transform:none;text-decoration:none;border-radius:4px;transition:border-color .2s,color .2s;}
 .btn-listen:hover{border-color:var(--gold);color:var(--gold);}
@@ -425,13 +425,13 @@ footer{background:var(--ink);}
 .res-card .card-icon{margin-bottom:12px;}
 .sport-card .card-icon{margin-bottom:18px;background:rgba(143,184,20,0.15);border-color:rgba(143,184,20,0.3);}
 .gp-box .card-icon{margin-bottom:16px;background:rgba(143,184,20,0.15);border-color:rgba(143,184,20,0.35);}
-@keyframes livedot{0%{box-shadow:0 0 0 0 rgba(13,28,28,.5);}70%{box-shadow:0 0 0 6px rgba(13,28,28,0);}100%{box-shadow:0 0 0 0 rgba(13,28,28,0);}}
-@keyframes livedotG{0%{box-shadow:0 0 0 0 rgba(173,218,42,.55);}70%{box-shadow:0 0 0 6px rgba(173,218,42,0);}100%{box-shadow:0 0 0 0 rgba(173,218,42,0);}}
-.live-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#0d1c1c;flex-shrink:0;animation:livedot 1.6s infinite;vertical-align:middle;}
-.live-dot.on-dark{background:#adda2a;animation:livedotG 1.6s infinite;}
+70%{box-shadow:0 0 0 6px rgba(13,28,28,0);}100%{box-shadow:0 0 0 0 rgba(13,28,28,0);}}
+70%{box-shadow:0 0 0 6px rgba(173,218,42,0);}100%{box-shadow:0 0 0 0 rgba(173,218,42,0);}}
+.live-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#0d1c1c;flex-shrink:0;vertical-align:middle;}
+.live-dot.on-dark{background:#adda2a;}
 
 .slide-live-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(173,218,42,.14);border:1px solid rgba(173,218,42,.45);border-radius:20px;padding:5px 14px;margin-bottom:16px;}
-.slide-live-dot{width:8px;height:8px;border-radius:50%;background:#adda2a;animation:livedotG 1.6s infinite;flex-shrink:0;}
+.slide-live-dot{width:9px;height:9px;border-radius:50%;background:#adda2a;flex-shrink:0;}
 .slide-live-badge span{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#d4ec8f;}
 .slide-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;align-items:center;}
 .slide-btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--gold-lt);color:var(--ink);padding:13px 28px;font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;line-height:1;transition:background .2s;}
@@ -514,9 +514,8 @@ footer{background:var(--ink);}
 .give-box a{transition:background .2s,transform .15s ease;}
 .give-box a:hover{transform:scale(1.02);}
 
-/* ── LIVE BADGE RING PULSE ───────────────────────────────────────────── */
-@keyframes ringPulse{0%{box-shadow:0 0 0 0 rgba(173,218,42,.4)}70%{box-shadow:0 0 0 10px rgba(173,218,42,0)}100%{box-shadow:0 0 0 0 rgba(173,218,42,0)}}
-.slide-live-badge{animation:ringPulse 2.2s infinite;}
+70%{box-shadow:0 0 0 10px rgba(173,218,42,0)}100%{box-shadow:0 0 0 0 rgba(173,218,42,0)}}
+
 
 /* ── FOOTER LINK SLIDE ───────────────────────────────────────────────── */
 .fc a{transition:color .2s,padding-left .2s;}
@@ -615,7 +614,7 @@ footer{background:var(--ink);}
   <a href="#" onclick="go('sports');toggleMobile()">Sports</a>
   <a href="#" onclick="go('livestream');toggleMobile()">Sermons</a>
   <a href="#" onclick="go('resources');toggleMobile()">Resources</a>
-  <a href="#" onclick="go('livestream');toggleMobile()" style="color:white;font-weight:700;background:var(--ink);margin:8px 16px;border-radius:4px;padding:12px 20px!important;"><span class="live-dot on-dark" style="margin-right:7px;"></span>Watch Live</a>
+  <a href="#" onclick="go('livestream');toggleMobile()" style="display:inline-flex;align-items:center;gap:8px;color:white;font-weight:700;background:var(--ink);margin:8px 16px;border-radius:4px;padding:12px 20px!important;"><span class="live-dot on-dark"></span>Watch Live</a>
   <a href="#" onclick="go('calendar');toggleMobile()">Calendar</a>
   <a href="#" onclick="go('events');toggleMobile()">Upcoming Events</a>
   <a href="#" onclick="go('giving');toggleMobile()">Giving &amp; Prayer</a>
@@ -642,9 +641,7 @@ footer{background:var(--ink);}
           <h2>Watch Our Service<br><em>Online</em></h2>
           <p style="font-size:16px;font-weight:400;color:rgba(255,255,255,.75);line-height:1.6;margin-bottom:4px;">Join us live or catch up on past messages, from anywhere, anytime.</p>
           <div class="slide-btns">
-            <a href="#" class="slide-btn-primary" onclick="go('livestream')">
-              <span class="live-dot on-dark"></span> Watch Live
-            </a>
+            <a href="#" class="slide-btn-primary" onclick="go('livestream')"><span class="live-dot on-dark"></span>Watch Live</a>
             <a href="#" class="slide-btn-secondary" onclick="go('livestream');setTimeout(function(){showStream('past');},60)">
               <i class="fa-solid fa-film"></i> Past Sermons
             </a>
@@ -775,7 +772,7 @@ footer{background:var(--ink);}
         <h2>Building People -<br><em>Making Disciples</em></h2>
         <p class="sermon-series">Current Sermon Series &nbsp;·&nbsp; NorthPark Worship Centre</p>
         <div class="sermon-btns">
-          <a href="#" class="btn-watch" onclick="go('livestream')"><span class="live-dot" style="margin-right:7px;"></span>Watch Live</a>
+          <a href="#" class="btn-watch" onclick="go('livestream')"><span class="live-dot"></span>Watch Live</a>
           <a href="#" class="btn-listen" onclick="go('livestream');setTimeout(function(){showStream('past');},60)" id="home-archive-btn">Past Sermons</a>
           <a href="#" class="btn-listen" onclick="go('livestream')">Watch Online</a>
         </div>
@@ -1763,8 +1760,8 @@ footer{background:var(--ink);}
 
   <!-- LIVE STATUS BANNER -->
   <div id="live-banner" style="background:var(--gold);padding:14px 48px;text-align:center;display:none;">
-    <span style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink);">
-      <span class="live-dot" style="margin-right:6px;"></span>
+    <span style="display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink);">
+      <span class="live-dot"></span>
       We are live right now, join the service below
     </span>
   </div>
@@ -1778,7 +1775,7 @@ footer{background:var(--ink);}
 
       <!-- TAB SWITCHER -->
       <div style="display:flex;gap:0;margin-bottom:24px;border:1px solid rgba(255,255,255,.14);border-radius:8px;overflow:hidden;width:fit-content;">
-        <button onclick="showStream('live')" id="tab-live" style="display:inline-flex;align-items:center;padding:12px 30px;font-family:var(--font-b);font-size:14px;font-weight:700;cursor:pointer;border:none;background:var(--gold-lt);color:var(--ink);transition:background .2s,color .2s;"><span class="live-dot" style="margin-right:8px;"></span>Watch Live</button>
+        <button onclick="showStream('live')" id="tab-live" style="display:inline-flex;align-items:center;gap:8px;padding:12px 30px;font-family:var(--font-b);font-size:14px;font-weight:700;cursor:pointer;border:none;background:var(--gold-lt);color:var(--ink);transition:background .2s,color .2s;"><span class="live-dot"></span>Watch Live</button>
         <button onclick="showStream('past')" id="tab-past" style="padding:12px 30px;font-family:var(--font-b);font-size:14px;font-weight:700;cursor:pointer;border:none;background:rgba(255,255,255,.07);color:rgba(255,255,255,.65);transition:background .2s,color .2s;"><i class="fa-solid fa-film" style="margin-right:8px;"></i>Previous Sermons</button>
       </div>
 
@@ -1939,7 +1936,7 @@ footer{background:var(--ink);}
 .cal-event-card h4{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:3px;}
 .cal-event-card p{font-size:13.5px;color:var(--text);line-height:1.5;}
 .cal-event-card .when{font-size:12px;font-weight:600;color:var(--gold);margin-top:5px;}
-@keyframes livedot{0%{box-shadow:0 0 0 0 rgba(13,28,28,.5);}70%{box-shadow:0 0 0 6px rgba(13,28,28,0);}100%{box-shadow:0 0 0 0 rgba(13,28,28,0);}}
+70%{box-shadow:0 0 0 6px rgba(13,28,28,0);}100%{box-shadow:0 0 0 0 rgba(13,28,28,0);}}
 </style>
 
 <script>
